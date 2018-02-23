@@ -1,0 +1,14 @@
+[user]
+	name = Brian Rico
+	email = ricobria@my.dom.edu
+[color]
+	ui = auto
+[core]
+	editor = /usr/bin/vim
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
