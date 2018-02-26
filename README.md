@@ -8,6 +8,7 @@ For more info see our on-line resources, or this http://www.emoji-cheat-sheet.co
 Markdown Reference: https://guides.github.com/features/mastering-markdown/
 
 **Project Green**
+
 This project is based on analyzing and monitoring certain subsets of data including:
 1. Humidity
 2. Temperature
