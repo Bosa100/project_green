@@ -18,4 +18,4 @@ This project is based on analyzing and monitoring certain subsets of data includ
 
 Using this data, we will be able to automate certain *tasks* accordingly.
 
-Format: ![DU Greenhouse](http://newsroom.dom.edu/sites/newsroom.dom.edu/files/styles/large/public/kaleys.jpg?itok=Kj-7vdjN)
+![DU Greenhouse](http://newsroom.dom.edu/sites/newsroom.dom.edu/files/styles/large/public/kaleys.jpg?itok=Kj-7vdjN)
