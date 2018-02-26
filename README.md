@@ -16,4 +16,4 @@ This project is based on analyzing and monitoring certain subsets of data includ
 4. Light
 5. UV Index
 
-Using certain subset of data, we will be able to automate accordingly.
+Using certain subset of data, we will be able to automate certain *tasks* accordingly.
