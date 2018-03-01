@@ -1,6 +1,7 @@
 # Project "Green"
 
 Green Lantern Green House Project
+
 This project is based on analyzing and monitoring certain subsets of data including:
 1. Humidity
 2. Temperature
