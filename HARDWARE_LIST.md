@@ -1,4 +1,4 @@
-# List of Hardware used forthis project
+# List of Hardware used for this project
 
 1. ESP8266 NodeMCU WiFi Development Board - 9
    * [ESP8266](https://www.amazon.com/dp/B010N1SPRK/ref=as_li_ss_tl?tag=brau01-20&_encoding=UTF8&colid=2M54E793X476R&coliid=I38IGJL987EXL5&linkCode=ll1&linkId=80241ab9a7556373f72c1983f7013729&th=1)

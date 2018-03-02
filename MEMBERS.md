@@ -1,4 +1,4 @@
-# MEMBERS
+# List of Team Members
 
 Brain Rico
 

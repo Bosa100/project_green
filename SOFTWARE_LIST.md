@@ -1,4 +1,5 @@
-# Software List
+# List of Software (APIs/Libraries and other) used for this project
+
 * Raspbian
 	* Operating system for Raspberry Pi
 * Pip

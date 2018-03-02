@@ -1,3 +1,5 @@
+# MANIFEST
+
 * README.md
 	* Basic information about the project
 * MEMBERS.md
