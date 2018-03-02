@@ -1,2 +1,4 @@
-# MEMBERS
-_Martin Morales_
+Martin Morales
+Carlos Velazquez
+Brian Rico
+Braulio Salcedo
