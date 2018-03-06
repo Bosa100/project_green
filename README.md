@@ -28,3 +28,4 @@ Instructions used:
   * [ESP8266 Connection Guide](https://openhomeautomation.net/connect-esp8266-raspberry-pi)
 * Connecting Sensors to ESP8266 Chip
   * [Sensor Connection Guide](https://www.losant.com/blog/getting-started-with-the-esp8266-and-dht22-sensor)
+  * [DHT11 Connection Guide](http://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/)
