@@ -29,3 +29,4 @@ Instructions used:
 * Connecting Sensors to ESP8266 Chip
   * [Sensor Connection Guide](https://www.losant.com/blog/getting-started-with-the-esp8266-and-dht22-sensor)
   * [DHT11 Connection Guide](http://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/)
+  * [TE215 Connection Guide](https://www.youtube.com/watch?v=9TD6mOyowcg)
