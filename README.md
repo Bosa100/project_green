@@ -26,8 +26,11 @@ Instructions used:
   * [MySQL](https://www.stewright.me/2014/06/tutorial-install-mysql-server-on-raspberry-pi/)
 * Connecting ESP8266 Chip to Raspberry Pi
   * [ESP8266 Connection Guide](https://openhomeautomation.net/connect-esp8266-raspberry-pi)
+  * ESP8266 Board Manager URL: [URL](http://arduino.esp8266.com/stable/package_esp8266com_index.json)
 * Connecting Sensors to ESP8266 Chip
   * [Sensor Connection Guide](https://www.losant.com/blog/getting-started-with-the-esp8266-and-dht22-sensor)
   * [DHT11 Connection Guide](http://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/)
+    * [DHT.h Library](https://github.com/esp8266/Basic/blob/master/libraries/DHT_sensor_library/DHT.h)
+    * [Adafruit Sensor Library](https://github.com/adafruit/Adafruit_Sensor)
   * [TE215 Connection Guide](https://www.youtube.com/watch?v=9TD6mOyowcg)
   * [I2C Connection Guide](http://www.techparva.com/index.php/2017/08/31/bh1750-light-sensor-nodemcu-micropython/)
