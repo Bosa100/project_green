@@ -1,8 +1,8 @@
 // Now using ESP8266.....
 // Sample Arduino Json Web Server
-// Created by Benoit Blanchon.
+// Origninally Created by Benoit Blanchon.
 // Heavily inspired by "Web Server" from David A. Mellis and Tom Igoe
-
+// Modified by Martin Morales
 
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
