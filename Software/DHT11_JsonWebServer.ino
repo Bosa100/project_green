@@ -1,6 +1,6 @@
 // Now using ESP8266.....
 // Sample Arduino Json Web Server
-// Origninally Created by Benoit Blanchon.
+// Created by Benoit Blanchon.
 // Heavily inspired by "Web Server" from David A. Mellis and Tom Igoe
 // Modified by Martin Morales
 
@@ -29,8 +29,8 @@ ADC_MODE(ADC_VCC);
 
 WiFiServer server(80);
 WiFiClient client;
-const char* ssid = "DU Public Resident";
-const char* password = "Your-PASSWORD";
+const char* ssid = "Restricted Wireless";
+const char* password = "B=SP7e&aNK";
 float pfHum,pfTemp;
 
 bool readRequest(WiFiClient& client) {
@@ -69,18 +69,23 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
 }
 
 void setup() {
-delay(2000);
+  Serial.begin(115200);
+  delay(2000);
   dht.begin();
+  
   // inital connect
   WiFi.mode(WIFI_STA);
   delay(1000);
-    // Connect to WiFi network
-  WiFi.begin(ssid);  
+  
+  // Connect to WiFi network
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  WiFi.begin(ssid,password);  
   while (WiFi.status() != WL_CONNECTED) 
   {
     delay(500);
   }
-
     Serial.println("");
   Serial.println("WiFi connected");
  
