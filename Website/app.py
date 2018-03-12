@@ -17,7 +17,7 @@ def getJson():
     res = urllib.request.urlopen("http://10.0.192.17")
     data_dict = json.loads(res.read().decode('utf-8'))
     temp = data_dict["temperature"]
-    return temp
+    return str(temp)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
