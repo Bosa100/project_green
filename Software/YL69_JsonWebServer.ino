@@ -21,9 +21,8 @@ WiFiServer server(80);
 WiFiClient client;
 const char* ssid = "Restricted Wireless";
 const char* password = "B=SP7e&aNK";
-double moistLevel = 0.0;
-double analogValue = 0.0;
-
+float analogValue,chartValue;
+  
 bool readRequest(WiFiClient& client) {
   bool currentLineIsBlank = true;
   while (client.connected()) {
@@ -44,7 +43,7 @@ bool readRequest(WiFiClient& client) {
 JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
   JsonObject& root = jsonBuffer.createObject();
   JsonArray& moistureValues = root.createNestedArray("moisture");
-    moistureValues.add(moistLevel);
+    moistureValues.add(analogValue);
   return root;
 }
 
@@ -57,8 +56,19 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
   json.prettyPrintTo(client);
 }
 
+float readMoisture(){
+    float moistureLevel = analogRead(0);
+    
+    Serial.print("Analog Value: ");
+    Serial.print(moistureLevel);
+    Serial.println();
+
+    analogValue = moistureLevel;
+    return moistureLevel;
+}
+
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(57600);
   delay(2000);
   
   // inital connect
@@ -86,27 +96,18 @@ void setup() {
   // Print the IP address
   Serial.println(WiFi.localIP());
 }
+
 void loop() {
-  
   WiFiClient client = server.available();
   if (client) {
     bool success = readRequest(client);
     if (success) {
-    
-    analogValue = analogRead(A0);
-    moistLevel = (analogValue * 100) / 400;
-    moistLevel = 100 - moistLevel;
-   
-    delay(1000);
-    Serial.print("Analog Value: ");
-    Serial.print(analogValue);
-    Serial.println();
 
-    Serial.print("Scalable Value: ");
-    Serial.print(moistLevel);
-    Serial.println();
+      delay(1000);
+
+    analogValue = readMoisture();
     
-   delay(500);
+    delay(500);
       StaticJsonBuffer<500> jsonBuffer;
       JsonObject& json = prepareResponse(jsonBuffer);
       writeResponse(client, json);
