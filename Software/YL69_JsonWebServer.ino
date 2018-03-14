@@ -6,22 +6,18 @@
 
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
-//////////////////////////////
-// DHT21 / AMS2301 is at GPIO2
-//////////////////////////////
 
 // needed to avoid link error on ram check
 extern "C" 
 {
 #include "user_interface.h"
 }
-ADC_MODE(ADC_VCC);
-
+//ADC_MODE(ADC_VCC);
+//
 WiFiServer server(80);
 WiFiClient client;
 const char* ssid = "Restricted Wireless";
 const char* password = "B=SP7e&aNK";
-float analogValue,chartValue;
   
 bool readRequest(WiFiClient& client) {
   bool currentLineIsBlank = true;
@@ -40,10 +36,12 @@ bool readRequest(WiFiClient& client) {
   return false;
 }
 
+double analogValue, chartValue;
+
 JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
   JsonObject& root = jsonBuffer.createObject();
   JsonArray& moistureValues = root.createNestedArray("moisture");
-    moistureValues.add(analogValue);
+    moistureValues.add(chartValue);
   return root;
 }
 
@@ -56,15 +54,13 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
   json.prettyPrintTo(client);
 }
 
-float readMoisture(){
-    float moistureLevel = analogRead(0);
-    
-    Serial.print("Analog Value: ");
-    Serial.print(moistureLevel);
-    Serial.println();
-
-    analogValue = moistureLevel;
-    return moistureLevel;
+void readMoisture(){
+  analogValue = analogRead(0);
+  chartValue = (analogValue * 100) / 1024;
+ 
+ Serial.print("Moisture Sensor Value:");
+ Serial.println(chartValue);
+ delay(100);
 }
 
 void setup() {
@@ -86,10 +82,8 @@ void setup() {
   }
   Serial.println("");
   Serial.println("WiFi connected");
- 
-  server.begin();
 
-    // Start the server
+  // Start the server
   server.begin();
   Serial.println("Server started");
   
@@ -101,13 +95,12 @@ void loop() {
   WiFiClient client = server.available();
   if (client) {
     bool success = readRequest(client);
-    if (success) {
-
-      delay(1000);
-
-    analogValue = readMoisture();
     
-    delay(500);
+    if (success) {
+      delay(1000);
+      readMoisture();
+      delay(500);
+
       StaticJsonBuffer<500> jsonBuffer;
       JsonObject& json = prepareResponse(jsonBuffer);
       writeResponse(client, json);
