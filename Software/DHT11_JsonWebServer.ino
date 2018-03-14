@@ -2,7 +2,7 @@
 // Sample Arduino Json Web Server
 // Created by Benoit Blanchon.
 // Heavily inspired by "Web Server" from David A. Mellis and Tom Igoe
-// Modified by Martin Morales
+
 
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
@@ -71,6 +71,7 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
 void setup() {
   Serial.begin(115200);
   delay(2000);
+  
   dht.begin();
   
   // inital connect
@@ -88,8 +89,6 @@ void setup() {
   }
     Serial.println("");
   Serial.println("WiFi connected");
- 
-  server.begin();
 
     // Start the server
   server.begin();
