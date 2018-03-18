@@ -36,10 +36,11 @@ def demo():
 def moisture(num, address):
     '''url = "http://" + address
     data_dict = getJson(url)
-    moisture = data_dict["moisture"]
-    c.execute("INSERT INTO moisture" + num + "(moisture)", (moisture))
-    return render_template('data.html', data = moisture)'''
-    return num + " " + address
+    moisture = data_dict["moisture"]'''
+    moisture = 5
+    #c.execute("INSERT INTO moisture" + num + "(moisture)", (moisture))
+    return render_template('moisture.html', data = moisture, num = num)
+    
 
 
 @app.route('/demo/sensor6')

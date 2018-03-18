@@ -1,4 +1,15 @@
 body {
 	background: black;
 	color: green;
+	text-align: center;
+ 	margin-top: 50px;
+}
+
+button {
+	color: white;
+	background: grey;
+	width: 195px;
+	height: 175px;
+	margin-left: 5px;
+	margin-bottom: 5px;
 }
