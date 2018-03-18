@@ -1,18 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
+import os
 import json
 import urllib.request
 import sqlite3
 
 app = Flask(__name__)
 
-db = sqlite3.connect("/home/pi/project_green/Database/database.db")
-c = db.cursor()
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                     endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
 
 def getJson(ip):
     res = urllib.request.urlopen(ip)
     data_dict = json.loads(res.read().decode('utf-8'))
-    #temp = data_dict["moisture"]
-    #jsonString = res.read()
     return data_dict
 
 @app.route('/')
@@ -20,17 +29,17 @@ def index():
     return render_template('index.html')
 
 @app.route('/demo')
-def cake():
+def demo():
     return render_template('demo_start.html')
 
 @app.route('/demo/moisture/<num>/<address>')
-def sensor(num, address):
-    url = "http://" + address
+def moisture(num, address):
+    '''url = "http://" + address
     data_dict = getJson(url)
     moisture = data_dict["moisture"]
     c.execute("INSERT INTO moisture" + num + "(moisture)", (moisture))
-    return render_template('data.html', data = moisture)
-
+    return render_template('data.html', data = moisture)'''
+    return num + " " + address
 
 
 @app.route('/demo/sensor6')
