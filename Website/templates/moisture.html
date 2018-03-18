@@ -1,15 +1,48 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='moisture.css') }}" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/moisture.css') }}" type="text/css" media="screen" charset="utf-8" />
 	</head>
 	<body>
 		<h1> Moisture Sensor #{{ num }}</h1>
-		<div id="data">
+		<div id="data-sect">
 			<h2> Current Data </h2>
-			<p>{{ data }}</p>	
+			<button id="get_data">Get Current Moisture</button>
+			<div id="data"></div>	
 		</div>	
-		<div id="graph">
-			<button> Generate Graph </button>
+		<div id="graph-sect">
+			<button id="generate"> Generate Graph </button>
+			<div id="graph"><img width="500" height="500"></div>
 		</div>
 	</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type=text/javascript>
+	        $(function() {
+	          $('#generate').bind('click', function() {
+	             $.ajax({
+			      url: "/make_graph/m",
+			      type: "get",
+			      success: function(response) {
+			        $("#graph").html(response);
+			      },
+			      error: function(xhr) {
+			        alert("error");
+			      }
+    			});
+	          });
+		    $('#get_data').bind('click', function() {
+		     var ip = '{{ ip }}';
+	 	     var url = "/getJson/" + ip + "/m";
+	             $.ajax({
+			      url: url,
+			      type: "get",
+			      success: function(response) {
+			        $("#data").html(response);
+			      },
+			      error: function(xhr) {
+			        alert("error");
+			      }
+    			});
+	          });
+        });
+	</script>
 </html>
