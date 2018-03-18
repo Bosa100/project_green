@@ -33,7 +33,7 @@
                    var ip;
 	          $('.generate').bind('click', function() {
 			type = this.id;
-			url = "/make_graph/" + type;
+			url = "/make_graph/" + type + "/1/5";
 
 	             $.ajax({
 			      url: url,
@@ -51,7 +51,7 @@
 		    $('.get_data').bind('click', function() {
 		     type = this.id;
 		     ip = '{{ ip }}';
-	 	     url = "/getJson/" + ip + "/" + type;
+	 	     url = "/getJson/" + ip + "/" + type + "/1;
 	             $.ajax({
 			      url: url,
 			      type: "get",

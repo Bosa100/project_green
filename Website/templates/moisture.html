@@ -19,7 +19,7 @@
 	        $(function() {
 	          $('#generate').bind('click', function() {
 	             $.ajax({
-			      url: "/make_graph/m",
+			      url: "/make_graph/m/1/5",
 			      type: "get",
 			      success: function(response) {
 			        $("#graph").html(response);
@@ -31,7 +31,8 @@
 	          });
 		    $('#get_data').bind('click', function() {
 		     var ip = '{{ ip }}';
-	 	     var url = "/getJson/" + ip + "/m";
+		     var num = '{{ num }}';
+		     var url = "/getJson/" + ip + "/m/" + num;
 	             $.ajax({
 			      url: url,
 			      type: "get",
@@ -39,7 +40,7 @@
 			        $("#data").html(response);
 			      },
 			      error: function(xhr) {
-			        alert("error");
+			        alert(url);
 			      }
     			});
 	          });
