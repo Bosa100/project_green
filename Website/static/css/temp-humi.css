@@ -36,3 +36,7 @@ button {
 h1 {
 	margin-top: 25px;
 }
+
+.change-pos {
+	display: inline;
+}

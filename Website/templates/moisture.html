@@ -11,15 +11,31 @@
 		</div>	
 		<div id="graph-sect">
 			<button id="generate"> Generate Graph </button>
+			<div id="change_range">
+				<div class="change-pos"> 
+					<h5>Start</h5>
+					<input id="start" type="text" name="start-v">
+				</div>
+				<div class="change-pos"> 
+					<h5>End</h5>
+					<input id="end" type="text" name="end-v">
+				</div>
+			</div>
 			<div id="graph"><img width="500" height="500"></div>
 		</div>
 	</body>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type=text/javascript>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
 	        $(function() {
+		
+		  var ip = '{{ ip }}';
+		  var num = '{{ num }}';
+		  var url; 
 	          $('#generate').bind('click', function() {
+		     start = $('#start').val();
+		     end = $('#end').val();
 	             $.ajax({
-			      url: "/make_graph/m/1/5",
+			      url: "/make_graph/m/" + start + "/" + end,
 			      type: "get",
 			      success: function(response) {
 			        $("#graph").html(response);
@@ -29,10 +45,9 @@
 			      }
     			});
 	          });
+		
 		    $('#get_data').bind('click', function() {
-		     var ip = '{{ ip }}';
-		     var num = '{{ num }}';
-		     var url = "/getJson/" + ip + "/m/" + num;
+		     url = "/getJson/" + ip + "/m/" + num;
 	             $.ajax({
 			      url: url,
 			      type: "get",
@@ -44,6 +59,7 @@
 			      }
     			});
 	          });
+			
         });
 	</script>
 </html>

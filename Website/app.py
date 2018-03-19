@@ -6,6 +6,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 import numpy as np
 import pymysql
+import datetime
 
 app = Flask(__name__)
 
@@ -23,29 +24,33 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 @app.route('/getJson/<ip>/<kind>/<num>')
-def getJson(ip, kind):
-
+def getJson(ip, kind, num):
     url = "http://" + ip
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
-
+    date = datetime.datetime.now().strftime("%I:%M:%s%p on %B %d, %Y")
     #gets data
     if kind == 't':
         data = data_dict["temperature"][0]
-        
+        data_f = 9.0/5.0 * data + 32
+        sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
+        values = (num, data_f, data, date)
     elif kind == 'h':
         data = data_dict["humidity"][0]
+        sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
+        values = (num, data, date)
     else:
         data = data_dict["moisture"][0]
+        sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
+        values = (num, data, date)
 
-    db = sqlite3.connect("/home/pi/project_green/Database/database.db")
+        
+    db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
-    url = "http://" + address
-    data_dict = getJson(url)
-    moisture = data_dict["moisture"]
-    moisture = 5
-    c.execute("INSERT INTO moisture" + num + " (moisture) VALUES(?)", (moisture,))
-    
+    c.execute(sql, values)
+    db.commit()
+    c.close()
+    db.close()
     return str(data)
 
 @app.route('/')
@@ -60,12 +65,12 @@ def demo():
 def moisture(num, address):
     return render_template('moisture.html', ip = address, num = num)
     
-@app.route('/demo/temp-humi/<address>')
-def th_sensor(address):
+@app.route('/demo/temp-humi/<address>/<num>')
+def th_sensor(address, num):
     '''url = "http://" + address
     data_dict = getJson(url)
     moisture = data_dict["moisture"]'''
-    return render_template('temp-humi.html', ip = address)
+    return render_template('th_sensor.html', ip = address, num = num)
 
 def populate_ids(ids, start, end):
     num = start
@@ -74,28 +79,37 @@ def populate_ids(ids, start, end):
         np.append(ids, num)
         print(num)
         num += 1
-
-def populate_data(ids, data):
-    data = [1, 2, 3, 4, 5]
-        
+   
 @app.route('/make_graph/<which>/<start>/<end>')
 def make_graph(which, start, end):
     #db = MySQLdb.connect(host="localhost", user="john", passwd="megajonhy", db="jonhydb") 
     #cur = db.cursor()
-    
     if which == 't':
         name = "Temperature Data"
         ylabel = "Temperature"
+        sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
     elif which == 'h':
         name = "Humidity Data"
         ylabel = "Humidity"
+        sql = "SELECT Humidity FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
     else:
         name = "Moisture Data"
         ylabel = "Moisture"
-        
+        sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end 
+
+
+    db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
+    c = db.cursor()
+    
+    c.execute(sql)
+    rows = c.fetchall()
+    
+    c.close()
+    db.close()
+    
     # Data for plotting
-    ids = np.array([1, 2, 3, 4, 5])
-    data = np.array([1, 2, 3, 4, 5])
+    ids = np.arange(int(start), int(end) + 1)
+    data = np.array(rows)
 
     #populate_ids(ids, int(start), int(end))
     #populate_data(ids, data)
