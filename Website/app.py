@@ -10,6 +10,12 @@ import datetime
 
 app = Flask(__name__)
 
+'''
+borrowed code - deals with browser cache issue (does not update css file)
+source = http://flask.pocoo.org/snippets/40/
+works by overriding Flask's url_for function, if used on static source it
+generates url with time-stamp appended to it (guarantees CSS update)
+'''
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -23,13 +29,31 @@ def dated_url_for(endpoint, **values):
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
+
 @app.route('/getJson/<ip>/<kind>/<num>')
 def getJson(ip, kind, num):
+    '''
+    getJson route
+
+    ip - sensor server address
+    kind - type of sensor
+       t -> temperature
+       h -> humidity
+       m -> moisture
+       n -> normal light
+       u -> uv light
+    '''
+
+    # makes call to server and puts response into dictionary
     url = "http://" + ip
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
+    
+    # current date-time
     date = datetime.datetime.now().strftime("%I:%M:%s%p on %B %d, %Y")
-    #gets data
+    
+    # uses kind arg to retrieve data from dictionary - creates sql insert query string
+    # as well as list used to send arguments for query
     if kind == 't':
         data = data_dict["temperature"][0]
         data_f = 9.0/5.0 * data + 32
@@ -52,33 +76,46 @@ def getJson(ip, kind, num):
         sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
         values = (num, data, date)
 
+    # connects to database, then returns data in order to display in flask view
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
     c.execute(sql, values)
     db.commit()
     c.close()
     db.close()
+    
     return str(data)
 
+# intro page
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# demo start page
 @app.route('/demo')
 def demo():
     return render_template('demo_start.html')
 
+'''
+    moisture sensor page
+    recieves id and ip address as parameters, which are sent to html template
+'''
 @app.route('/demo/moisture/<num>/<address>')
 def moisture(num, address):
     return render_template('moisture.html', ip = address, num = num)
-    
+
+'''
+    temp/humi page
+    recieves id and ip address as parameters, which are sent to html template
+''' 
 @app.route('/demo/temp-humi/<address>/<num>')
 def th_sensor(address, num):
-    '''url = "http://" + address
-    data_dict = getJson(url)
-    moisture = data_dict["moisture"]'''
     return render_template('th_sensor.html', ip = address, num = num)
 
+'''
+    light page
+    recieves id and ip address as parameters, which are sent to html template
+''' 
 @app.route('/demo/light/<address>/<num>')
 def light(num, address):
     return render_template('light_sensor.html', ip = address, num = num)
@@ -90,11 +127,16 @@ def populate_ids(ids, start, end):
         np.append(ids, num)
         print(num)
         num += 1
-   
+
 @app.route('/make_graph/<which>/<start>/<end>')
 def make_graph(which, start, end):
-    #db = MySQLdb.connect(host="localhost", user="john", passwd="megajonhy", db="jonhydb") 
-    #cur = db.cursor()
+    '''
+       make_graph route
+         not rendered as full page, but used with AJAX in order to update page
+         dynamically
+    '''
+
+    # uses which in order to create custom select sql query, as well as plot labels
     if which == 't':
         name = "Temperature Data"
         ylabel = "Temperature"
@@ -116,7 +158,7 @@ def make_graph(which, start, end):
         ylabel = "UV Index"
         sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
 
-
+    # connects to database and retrieves data (put in rows)
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
     
@@ -126,15 +168,13 @@ def make_graph(which, start, end):
     c.close()
     db.close()
     
-    # Data for plotting
+    # uses numpy to create plot data arrays (start and end parameters tell range of ids)
+    # data is created derictly from rows
     ids = np.arange(int(start), int(end) + 1)
     data = np.array(rows)
 
-    #populate_ids(ids, int(start), int(end))
-    #populate_data(ids, data)
-
-    # Note that using plt.subplots below is equivalent to using
-    # fig = plt.figure() and then ax = fig.add_subplot(111)
+    
+    # creates plot
     fig, ax = plt.subplots()
     ax.xaxis.set_ticks(np.arange(min(ids), max(ids) + 1, 1.0))
     ax.plot(ids, data)
