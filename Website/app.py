@@ -39,12 +39,19 @@ def getJson(ip, kind, num):
         data = data_dict["humidity"][0]
         sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
         values = (num, data, date)
-    else:
+    elif kind == 'm':
         data = data_dict["moisture"][0]
         sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
         values = (num, data, date)
+    elif kind == 'n':
+        data = data_dict["visible_light"][0]
+        sql = "INSERT INTO Light (ID, Light, DATE) VALUES (?, ?, ?)"
+        values = (num, data, date)
+    else:
+        data = data_dict["UV_light"][0]
+        sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
+        values = (num, data, date)
 
-        
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
     c.execute(sql, values)
@@ -72,6 +79,10 @@ def th_sensor(address, num):
     moisture = data_dict["moisture"]'''
     return render_template('th_sensor.html', ip = address, num = num)
 
+@app.route('/demo/light/<address>/<num>')
+def light(num, address):
+    return render_template('light_sensor.html', ip = address, num = num)
+
 def populate_ids(ids, start, end):
     num = start
     range_end = end - start + 1
@@ -92,10 +103,18 @@ def make_graph(which, start, end):
         name = "Humidity Data"
         ylabel = "Humidity"
         sql = "SELECT Humidity FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
-    else:
+    elif which == 'm':
         name = "Moisture Data"
         ylabel = "Moisture"
-        sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end 
+        sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end
+    elif which == 'n':
+        name = "Light Intensity Data"
+        ylabel = "Light Intensity"
+        sql = "SELECT Light FROM Light WHERE rowid BETWEEN " + start + " AND " + end
+    else:
+        name = "UV Index"
+        ylabel = "UV Index"
+        sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
 
 
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")

@@ -14,7 +14,10 @@
 				<a href="{{ url_for('moisture', num=4, address='10.0.192.54') }}"><button>Moisture</button></a>
 			<div class="section">
         			<a href="{{ url_for('moisture', num=5, address='10.0.192.49') }}"><button>Moisture</button></a>
-				<a href="{{ url_for('th_sensor', num=6, address='10.0.192.50') }}"><button>Temperature / Humidity</button></a>
+				<a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.50', first='t', second='h') }}"><button>Temperature / Humidity</button></a>
+      			</div>
+			<div class="section">
+				<a href="{{ url_for('light', num=7, address='10.0.192.51') }}"><button>Light Intensity</button></a>
       			</div>
 		</div>		
 	</body>
