@@ -29,7 +29,6 @@ def dated_url_for(endpoint, **values):
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
-
 @app.route('/getJson/<ip>/<kind>/<num>')
 def getJson(ip, kind, num):
     '''
@@ -50,7 +49,7 @@ def getJson(ip, kind, num):
     data_dict = json.loads(res.read().decode('utf-8'))
     
     # current date-time
-    date = datetime.datetime.now().strftime("%I:%M:%s%p on %B %d, %Y")
+    date = datetime.datetime.now().strftime("%I:%M:%S%p on %B %d, %Y")
     
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
