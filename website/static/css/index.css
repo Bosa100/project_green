@@ -1,6 +1,6 @@
-body {
-	background: black;
-	color: green;
+body{
+	background-color: #00B300;
+	color: #000000;
 	text-align: center;
 }
 
@@ -10,6 +10,14 @@ img {
 	padding-bottom: 15px;
 }
 
-a {
-	color: LightGreen;
+.mainDiv{
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	height: 100%;
+}
+
+.putLeft{
+	text-align: left;
+	margin-left: 2%;
 }
