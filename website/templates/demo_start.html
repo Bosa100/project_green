@@ -1,24 +1,61 @@
+<!doctype html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}" type="text/css" media="screen" charset="utf-8" />
-	</head>
-	<body>
-		<h1> Pick Sensor </h1>
-		<div id="sensors">
-			<div class="section">
-				<a href="{{ url_for('moisture', num=1, address='10.0.192.163') }}"><button>Moisture</button></a>
-				<a href="{{ url_for('moisture', num=2, address='10.0.192.44') }}"><button>Moisture</button></a>
-			</div>
-			<div class="section">
-        			<a href="{{ url_for('moisture', num=3, address='10.0.192.159') }}"><button>Moisture</button></a>
-				<a href="{{ url_for('moisture', num=4, address='10.0.192.223') }}"><button>Moisture</button></a>
-			<div class="section">
-        			<a href="{{ url_for('moisture', num=5, address='10.0.192.222') }}"><button>Moisture</button></a>
-				<a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.220', first='t', second='h') }}"><button>Temperature / Humidity</button></a>
-      			</div>
-			<div class="section">
-				<a href="{{ url_for('light', num=7, address='10.0.192.219') }}"><button>Light Intensity</button></a>
-      			</div>
-		</div>		
-	</body>
+<head>
+<meta content="text/html" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    
+<title>Measurement Selector</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+<div class="mainDiv">
+	<h1>Select A Sensor</h1>
+	<table>
+		<tr>
+			<td colspan="5">
+				<h2>Moisture Sensors<h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="{{ url_for('moisture', num=1, address='10.0.192.163') }}"><button>Moisture Sensor 1</button></a>
+			</td>
+			<td>
+				<a href="{{ url_for('moisture', num=2, address='10.0.192.44') }}"><button>Moisture Sensor 2</button></a>
+			</td>
+			<td>
+				<a href="{{ url_for('moisture', num=3, address='10.0.192.159') }}"><button>Moisture Sensor 3</button></a>
+			</td>
+			<td>
+				<a href="{{ url_for('moisture', num=4, address='10.0.192.54') }}"><button>Moisture Sensor 4</button></a>
+			</td>
+			<td>
+				<a href="{{ url_for('moisture', num=5, address='10.0.192.49') }}"><button>Moisture Sensor 5</button></a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<h2>Temperature and Humidity Sensor<h2>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.50', first='t', second='h') }}"><button>Temperature / Humidity Sensor</button></a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<h2>Light Sensor<h2>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<a href="{{ url_for('light', num=7, address='10.0.192.51') }}"><button>Light Intensity</button></a>
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
 </html>
+

@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}" type="text/css" media="screen" charset="utf-8" />
+	</head>
+	<body>
+		<h1> Pick Sensor </h1>
+		<div id="sensors">
+			<div class="section">
+				<a href="{{ url_for('moisture', num=1, address='10.0.192.163') }}"><button>Moisture</button></a>
+				<a href="{{ url_for('moisture', num=2, address='10.0.192.44') }}"><button>Moisture</button></a>
+			</div>
+			<div class="section">
+        			<a href="{{ url_for('moisture', num=3, address='10.0.192.159') }}"><button>Moisture</button></a>
+				<a href="{{ url_for('moisture', num=4, address='10.0.192.54') }}"><button>Moisture</button></a>
+			<div class="section">
+        			<a href="{{ url_for('moisture', num=5, address='10.0.192.165') }}"><button>Moisture</button></a>
+				<a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.58', first='t', second='h') }}"><button>Temperature / Humidity</button></a>
+      			</div>
+			<div class="section">
+				<a href="{{ url_for('light', num=7, address='10.0.192.62') }}"><button>Light Intensity</button></a>
+      			</div>
+		</div>		
+	</body>
+</html>
