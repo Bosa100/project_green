@@ -45,36 +45,37 @@ def getJson(ip, kind, num):
     '''
 
     # makes call to server and puts response into dictionary
+    '''
     url = "http://" + ip
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
-    
+    '''
     # current date-time
     date = datetime.datetime.now().strftime("%I:%M:%s%p on %B %d, %Y")
-    
+    test = 5
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
     if kind == 't':
-        data = data_dict["temperature"][0]
+        #data = data_dict["temperature"][0]
         data_f = 9.0/5.0 * data + 32
         sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
-        values = (num, data_f, data, date)
+        values = (num, test, test, date)
     elif kind == 'h':
-        data = data_dict["humidity"][0]
+        #data = data_dict["humidity"][0]
         sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
+        values = (num, test, date)
     elif kind == 'm':
-        data = data_dict["moisture"][0]
+        #data = data_dict["moisture"][0]
         sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
-        values = (num, data, date)
+        values = (num, test, date)
     elif kind == 'n':
-        data = data_dict["visible_light"][0]
+        #data = data_dict["visible_light"][0]
         sql = "INSERT INTO Light (ID, Light, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
+        values = (num, test, date)
     else:
-        data = data_dict["UV_light"][0]
+        #data = data_dict["UV_light"][0]
         sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
+        values = (num, test, date)
 
     # connects to database, then returns data in order to display in flask view
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
@@ -84,7 +85,7 @@ def getJson(ip, kind, num):
     c.close()
     db.close()
     
-    return str(data)
+    return str(test)
 
 # intro page
 @app.route('/')
