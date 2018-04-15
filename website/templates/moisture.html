@@ -15,12 +15,12 @@
 	<tr>
 		<td class="td1">
 			<div class="change-pos"> 
-				<h3>Starting Scale Value</h3>
-				<input id="start" type="text" name="start-v" value="0">
+				<h3>Start Date</h3>
+				<input id="start" type="datetime-local" name="start-v">
 			</div>
 			<div class="change-pos"> 
-				<h3>Ending Scale Value</h3>
-				<input id="end" type="text" name="end-v" value="10">
+				<h3>End Date</h3>
+				<input id="end" type="datetime-local" name="end-v">
 			</div>
 			<div id="data-sect">
 				<br/>
@@ -46,6 +46,8 @@
 	          $('#generate').bind('click', function() {
 		     start = $('#start').val();
 		     end = $('#end').val();
+	             alert(start);
+		     alert(end);
 	             $.ajax({
 			      url: "/make_graph/m/" + start + "/" + end,
 			      type: "get",

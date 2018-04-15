@@ -4,9 +4,10 @@ import json
 import urllib.request
 import sqlite3
 import matplotlib.pyplot as plt
+import matplotlib.dates as dts
 import numpy as np
 import pymysql
-import datetime
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -135,56 +136,64 @@ def make_graph(which, start, end):
          not rendered as full page, but used with AJAX in order to update page
          dynamically
     '''
-
+    start = start.replace('T', ' ')
+    end = end.replace('T', ' ')
+    start = datetime.strptime(start, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
+    end = datetime.strptime(end, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
     # uses which in order to create custom select sql query, as well as plot labels
     if which == 't':
         name = "Temperature Data"
         ylabel = "Temperature"
-        sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT Celsius, Date FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
     elif which == 'h':
         name = "Humidity Data"
         ylabel = "Humidity"
-        sql = "SELECT Humidity FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
+        sql = "SELECT Humidity, Date FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
     elif which == 'm':
         name = "Moisture Data"
         ylabel = "Moisture"
-        sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT Moisture, Date FROM Moisture WHERE Date BETWEEN '" + start + "' AND '" + end + "'"
     elif which == 'n':
         name = "Light Intensity Data"
         ylabel = "Light Intensity"
-        sql = "SELECT Light FROM Light WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT Light, Date FROM Light WHERE rowid BETWEEN " + start + " AND " + end
     else:
         name = "UV Index"
         ylabel = "UV Index"
-        sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT UVIndex, Date FROM UV WHERE rowid BETWEEN " + start + " AND " + end
 
-    # connects to database and retrieves data (put in rows)
+    print(sql)
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
-    
+        
     c.execute(sql)
     rows = c.fetchall()
-    
+
     c.close()
     db.close()
-    
-    # uses numpy to create plot data arrays (start and end parameters tell range of ids)
-    # data is created derictly from rows
-    ids = np.arange(int(start), int(end) + 1)
-    data = np.array(rows)
 
-    
-    # creates plot
+    data,str_dates = zip(*rows)
+    print(rows)
+    dates = [datetime.strptime(date, "%m-%d-%y %H:%M:%S") for date in str_dates]
+
+    mat_dates = dts.date2num(dates)
+
+    for date in dates:
+        print(date)
+
     fig, ax = plt.subplots()
-    ax.xaxis.set_ticks(np.arange(min(ids), max(ids) + 1, 1.0))
-    ax.plot(ids, data)
 
-    ax.set(xlabel='ID', ylabel=ylabel, title=name)
+    fig.autofmt_xdate(bottom=0.2, rotation=30, ha='right')
+
+    ax.set(xlabel='Date/Time', ylabel=ylabel, title=name)
     ax.grid()
 
-    url = "images/graphs/graph.png"
-    fig.savefig("static/" + url)
+    ax.plot_date(mat_dates, data)
 
+
+
+    url = "images/graphs/dates.png"
+    fig.savefig("static/" + url)
     return render_template('graph.html', url = url)
 
 

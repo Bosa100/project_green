@@ -47,12 +47,12 @@
 	<tr>
 		<td class="td1">
 			<div> 
-				<h3>Starting Scale Value</h3>
-				<input id="u-start" type="text" name="start" value="0">
+				<h3>Start Date</h3>
+				<input id="u-start" type="date" name="start" value="">
 			</div>
 			<div> 
-				<h3>Ending Scale Value</h3>
-				<input id="u-end" type="text" name="end" value="10">
+				<h3>End Date</h3>
+				<input id="u-end" type="date" name="end" value="">
 			</div>
 			<div>
 				</br>
@@ -82,6 +82,9 @@
 				start = $("#" + type + "-start").val();
 				end = $("#" + type + "-end").val();
 				url = "/make_graph/" + type + "/" + start + "/" + end;
+				alert("hi");
+				alert(end);
+				
 				$.ajax({
 					url: url,
 					type: "get",

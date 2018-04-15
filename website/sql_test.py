@@ -1,5 +1,5 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime 
 import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
@@ -34,7 +34,6 @@ ax.set(xlabel='Date Times', ylabel="Value", title="Sample Dates")
 ax.grid()
 
 ax.plot_date(mat_dates, data)
-
 
 
 url = "images/graphs/dates.png"
