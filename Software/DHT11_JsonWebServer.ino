@@ -2,20 +2,14 @@
 // Sample Arduino Json Web Server
 // Created by Benoit Blanchon.
 // Heavily inspired by "Web Server" from David A. Mellis and Tom Igoe
+// Modified by Martin Morales
 
-
+// Import libraries
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include "DHT.h"
-//////////////////////////////
-// DHT21 / AMS2301 is at GPIO2
-//////////////////////////////
 #define DHTPIN 14
-
-// Uncomment whatever type you're using!
 #define DHTTYPE DHT11   // DHT 11 
-//#define DHTTYPE DHT22   // DHT 22  (AM2302)
-//#define DHTTYPE DHT21   // DHT 21 (AM2301)
 
 // init DHT; 3rd parameter = 16 works for ESP8266@80MHz
 DHT dht(DHTPIN, DHTTYPE,15); 
@@ -27,12 +21,14 @@ extern "C"
 }
 ADC_MODE(ADC_VCC);
 
+//Initialize server properties and variables
 WiFiServer server(80);
 WiFiClient client;
 const char* ssid = "Restricted Wireless";
 const char* password = "B=SP7e&aNK";
 float pfHum,pfTemp;
 
+//Function to check client availability
 bool readRequest(WiFiClient& client) {
   bool currentLineIsBlank = true;
   while (client.connected()) {
@@ -50,6 +46,7 @@ bool readRequest(WiFiClient& client) {
   return false;
 }
 
+//Function for initializing Json obkects
 JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
   JsonObject& root = jsonBuffer.createObject();
   JsonArray& tempValues = root.createNestedArray("temperature");
@@ -59,6 +56,7 @@ JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
   return root;
 }
 
+//Function for writing response to client
 void writeResponse(WiFiClient& client, JsonObject& json) {
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: application/json");
@@ -68,10 +66,13 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
   json.prettyPrintTo(client);
 }
 
+//Startup Function
 void setup() {
+  //Initialize serial 
   Serial.begin(115200);
   delay(2000);
   
+  //Initialize sensor
   dht.begin();
   
   // inital connect
@@ -87,28 +88,33 @@ void setup() {
   {
     delay(500);
   }
-    Serial.println("");
+  Serial.println("");
   Serial.println("WiFi connected");
 
-    // Start the server
+  // Start the server
   server.begin();
   Serial.println("Server started");
   
   // Print the IP address
   Serial.println(WiFi.localIP());
 }
+
+//Loop function
 void loop() {
+  //Check for clients while server is available
   WiFiClient client = server.available();
   if (client) {
     bool success = readRequest(client);
+    
+    //If client is ready for response:	
     if (success) {
-         delay(1000);
-   pfTemp = dht.readTemperature();   
-   pfHum = dht.readHumidity();
-   delay(500);
-      StaticJsonBuffer<500> jsonBuffer;
-      JsonObject& json = prepareResponse(jsonBuffer);
-      writeResponse(client, json);
+        delay(1000);
+   	pfTemp = dht.readTemperature();   
+   	pfHum = dht.readHumidity();
+   	delay(500);
+      	StaticJsonBuffer<500> jsonBuffer;
+      	JsonObject& json = prepareResponse(jsonBuffer);
+    	writeResponse(client, json);
     }
     delay(1);
     client.stop();
