@@ -3,6 +3,7 @@ import os
 import json
 import urllib.request
 import sqlite3
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
@@ -96,6 +97,10 @@ def index():
 @app.route('/demo')
 def demo():
     return render_template('demo_start.html')
+
+@app.route('/configure')
+def config():
+    return render_template('config_page.html')
 
 '''
     moisture sensor page
