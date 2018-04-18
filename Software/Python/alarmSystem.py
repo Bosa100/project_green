@@ -1,46 +1,46 @@
-import getJson
+#!/usr/bin/python3
+import json
+import urllib.request
 import time
 
-    IP_MOIST1 = "10.0.192.XXX"
-    IP_MOIST2 = "10.0.192.XXX"
-    IP_MOIST3 = "10.0.192.XXX"
-    IP_MOIST4 = "10.0.192.XXX"
-    IP_MOIST5 = "10.0.192.XXX"
-    IP_TEMP_HUMI = "10.0.192.XXX"
+ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.220"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.219", "10.0.192.XXX". "10.0.192.XXX"]]
+danger_flags = [[false, false, false, false, false],[false, false, false],[false, false, false, false, false]]
+levels = [[0, 0, 0, 0, 0],[0,0,0],[0, 0, 0, 0, 0]]
 
-    MAX_MOIST = 75
-    MAX_TEMP = 100
-    MAX_HUMI = 75
+MAX_MOIST = 75
+MAX_TEMP = 100
+MAX_HUMI = 75
 
-    m1Danger = false
-    m2Danger = false
-    m3Danger = false
-    m4Danger = false
-    m5Danger = false
-
-    tempDanger = false
-    humiDanger = false
     
-    def getMoist():
-        m1 = getJson.get(IP_MOIST1, 'm')
-        m2 = getJson.get(IP_MOIST1, 'm')
-        m3 = getJson.get(IP_MOIST1, 'm')
-        m4 = getJson.get(IP_MOIST1, 'm')
-        m5 = getJson.get(IP_MOIST1, 'm')
-        return [m1, m2, m3, m4, m5]
+def getData():
+    type = 'm'
+    for i in range(len(ips)):
+        if i == 1:
+            type = "th"
+        elif i == 2:
+            type = "l"
+        for j in range(len(ips[i])):
+            levels[i][j] = get(ips[i][j], type)
+            
+def get(ip, kind):
+    url = "http://" + ip
+    res = urllib.request.urlopen(url)
+    data_dict = json.loads(res.read().decode('utf-8'))
 
-    def getTempHumi():
-        t = getJson.get(IP_TEMP_HUMI, 't')
-        h = getJson.get(IP_TEMP_HUMI, 'h')
-        return [t, h]
+    #gets data
+    if kind == 't':
+        data = data_dict["temperature"][0]        
+    elif kind == 'h':
+        data = data_dict["humidity"][0]
+    else:
+        data = data_dict["moisture"][0]
 
-    def checkLevels(mArr, thArr):
-        for 
+    check_level(data, kind)
+    return data    
 
-    while(true):
-        m = getMoist()
-        th = getTempHumi()
-        checkLevels(m, thArr)
-        time.sleep(1800)
+def check_level(level, which):
+    if which 
+    
+    
 
 
