@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
 import pymysql
-from datetime import datetime
+import datetime
 
 app = Flask(__name__)
 
@@ -46,37 +46,35 @@ def getJson(ip, kind, num):
     '''
 
     # makes call to server and puts response into dictionary
-    '''
     url = "http://" + ip
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
-    '''
     # current date-time
     date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
-    val = 5
+    
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
     if kind == 't':
-        #data = data_dict["temperature"][0]
+        data = data_dict["temperature"][0]
         data_f = 9.0/5.0 * data + 32
         sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
-        values = (num, val, val, date)
+        values = (num, data, data, date)
     elif kind == 'h':
-        #data = data_dict["humidity"][0]
+        data = data_dict["humidity"][0]
         sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
-        values = (num, val, date)
+        values = (num, data, date)
     elif kind == 'm':
-        #data = data_dict["moisture"][0]
+        data = data_dict["moisture"][0]
         sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
-        values = (num, val, date)
+        values = (num, data, date)
     elif kind == 'n':
-        #data = data_dict["visible_light"][0]
+        data = data_dict["visible_light"][0]
         sql = "INSERT INTO Light (ID, Light, DATE) VALUES (?, ?, ?)"
-        values = (num, val, date)
+        values = (num, data, date)
     else:
-        #data = data_dict["UV_light"][0]
+        data = data_dict["UV_light"][0]
         sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
-        values = (num, val, date)
+        values = (num, data, date)
 
     # connects to database, then returns data in order to display in flask view
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
@@ -86,7 +84,7 @@ def getJson(ip, kind, num):
     c.close()
     db.close()
     
-    return str(val)
+    return str(data)
 
 # intro page
 @app.route('/')
