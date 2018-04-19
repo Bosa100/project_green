@@ -10,6 +10,6 @@ mail.starttls()
 
 mail.login('DUGreenhouseAlerts@gmail.com', 'TeamGreen4')
 
-mail.sendmail('DUGreenhouseAlerts@gmail.com', 'velacarl@my.dom.edu', content)
+mail.sendmail('DUGreenhouseAlerts@gmail.com', 'salcbrau@my.dom.edu', content)
 
 mail.close()

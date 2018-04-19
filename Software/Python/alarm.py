@@ -1,7 +1,7 @@
 import time
 
 ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.220"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.219", "10.0.192.XXX". "10.0.192.XXX"]]
-danger_flags = [[false, false, false, false, false],[false, false, false],[false, false, false, false, false]]
+warnings =  [[0, 0, 0, 0, 0],[0,0,0],[0,0,0,0,0]]
 levels = [[0, 0, 0, 0, 0],[0,0,0],[0, 0, 0, 0, 0]]
 
 MIN_MOIST = 50
@@ -19,6 +19,7 @@ def getData():
             type = "l"
         for j in range(len(ips[i])):
             levels[i][j] = get(ips[i][j], type)
+				checkLevel(data, kind, j)
 
 def get(ip, kind):
     url = "http://" + ip
@@ -32,26 +33,33 @@ def get(ip, kind):
         data = data_dict["moisture"][0]
     elif kind == 'l':
         data = [data_dict["visible_light"][0], data_dict["UV_light"][0]]
+    
+	return data
 
-    checkLevel(data, kind)
-    return data
-
-def checkLevel(level, which):
+def checkLevel(level, which, j):
    if which == 'm':
-		for i in range(len(levels[0])):
-			level = levels[i]
-			if level < 50:
-				sendAlert(which, -1)
+		if level < 50:
+			warnings[0][j] = -1
    elif which == 'th':
 		for i in range(levels[1])):
-			if level < 40 and level > 95:
-				sendAlert(which, 0)
-			elif level < 40:
-				sendAlert(which, -1)
+			if level < 40:
+				warnings[1][j] = -1
  			elif level > 95:
-				sendAlert(which, 1)
+				warnings[1][j] = -2
    elif which == 'l':
 			# code to check for light levels
 
-def sendAlert(sensor, code):
+def sendAlerts():
+	message = "%s level dangerously %s at sensor #%d ( %d )."
+	for i in range(len(warnings)):
+		for j in range(len(warnings[i]):
+			if i == 0:
+				type = "moisture"
+				state = warnings[i][j]
+			elif i == 1:
+				
+			elif state == -2:
+				message += "M
+				 		
+					
 	

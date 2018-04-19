@@ -1,9 +1,9 @@
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
-fromaddr = "DUGreenhouseAlerts@gmail.com"
-toaddr = "velacarl@my.dom.edu"
+fromaddr = "braulioosalcedo@gmail.com"
+toaddr = "braulioosalcedo@gmail.com"
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
