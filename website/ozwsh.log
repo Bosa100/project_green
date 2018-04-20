@@ -80,3 +80,65 @@
 2018-04-20 00:35:21,193 INFO ZWave configuration written to user directory.
 2018-04-20 00:35:26,199 INFO OpenZWave network is stopped.
 2018-04-20 00:35:26,209 INFO =============== exit ===============
+2018-04-20 00:39:11,384 INFO =============== start ===============
+2018-04-20 00:39:11,385 INFO Add a child
+2018-04-20 00:39:11,386 INFO Add a child
+2018-04-20 00:39:11,387 INFO Add a child
+2018-04-20 00:39:11,389 INFO Add a child
+2018-04-20 00:39:11,391 INFO Add a child
+2018-04-20 00:39:11,393 INFO Add a child
+2018-04-20 00:39:11,396 INFO Add a child
+2018-04-20 00:39:11,398 INFO Add a child
+2018-04-20 00:39:11,399 INFO Add a child
+2018-04-20 00:39:11,402 INFO Add a child
+2018-04-20 00:39:11,402 INFO Add a child
+2018-04-20 00:39:11,402 INFO Add a child
+2018-04-20 00:39:11,402 INFO Add a child
+2018-04-20 00:39:11,403 INFO Add a child
+2018-04-20 00:39:11,404 INFO Add a child
+2018-04-20 00:39:11,423 DEBUG Create network object.
+2018-04-20 00:39:11,425 INFO Start Openzwave network.
+2018-04-20 00:39:12,953 DEBUG notif_callback : new notification
+2018-04-20 00:39:12,954 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 00:39:12,955 DEBUG notif_callback : call callback context
+2018-04-20 00:39:12,956 DEBUG zwcallback args=[{'notificationCode': 1, 'homeId': 3538642939, 'nodeId': 255, 'notificationType': 'Notification'}]
+2018-04-20 00:39:12,957 DEBUG Z-Wave Notification : {'notificationCode': 1, 'homeId': 3538642939, 'nodeId': 255, 'notificationType': 'Notification'}
+2018-04-20 00:39:12,958 DEBUG notif_callback : end
+2018-04-20 00:39:13,959 DEBUG notif_callback : new notification
+2018-04-20 00:39:13,960 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 00:39:13,960 DEBUG notif_callback : call callback context
+2018-04-20 00:39:13,961 DEBUG zwcallback args=[{'notificationCode': 1, 'homeId': 3538642939, 'nodeId': 255, 'notificationType': 'Notification'}]
+2018-04-20 00:39:13,962 DEBUG Z-Wave Notification : {'notificationCode': 1, 'homeId': 3538642939, 'nodeId': 255, 'notificationType': 'Notification'}
+2018-04-20 00:39:13,962 DEBUG notif_callback : end
+2018-04-20 00:39:18,127 INFO handled: 'enter'
+2018-04-20 00:39:18,129 INFO ZWave configuration written to user directory.
+2018-04-20 00:39:18,130 INFO Stop Openzwave network.
+2018-04-20 00:39:18,131 DEBUG Wait for empty send_queue during 0 second(s).
+2018-04-20 00:39:18,136 INFO ZWave configuration written to user directory.
+2018-04-20 00:39:23,142 INFO OpenZWave network is stopped.
+2018-04-20 00:39:23,153 INFO =============== exit ===============
+2018-04-20 00:40:49,837 INFO =============== start ===============
+2018-04-20 00:40:49,838 INFO Add a child
+2018-04-20 00:40:49,839 INFO Add a child
+2018-04-20 00:40:49,840 INFO Add a child
+2018-04-20 00:40:49,842 INFO Add a child
+2018-04-20 00:40:49,844 INFO Add a child
+2018-04-20 00:40:49,846 INFO Add a child
+2018-04-20 00:40:49,849 INFO Add a child
+2018-04-20 00:40:49,851 INFO Add a child
+2018-04-20 00:40:49,852 INFO Add a child
+2018-04-20 00:40:49,854 INFO Add a child
+2018-04-20 00:40:49,855 INFO Add a child
+2018-04-20 00:40:49,855 INFO Add a child
+2018-04-20 00:40:49,855 INFO Add a child
+2018-04-20 00:40:49,855 INFO Add a child
+2018-04-20 00:40:49,857 INFO Add a child
+2018-04-20 00:40:49,875 DEBUG Create network object.
+2018-04-20 00:40:49,877 INFO Start Openzwave network.
+2018-04-20 00:40:55,641 INFO handled: 'enter'
+2018-04-20 00:40:55,643 INFO ZWave configuration written to user directory.
+2018-04-20 00:40:55,644 INFO Stop Openzwave network.
+2018-04-20 00:40:55,645 DEBUG Wait for empty send_queue during 0 second(s).
+2018-04-20 00:40:55,648 INFO ZWave configuration written to user directory.
+2018-04-20 00:41:00,654 INFO OpenZWave network is stopped.
+2018-04-20 00:41:00,660 INFO =============== exit ===============

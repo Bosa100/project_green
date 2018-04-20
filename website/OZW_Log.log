@@ -1,94 +1,50 @@
-2018-04-20 00:34:27.239 Always, OpenZwave Version 1.4.2999 Starting Up
-2018-04-20 00:34:27.240 Info, Setting Up Provided Network Key for Secure Communications
-2018-04-20 00:34:27.240 Warning, Failed - Network Key Not Set
-2018-04-20 00:34:27.240 Info, mgr,     Added driver for controller /dev/ttyACM0
-2018-04-20 00:34:27.240 Info,   Opening controller /dev/ttyACM0
-2018-04-20 00:34:27.240 Info, Trying to open serial port /dev/ttyACM0 (attempt 1)
-2018-04-20 00:34:27.241 Error, ERROR: Cannot get exclusive lock for serial port /dev/ttyACM0. Error code 11
-2018-04-20 00:34:27.241 Info, Serial port /dev/ttyACM0 opened (attempt 1)
-2018-04-20 00:34:27.242 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_VERSION: 0x01, 0x03, 0x00, 0x15, 0xe9
-2018-04-20 00:34:27.242 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_MEMORY_GET_ID: 0x01, 0x03, 0x00, 0x20, 0xdc
-2018-04-20 00:34:27.242 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_CONTROLLER_CAPABILITIES: 0x01, 0x03, 0x00, 0x05, 0xf9
-2018-04-20 00:34:27.242 Detail, contrlr, Queuing (Command) FUNC_ID_SERIAL_API_GET_CAPABILITIES: 0x01, 0x03, 0x00, 0x07, 0xfb
-2018-04-20 00:34:27.242 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_SUC_NODE_ID: 0x01, 0x03, 0x00, 0x56, 0xaa
-2018-04-20 00:34:27.242 Detail, 
-2018-04-20 00:34:27.242 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x15) - FUNC_ID_ZW_GET_VERSION: 0x01, 0x03, 0x00, 0x15, 0xe9
-2018-04-20 00:34:27.244 Detail, contrlr,   Received: 0x01, 0x10, 0x01, 0x15, 0x5a, 0x2d, 0x57, 0x61, 0x76, 0x65, 0x20, 0x33, 0x2e, 0x39, 0x35, 0x00, 0x01, 0x99
-2018-04-20 00:34:27.244 Detail, 
-2018-04-20 00:34:27.245 Info, contrlr, Received reply to FUNC_ID_ZW_GET_VERSION:
-2018-04-20 00:34:27.245 Info, contrlr,     Static Controller library, version Z-Wave 3.95
-2018-04-20 00:34:27.245 Detail, Node045,   Expected reply was received
-2018-04-20 00:34:27.245 Detail, Node045,   Message transaction complete
-2018-04-20 00:34:27.245 Detail, 
-2018-04-20 00:34:27.245 Detail, contrlr, Removing current message
-2018-04-20 00:34:27.245 Detail, 
-2018-04-20 00:34:27.245 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x20) - FUNC_ID_ZW_MEMORY_GET_ID: 0x01, 0x03, 0x00, 0x20, 0xdc
-2018-04-20 00:34:27.747 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
-2018-04-20 00:34:28.248 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
-2018-04-20 00:34:28.248 Warning, WARNING: Out of frame flow! (0xd2).  Sending NAK.
-2018-04-20 00:34:37.246 Error, contrlr, ERROR: Dropping command, expected response not received after 1 attempt(s)
-2018-04-20 00:34:37.246 Detail, contrlr, Removing current message
-2018-04-20 00:34:37.246 Detail, contrlr, Notification: Notification - TimeOut
-2018-04-20 00:34:37.252 Detail, 
-2018-04-20 00:34:37.252 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x05) - FUNC_ID_ZW_GET_CONTROLLER_CAPABILITIES: 0x01, 0x03, 0x00, 0x05, 0xf9
-2018-04-20 00:34:37.254 Detail, contrlr,   Received: 0x01, 0x04, 0x01, 0x05, 0x08, 0xf7
-2018-04-20 00:34:37.254 Detail, 
-2018-04-20 00:34:37.254 Info, contrlr, Received reply to FUNC_ID_ZW_GET_CONTROLLER_CAPABILITIES:
-2018-04-20 00:34:37.254 Info, contrlr,     There is no SUC ID Server (SIS) in this network.
-2018-04-20 00:34:37.254 Info, contrlr,     The PC controller is a primary controller.
-2018-04-20 00:34:37.254 Detail, Node247,   Expected reply was received
-2018-04-20 00:34:37.254 Detail, Node247,   Message transaction complete
-2018-04-20 00:34:37.255 Detail, 
-2018-04-20 00:34:37.255 Detail, contrlr, Removing current message
-2018-04-20 00:34:37.255 Detail, 
-2018-04-20 00:34:37.255 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x07) - FUNC_ID_SERIAL_API_GET_CAPABILITIES: 0x01, 0x03, 0x00, 0x07, 0xfb
-2018-04-20 00:34:37.256 Detail, Unsolicited message received while waiting for ACK.
-2018-04-20 00:34:37.257 Detail, contrlr,   Received: 0x01, 0x07, 0x01, 0x86, 0x01, 0x01, 0x00, 0x5a, 0xfe
-2018-04-20 00:34:37.257 Warning, contrlr, WARNING: Checksum incorrect - sending NAK
-2018-04-20 00:34:37.258 Warning, WARNING: Out of frame flow! (0x00).  Sending NAK.
-2018-04-20 00:34:37.259 Warning, WARNING: Out of frame flow! (0x60).  Sending NAK.
-2018-04-20 00:34:37.260 Warning, WARNING: Out of frame flow! (0x1f).  Sending NAK.
-2018-04-20 00:34:37.261 Warning, WARNING: Out of frame flow! (0x00).  Sending NAK.
-2018-04-20 00:34:37.261 Warning, WARNING: Out of frame flow! (0x0e).  Sending NAK.
-2018-04-20 00:34:37.263 Warning, WARNING: Out of frame flow! (0x00).  Sending NAK.
-2018-04-20 00:34:37.264 Warning, WARNING: Out of frame flow! (0x00).  Sending NAK.
-2018-04-20 00:34:37.267 Detail, Unsolicited message received while waiting for ACK.
-2018-04-20 00:34:37.767 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
-2018-04-20 00:34:37.768 Detail, Unsolicited message received while waiting for ACK.
-2018-04-20 00:34:37.768 Detail, contrlr,   Received: 0x01, 0x07, 0x01, 0x00, 0x00, 0x86, 0x01, 0x01, 0x00
-2018-04-20 00:34:37.768 Warning, contrlr, WARNING: Checksum incorrect - sending NAK
-2018-04-20 00:34:38.768 Error, contrlr, ERROR: Dropping command, expected response not received after 1 attempt(s)
-2018-04-20 00:34:38.769 Detail, contrlr, Removing current message
-2018-04-20 00:34:38.769 Detail, contrlr, Notification: Notification - TimeOut
-2018-04-20 00:34:38.773 Detail, 
-2018-04-20 00:34:38.773 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x56) - FUNC_ID_ZW_GET_SUC_NODE_ID: 0x01, 0x03, 0x00, 0x56, 0xaa
-2018-04-20 00:34:48.774 Error, contrlr, ERROR: Dropping command, expected response not received after 1 attempt(s)
-2018-04-20 00:34:48.774 Detail, contrlr, Removing current message
-2018-04-20 00:34:48.775 Detail, contrlr, Notification: Notification - TimeOut
-2018-04-20 00:35:21.187 Error, mgr,     Manager::GetDriver failed - Home ID 0x00000000 is unknown
-2018-04-20 00:35:21.187 Warning, Exception: Manager.cpp:373 - 100 - Invalid HomeId passed to GetDriver
-2018-04-20 00:35:21.187 Info, mgr,     Manager::WriteConfig failed - _homeId 0 not found
-2018-04-20 00:35:21.192 Error, mgr,     Manager::GetDriver failed - Home ID 0x00000000 is unknown
-2018-04-20 00:35:21.192 Warning, Exception: Manager.cpp:373 - 100 - Invalid HomeId passed to GetDriver
-2018-04-20 00:35:21.192 Info, mgr,     Manager::WriteConfig failed - _homeId 0 not found
-2018-04-20 00:35:22.194 Detail, Notification: DriverRemoved
-2018-04-20 00:35:22.194 Always, ***************************************************************************
-2018-04-20 00:35:22.194 Always, *********************  Cumulative Network Statistics  *********************
-2018-04-20 00:35:22.194 Always, *** General
-2018-04-20 00:35:22.194 Always, Driver run time: . .  . 0 days, 0 hours, 0 minutes
-2018-04-20 00:35:22.194 Always, Frames processed: . . . . . . . . . . . . . . . . . . . . 7
-2018-04-20 00:35:22.194 Always, Total messages successfully received: . . . . . . . . . . 2
-2018-04-20 00:35:22.194 Always, Total Messages successfully sent: . . . . . . . . . . . . 5
-2018-04-20 00:35:22.194 Always, ACKs received from controller:  . . . . . . . . . . . . . 4
-2018-04-20 00:35:22.195 Always, *** Errors
-2018-04-20 00:35:22.195 Always, Unsolicited messages received while waiting for ACK:  . . 3
-2018-04-20 00:35:22.195 Always, Reads aborted due to timeouts:  . . . . . . . . . . . . . 3
-2018-04-20 00:35:22.195 Always, Bad checksum errors:  . . . . . . . . . . . . . . . . . . 2
-2018-04-20 00:35:22.195 Always, CANs received from controller:  . . . . . . . . . . . . . 0
-2018-04-20 00:35:22.195 Always, NAKs received from controller:  . . . . . . . . . . . . . 0
-2018-04-20 00:35:22.195 Always, Out of frame data flow errors:  . . . . . . . . . . . . . 8
-2018-04-20 00:35:22.195 Always, Messages retransmitted: . . . . . . . . . . . . . . . . . 0
-2018-04-20 00:35:22.195 Always, Messages dropped and not delivered: . . . . . . . . . . . 3
-2018-04-20 00:35:22.195 Always, ***************************************************************************
-2018-04-20 00:35:22.195 Warning, WARNING: Tried to write driver config with no home ID set
-2018-04-20 00:35:24.197 Info, mgr,     Driver for controller /dev/ttyACM0 removed
+2018-04-20 00:40:49.877 Always, OpenZwave Version 1.4.2999 Starting Up
+2018-04-20 00:40:49.878 Info, Setting Up Provided Network Key for Secure Communications
+2018-04-20 00:40:49.878 Warning, Failed - Network Key Not Set
+2018-04-20 00:40:49.878 Info, mgr,     Added driver for controller /dev/ttyACM0
+2018-04-20 00:40:49.878 Info,   Opening controller /dev/ttyACM0
+2018-04-20 00:40:49.878 Info, Trying to open serial port /dev/ttyACM0 (attempt 1)
+2018-04-20 00:40:49.878 Error, ERROR: Cannot get exclusive lock for serial port /dev/ttyACM0. Error code 11
+2018-04-20 00:40:49.879 Info, Serial port /dev/ttyACM0 opened (attempt 1)
+2018-04-20 00:40:49.879 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_VERSION: 0x01, 0x03, 0x00, 0x15, 0xe9
+2018-04-20 00:40:49.879 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_MEMORY_GET_ID: 0x01, 0x03, 0x00, 0x20, 0xdc
+2018-04-20 00:40:49.879 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_CONTROLLER_CAPABILITIES: 0x01, 0x03, 0x00, 0x05, 0xf9
+2018-04-20 00:40:49.879 Detail, contrlr, Queuing (Command) FUNC_ID_SERIAL_API_GET_CAPABILITIES: 0x01, 0x03, 0x00, 0x07, 0xfb
+2018-04-20 00:40:49.879 Detail, contrlr, Queuing (Command) FUNC_ID_ZW_GET_SUC_NODE_ID: 0x01, 0x03, 0x00, 0x56, 0xaa
+2018-04-20 00:40:49.880 Detail, 
+2018-04-20 00:40:49.880 Info, contrlr, Sending (Command) message (Callback ID=0x00, Expected Reply=0x15) - FUNC_ID_ZW_GET_VERSION: 0x01, 0x03, 0x00, 0x15, 0xe9
+2018-04-20 00:40:50.382 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
+2018-04-20 00:40:50.882 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
+2018-04-20 00:40:50.883 Warning, WARNING: Out of frame flow! (0x5a).  Sending NAK.
+2018-04-20 00:40:50.884 Warning, WARNING: Out of frame flow! (0x33).  Sending NAK.
+2018-04-20 00:40:50.884 Warning, WARNING: Out of frame flow! (0x00).  Sending NAK.
+2018-04-20 00:40:51.385 Warning, WARNING: 500ms passed without reading the rest of the frame...aborting frame read
+2018-04-20 00:40:51.385 Warning, WARNING: Out of frame flow! (0x61).  Sending NAK.
+2018-04-20 00:40:55.642 Error, mgr,     Manager::GetDriver failed - Home ID 0x00000000 is unknown
+2018-04-20 00:40:55.642 Warning, Exception: Manager.cpp:373 - 100 - Invalid HomeId passed to GetDriver
+2018-04-20 00:40:55.642 Info, mgr,     Manager::WriteConfig failed - _homeId 0 not found
+2018-04-20 00:40:55.647 Error, mgr,     Manager::GetDriver failed - Home ID 0x00000000 is unknown
+2018-04-20 00:40:55.647 Warning, Exception: Manager.cpp:373 - 100 - Invalid HomeId passed to GetDriver
+2018-04-20 00:40:55.647 Info, mgr,     Manager::WriteConfig failed - _homeId 0 not found
+2018-04-20 00:40:56.649 Detail, Notification: DriverRemoved
+2018-04-20 00:40:56.650 Always, ***************************************************************************
+2018-04-20 00:40:56.650 Always, *********************  Cumulative Network Statistics  *********************
+2018-04-20 00:40:56.650 Always, *** General
+2018-04-20 00:40:56.650 Always, Driver run time: . .  . 0 days, 0 hours, 0 minutes
+2018-04-20 00:40:56.650 Always, Frames processed: . . . . . . . . . . . . . . . . . . . . 3
+2018-04-20 00:40:56.650 Always, Total messages successfully received: . . . . . . . . . . 0
+2018-04-20 00:40:56.650 Always, Total Messages successfully sent: . . . . . . . . . . . . 1
+2018-04-20 00:40:56.650 Always, ACKs received from controller:  . . . . . . . . . . . . . 1
+2018-04-20 00:40:56.650 Always, *** Errors
+2018-04-20 00:40:56.650 Always, Unsolicited messages received while waiting for ACK:  . . 0
+2018-04-20 00:40:56.650 Always, Reads aborted due to timeouts:  . . . . . . . . . . . . . 3
+2018-04-20 00:40:56.650 Always, Bad checksum errors:  . . . . . . . . . . . . . . . . . . 0
+2018-04-20 00:40:56.650 Always, CANs received from controller:  . . . . . . . . . . . . . 0
+2018-04-20 00:40:56.651 Always, NAKs received from controller:  . . . . . . . . . . . . . 0
+2018-04-20 00:40:56.651 Always, Out of frame data flow errors:  . . . . . . . . . . . . . 4
+2018-04-20 00:40:56.651 Always, Messages retransmitted: . . . . . . . . . . . . . . . . . 0
+2018-04-20 00:40:56.651 Always, Messages dropped and not delivered: . . . . . . . . . . . 0
+2018-04-20 00:40:56.651 Always, ***************************************************************************
+2018-04-20 00:40:56.651 Warning, WARNING: Tried to write driver config with no home ID set
+2018-04-20 00:40:58.653 Detail, contrlr, Removing current message
+2018-04-20 00:40:58.653 Info, mgr,     Driver for controller /dev/ttyACM0 removed
