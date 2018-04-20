@@ -1,5 +1,6 @@
 import time
 from getJson import *
+import smtplib
 
 def getData(ips, levels, warnings):
     type = 'm'
@@ -58,9 +59,13 @@ def createMessage(warnings, levels):
         sendAlerts(message)
 
 def sendAlerts(message):
-    
-                        
-                       
+    mail = smtplib.SMTP('smtp.gmail.com', 587)
+    mail.ehlo()
+    mail.starttls()
+    mail.login('DUGreenhouseAlerts@gmail.com', 'TeamGreen4')
+    mail.sendmail('DUGreenhouseAlerts@gmail.com', 'salcbrau@my.dom.edu', content)
+    mail.close()
+                    
 def main():
     ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.220"],["10.0.192.XXX", "10.0.192.XXX", "10.0.192.219", "10.0.192.XXX". "10.0.192.XXX"]]
     warnings = [[0, 0, 0, 0, 0],[0,0,0],[0,0,0,0,0]]
