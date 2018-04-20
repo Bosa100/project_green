@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
 import pymysql
-import datetime
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -50,7 +50,7 @@ def getJson(ip, kind, num):
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
     # current date-time
-    date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
+    date = datetime.now().strftime("%m-%d-%y %H:%M:%S")
     
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
