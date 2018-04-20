@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
 import pymysql
-from datetime import datetime
+import datetime
 
 app = Flask(__name__)
 
@@ -50,7 +50,7 @@ def getJson(ip, kind, num):
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
     # current date-time
-    date = datetime.now().strftime("%m-%d-%y %H:%M:%S")
+    date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
     
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
@@ -141,8 +141,8 @@ def make_graph(which, start, end):
     '''
     start = start.replace('T', ' ')
     end = end.replace('T', ' ')
-    start = datetime.strptime(start, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
-    end = datetime.strptime(end, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
+    start = datetime.datetime.strptime(start, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
+    end = datetime.datetime.strptime(end, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
     # uses which in order to create custom select sql query, as well as plot labels
     if which == 't':
         name = "Temperature Data"
@@ -177,7 +177,7 @@ def make_graph(which, start, end):
 
     data,str_dates = zip(*rows)
     print(rows)
-    dates = [datetime.strptime(date, "%m-%d-%y %H:%M:%S") for date in str_dates]
+    dates = [datetime.datetime.strptime(date, "%m-%d-%y %H:%M:%S") for date in str_dates]
 
     mat_dates = dts.date2num(dates)
 
