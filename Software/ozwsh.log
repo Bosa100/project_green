@@ -1,0 +1,561 @@
+2018-04-20 00:53:45,612 INFO =============== start ===============
+2018-04-20 00:53:45,613 INFO Add a child
+2018-04-20 00:53:45,614 INFO Add a child
+2018-04-20 00:53:45,615 INFO Add a child
+2018-04-20 00:53:45,617 INFO Add a child
+2018-04-20 00:53:45,619 INFO Add a child
+2018-04-20 00:53:45,621 INFO Add a child
+2018-04-20 00:53:45,624 INFO Add a child
+2018-04-20 00:53:45,626 INFO Add a child
+2018-04-20 00:53:45,628 INFO Add a child
+2018-04-20 00:53:45,630 INFO Add a child
+2018-04-20 00:53:45,631 INFO Add a child
+2018-04-20 00:53:45,631 INFO Add a child
+2018-04-20 00:53:45,631 INFO Add a child
+2018-04-20 00:53:45,632 INFO Add a child
+2018-04-20 00:53:45,633 INFO Add a child
+2018-04-20 00:53:45,652 DEBUG Create network object.
+2018-04-20 00:53:45,654 INFO Start Openzwave network.
+2018-04-20 00:53:45,832 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,833 DEBUG notif_callback : Notification type : 18, nodeId : 1
+2018-04-20 00:53:45,833 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,833 DEBUG zwcallback args=[{'notificationType': 'DriverReady', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,834 DEBUG Z-Wave Notification DriverReady : {'notificationType': 'DriverReady', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,834 DEBUG Create object node (node_id:1)
+2018-04-20 00:53:45,836 INFO Driver ready using library Static Controller version Z-Wave 3.95
+2018-04-20 00:53:45,836 INFO home_id 0xd2eb67fb, controller node id is 1
+2018-04-20 00:53:45,837 DEBUG Network home_id: [0xd2eb67fb] controller: [home_id: [0xd2eb67fb] id: [1] name: [] product: [] capabilities: {'primaryController'} library: [Static Controller version Z-Wave 3.95]]
+2018-04-20 00:53:45,838 INFO OpenZWave network is started : homeid d2eb67fb - 1 nodes were found.
+2018-04-20 00:53:45,842 DEBUG notif_callback : end
+2018-04-20 00:53:45,842 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,843 DEBUG notif_callback : Notification type : 5, nodeId : 1
+2018-04-20 00:53:45,843 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,843 DEBUG zwcallback args=[{'notificationType': 'NodeNew', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,844 DEBUG Z-Wave Notification NodeNew : {'notificationType': 'NodeNew', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,844 DEBUG notif_callback : end
+2018-04-20 00:53:45,844 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,845 DEBUG notif_callback : Notification type : 6, nodeId : 1
+2018-04-20 00:53:45,845 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,845 DEBUG zwcallback args=[{'notificationType': 'NodeAdded', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,846 DEBUG Z-Wave Notification NodeAdded : {'notificationType': 'NodeAdded', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,846 DEBUG Create object node (node_id:1)
+2018-04-20 00:53:45,846 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [1] name: [] model: []
+2018-04-20 00:53:45,847 DEBUG notif_callback : end
+2018-04-20 00:53:45,848 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,848 DEBUG notif_callback : Notification type : 5, nodeId : 2
+2018-04-20 00:53:45,848 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,848 DEBUG zwcallback args=[{'notificationType': 'NodeNew', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:45,849 DEBUG Z-Wave Notification NodeNew : {'notificationType': 'NodeNew', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:45,849 DEBUG notif_callback : end
+2018-04-20 00:53:45,849 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,850 DEBUG notif_callback : Notification type : 6, nodeId : 2
+2018-04-20 00:53:45,850 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,850 DEBUG zwcallback args=[{'notificationType': 'NodeAdded', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:45,850 DEBUG Z-Wave Notification NodeAdded : {'notificationType': 'NodeAdded', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:45,851 DEBUG Create object node (node_id:2)
+2018-04-20 00:53:45,851 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [2] name: [] model: []
+2018-04-20 00:53:45,852 DEBUG notif_callback : end
+2018-04-20 00:53:45,867 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,867 DEBUG notif_callback : Notification type : 8, nodeId : 1
+2018-04-20 00:53:45,868 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,868 DEBUG zwcallback args=[{'notificationType': 'NodeProtocolInfo', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,868 DEBUG Z-Wave Notification NodeProtocolInfo : {'notificationType': 'NodeProtocolInfo', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,869 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [1] name: [] model: []
+2018-04-20 00:53:45,869 DEBUG notif_callback : end
+2018-04-20 00:53:45,870 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,870 DEBUG notif_callback : Notification type : 0, nodeId : 1
+2018-04-20 00:53:45,870 DEBUG addValueId : ValueID : 72057594055229441
+2018-04-20 00:53:45,871 DEBUG addValueId : GetCommandClassId : 32, GetType : 1
+2018-04-20 00:53:45,871 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 1, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': None, 'label': None, 'index': 0, 'nodeId': 1, 'value': None, 'id': 72057594055229441, 'commandClass': 'COMMAND_CLASS_BASIC', 'instance': 1, 'homeId': 3538642939, 'genre': ''}, 'homeId': 3538642939}
+2018-04-20 00:53:45,871 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,871 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 1, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': None, 'label': None, 'index': 0, 'nodeId': 1, 'value': None, 'id': 72057594055229441, 'commandClass': 'COMMAND_CLASS_BASIC', 'instance': 1, 'homeId': 3538642939, 'genre': ''}, 'homeId': 3538642939}]
+2018-04-20 00:53:45,872 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 1, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': None, 'label': None, 'index': 0, 'nodeId': 1, 'value': None, 'id': 72057594055229441, 'commandClass': 'COMMAND_CLASS_BASIC', 'instance': 1, 'homeId': 3538642939, 'genre': ''}, 'homeId': 3538642939}
+2018-04-20 00:53:45,872 DEBUG Create object value (valueId:72057594055229441)
+2018-04-20 00:53:45,873 DEBUG notif_callback : end
+2018-04-20 00:53:45,911 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,912 DEBUG notif_callback : Notification type : 21, nodeId : 1
+2018-04-20 00:53:45,912 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,912 DEBUG zwcallback args=[{'notificationType': 'EssentialNodeQueriesComplete', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,913 DEBUG Z-Wave Notification EssentialNodeQueriesComplete : {'notificationType': 'EssentialNodeQueriesComplete', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,913 DEBUG notif_callback : end
+2018-04-20 00:53:45,922 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,922 DEBUG notif_callback : Notification type : 8, nodeId : 2
+2018-04-20 00:53:45,922 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,923 DEBUG zwcallback args=[{'notificationType': 'NodeProtocolInfo', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:45,923 DEBUG Z-Wave Notification NodeProtocolInfo : {'notificationType': 'NodeProtocolInfo', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:45,923 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [2] name: [] model: []
+2018-04-20 00:53:45,924 DEBUG notif_callback : end
+2018-04-20 00:53:45,924 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,924 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:45,925 DEBUG addValueId : ValueID : 72057594076282880
+2018-04-20 00:53:45,925 DEBUG addValueId : GetCommandClassId : 37, GetType : 0
+2018-04-20 00:53:45,925 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': False, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}
+2018-04-20 00:53:45,926 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,926 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': False, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}]
+2018-04-20 00:53:45,926 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': False, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}
+2018-04-20 00:53:45,927 DEBUG Create object value (valueId:72057594076282880)
+2018-04-20 00:53:45,927 DEBUG notif_callback : end
+2018-04-20 00:53:45,928 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,928 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:45,928 DEBUG addValueId : ValueID : 72057594084704260
+2018-04-20 00:53:45,929 DEBUG addValueId : GetCommandClassId : 39, GetType : 4
+2018-04-20 00:53:45,929 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'Disabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:45,931 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,932 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'Disabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:45,932 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'Disabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:45,932 DEBUG Create object value (valueId:72057594084704260)
+2018-04-20 00:53:45,933 DEBUG notif_callback : end
+2018-04-20 00:53:45,958 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,958 DEBUG notif_callback : Notification type : 26, nodeId : 2
+2018-04-20 00:53:45,959 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,959 DEBUG zwcallback args=[{'notificationType': 'Notification', 'notificationCode': 2, 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:45,959 DEBUG Z-Wave Notification : {'notificationType': 'Notification', 'notificationCode': 2, 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:45,960 DEBUG notif_callback : end
+2018-04-20 00:53:45,960 DEBUG notif_callback : new notification
+2018-04-20 00:53:45,961 DEBUG notif_callback : Notification type : 22, nodeId : 1
+2018-04-20 00:53:45,961 DEBUG notif_callback : call callback context
+2018-04-20 00:53:45,961 DEBUG zwcallback args=[{'notificationType': 'NodeQueriesComplete', 'nodeId': 1, 'homeId': 3538642939}]
+2018-04-20 00:53:45,961 DEBUG Z-Wave Notification NodeQueriesComplete : {'notificationType': 'NodeQueriesComplete', 'nodeId': 1, 'homeId': 3538642939}
+2018-04-20 00:53:45,962 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [1] name: [] model: [ZW090 Z-Stick Gen5 US]
+2018-04-20 00:53:45,962 DEBUG notif_callback : end
+2018-04-20 00:53:46,004 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,005 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,005 DEBUG addValueId : ValueID : 72057594085605377
+2018-04-20 00:53:46,006 DEBUG addValueId : GetCommandClassId : 94, GetType : 1
+2018-04-20 00:53:46,007 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 0, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,007 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,008 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 0, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,008 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 0, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,009 DEBUG Create object value (valueId:72057594085605377)
+2018-04-20 00:53:46,010 DEBUG notif_callback : end
+2018-04-20 00:53:46,011 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,011 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,012 DEBUG addValueId : ValueID : 72057594085605398
+2018-04-20 00:53:46,012 DEBUG addValueId : GetCommandClassId : 94, GetType : 6
+2018-04-20 00:53:46,013 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,013 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,014 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,015 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,015 DEBUG Create object value (valueId:72057594085605398)
+2018-04-20 00:53:46,016 DEBUG notif_callback : end
+2018-04-20 00:53:46,017 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,017 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,018 DEBUG addValueId : ValueID : 72057594085605414
+2018-04-20 00:53:46,018 DEBUG addValueId : GetCommandClassId : 94, GetType : 6
+2018-04-20 00:53:46,019 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 0, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,019 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,020 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 0, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,021 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 0, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,022 DEBUG Create object value (valueId:72057594085605414)
+2018-04-20 00:53:46,023 DEBUG notif_callback : end
+2018-04-20 00:53:46,024 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,024 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,025 DEBUG addValueId : ValueID : 72057594086260743
+2018-04-20 00:53:46,025 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,026 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,026 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,027 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,028 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,028 DEBUG Create object value (valueId:72057594086260743)
+2018-04-20 00:53:46,029 DEBUG notif_callback : end
+2018-04-20 00:53:46,030 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,034 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,034 DEBUG addValueId : ValueID : 72057594086260759
+2018-04-20 00:53:46,035 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,036 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,036 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,037 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,037 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,038 DEBUG Create object value (valueId:72057594086260759)
+2018-04-20 00:53:46,039 DEBUG notif_callback : end
+2018-04-20 00:53:46,040 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,040 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,041 DEBUG addValueId : ValueID : 72057594086260775
+2018-04-20 00:53:46,041 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,042 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,042 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,043 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,044 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': 'Unknown', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,044 DEBUG Create object value (valueId:72057594086260775)
+2018-04-20 00:53:46,045 DEBUG notif_callback : end
+2018-04-20 00:53:46,046 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,047 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,047 DEBUG addValueId : ValueID : 72057594085949444
+2018-04-20 00:53:46,048 DEBUG addValueId : GetCommandClassId : 115, GetType : 4
+2018-04-20 00:53:46,048 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,049 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,049 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,050 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,051 DEBUG Create object value (valueId:72057594085949444)
+2018-04-20 00:53:46,051 DEBUG notif_callback : end
+2018-04-20 00:53:46,052 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,053 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,053 DEBUG addValueId : ValueID : 72057594085949457
+2018-04-20 00:53:46,054 DEBUG addValueId : GetCommandClassId : 115, GetType : 1
+2018-04-20 00:53:46,054 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,055 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,055 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,056 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,057 DEBUG Create object value (valueId:72057594085949457)
+2018-04-20 00:53:46,058 DEBUG notif_callback : end
+2018-04-20 00:53:46,058 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,059 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,059 DEBUG addValueId : ValueID : 72057594085949480
+2018-04-20 00:53:46,060 DEBUG addValueId : GetCommandClassId : 115, GetType : 8
+2018-04-20 00:53:46,060 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Set Powerlevel', 'index': 2, 'nodeId': 2, 'value': False, 'id': 72057594085949480, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,061 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,061 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Set Powerlevel', 'index': 2, 'nodeId': 2, 'value': False, 'id': 72057594085949480, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,062 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Set Powerlevel', 'index': 2, 'nodeId': 2, 'value': False, 'id': 72057594085949480, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,063 DEBUG Create object value (valueId:72057594085949480)
+2018-04-20 00:53:46,064 DEBUG notif_callback : end
+2018-04-20 00:53:46,064 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,065 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,066 DEBUG addValueId : ValueID : 72057594085949489
+2018-04-20 00:53:46,066 DEBUG addValueId : GetCommandClassId : 115, GetType : 1
+2018-04-20 00:53:46,067 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': '', 'label': 'Test Node', 'index': 3, 'nodeId': 2, 'value': 0, 'id': 72057594085949489, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,067 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,068 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': '', 'label': 'Test Node', 'index': 3, 'nodeId': 2, 'value': 0, 'id': 72057594085949489, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,068 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': '', 'label': 'Test Node', 'index': 3, 'nodeId': 2, 'value': 0, 'id': 72057594085949489, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,069 DEBUG Create object value (valueId:72057594085949489)
+2018-04-20 00:53:46,070 DEBUG notif_callback : end
+2018-04-20 00:53:46,071 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,072 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,072 DEBUG addValueId : ValueID : 72057594085949508
+2018-04-20 00:53:46,073 DEBUG addValueId : GetCommandClassId : 115, GetType : 4
+2018-04-20 00:53:46,073 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Test Powerlevel', 'index': 4, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949508, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,074 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,074 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Test Powerlevel', 'index': 4, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949508, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,075 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Test Powerlevel', 'index': 4, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949508, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,076 DEBUG Create object value (valueId:72057594085949508)
+2018-04-20 00:53:46,077 DEBUG notif_callback : end
+2018-04-20 00:53:46,077 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,078 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,078 DEBUG addValueId : ValueID : 72057594085949526
+2018-04-20 00:53:46,079 DEBUG addValueId : GetCommandClassId : 115, GetType : 6
+2018-04-20 00:53:46,080 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': False, 'units': '', 'label': 'Frame Count', 'index': 5, 'nodeId': 2, 'value': 0, 'id': 72057594085949526, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,080 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,082 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': False, 'units': '', 'label': 'Frame Count', 'index': 5, 'nodeId': 2, 'value': 0, 'id': 72057594085949526, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,083 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': False, 'units': '', 'label': 'Frame Count', 'index': 5, 'nodeId': 2, 'value': 0, 'id': 72057594085949526, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,083 DEBUG Create object value (valueId:72057594085949526)
+2018-04-20 00:53:46,084 DEBUG notif_callback : end
+2018-04-20 00:53:46,085 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,086 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,086 DEBUG addValueId : ValueID : 72057594085949544
+2018-04-20 00:53:46,087 DEBUG addValueId : GetCommandClassId : 115, GetType : 8
+2018-04-20 00:53:46,087 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Test', 'index': 6, 'nodeId': 2, 'value': False, 'id': 72057594085949544, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,088 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,088 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Test', 'index': 6, 'nodeId': 2, 'value': False, 'id': 72057594085949544, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,091 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Test', 'index': 6, 'nodeId': 2, 'value': False, 'id': 72057594085949544, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,092 DEBUG Create object value (valueId:72057594085949544)
+2018-04-20 00:53:46,093 DEBUG notif_callback : end
+2018-04-20 00:53:46,094 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,095 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,095 DEBUG addValueId : ValueID : 72057594085949560
+2018-04-20 00:53:46,096 DEBUG addValueId : GetCommandClassId : 115, GetType : 8
+2018-04-20 00:53:46,096 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Report', 'index': 7, 'nodeId': 2, 'value': False, 'id': 72057594085949560, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,097 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,097 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Report', 'index': 7, 'nodeId': 2, 'value': False, 'id': 72057594085949560, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,098 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Button', 'readOnly': False, 'units': '', 'label': 'Report', 'index': 7, 'nodeId': 2, 'value': False, 'id': 72057594085949560, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,099 DEBUG Create object value (valueId:72057594085949560)
+2018-04-20 00:53:46,100 DEBUG notif_callback : end
+2018-04-20 00:53:46,100 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,101 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,101 DEBUG addValueId : ValueID : 72057594085949572
+2018-04-20 00:53:46,102 DEBUG addValueId : GetCommandClassId : 115, GetType : 4
+2018-04-20 00:53:46,102 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': True, 'units': '', 'label': 'Test Status', 'index': 8, 'nodeId': 2, 'value': 'Failed', 'id': 72057594085949572, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,103 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,103 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': True, 'units': '', 'label': 'Test Status', 'index': 8, 'nodeId': 2, 'value': 'Failed', 'id': 72057594085949572, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,104 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': True, 'units': '', 'label': 'Test Status', 'index': 8, 'nodeId': 2, 'value': 'Failed', 'id': 72057594085949572, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,105 DEBUG Create object value (valueId:72057594085949572)
+2018-04-20 00:53:46,106 DEBUG notif_callback : end
+2018-04-20 00:53:46,106 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,107 DEBUG notif_callback : Notification type : 0, nodeId : 2
+2018-04-20 00:53:46,107 DEBUG addValueId : ValueID : 72057594085949590
+2018-04-20 00:53:46,107 DEBUG addValueId : GetCommandClassId : 115, GetType : 6
+2018-04-20 00:53:46,108 DEBUG addValueId : Notification : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'Acked Frames', 'index': 9, 'nodeId': 2, 'value': 0, 'id': 72057594085949590, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,108 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,108 DEBUG zwcallback args=[{'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'Acked Frames', 'index': 9, 'nodeId': 2, 'value': 0, 'id': 72057594085949590, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,109 DEBUG Z-Wave Notification ValueAdded : {'notificationType': 'ValueAdded', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'Acked Frames', 'index': 9, 'nodeId': 2, 'value': 0, 'id': 72057594085949590, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,109 DEBUG Create object value (valueId:72057594085949590)
+2018-04-20 00:53:46,109 DEBUG notif_callback : end
+2018-04-20 00:53:46,147 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,148 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,148 DEBUG addValueId : ValueID : 72057594085605377
+2018-04-20 00:53:46,148 DEBUG addValueId : GetCommandClassId : 94, GetType : 1
+2018-04-20 00:53:46,148 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 1, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,149 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,149 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 1, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,149 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': True, 'units': '', 'label': 'ZWave+ Version', 'index': 0, 'nodeId': 2, 'value': 1, 'id': 72057594085605377, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,150 DEBUG notif_callback : end
+2018-04-20 00:53:46,150 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,150 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,151 DEBUG addValueId : ValueID : 72057594085605398
+2018-04-20 00:53:46,151 DEBUG addValueId : GetCommandClassId : 94, GetType : 6
+2018-04-20 00:53:46,151 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 1792, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,151 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,152 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 1792, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,152 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'InstallerIcon', 'index': 1, 'nodeId': 2, 'value': 1792, 'id': 72057594085605398, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,153 DEBUG notif_callback : end
+2018-04-20 00:53:46,153 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,153 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,153 DEBUG addValueId : ValueID : 72057594085605414
+2018-04-20 00:53:46,154 DEBUG addValueId : GetCommandClassId : 94, GetType : 6
+2018-04-20 00:53:46,154 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 1792, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,154 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,155 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 1792, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,155 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Short', 'readOnly': True, 'units': '', 'label': 'UserIcon', 'index': 2, 'nodeId': 2, 'value': 1792, 'id': 72057594085605414, 'commandClass': 'COMMAND_CLASS_ZWAVE_PLUS_INFO', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,155 DEBUG notif_callback : end
+2018-04-20 00:53:46,192 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,193 DEBUG notif_callback : Notification type : 9, nodeId : 2
+2018-04-20 00:53:46,193 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,193 DEBUG zwcallback args=[{'notificationType': 'NodeNaming', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:46,194 DEBUG Z-Wave Notification NodeNaming : {'notificationType': 'NodeNaming', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:46,194 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [2] name: [] model: [Unknown: type=4f50, id=3032]
+2018-04-20 00:53:46,195 DEBUG notif_callback : end
+2018-04-20 00:53:46,196 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,196 DEBUG notif_callback : Notification type : 21, nodeId : 2
+2018-04-20 00:53:46,197 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,197 DEBUG zwcallback args=[{'notificationType': 'EssentialNodeQueriesComplete', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:46,197 DEBUG Z-Wave Notification EssentialNodeQueriesComplete : {'notificationType': 'EssentialNodeQueriesComplete', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:46,197 DEBUG notif_callback : end
+2018-04-20 00:53:46,272 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,272 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,272 DEBUG addValueId : ValueID : 72057594086260743
+2018-04-20 00:53:46,273 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,273 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': '3', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,273 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,273 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': '3', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,274 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Library Version', 'index': 0, 'nodeId': 2, 'value': '3', 'id': 72057594086260743, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,274 DEBUG notif_callback : end
+2018-04-20 00:53:46,275 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,275 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,275 DEBUG addValueId : ValueID : 72057594086260759
+2018-04-20 00:53:46,275 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,276 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': '4.54', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,276 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,276 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': '4.54', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,277 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Protocol Version', 'index': 1, 'nodeId': 2, 'value': '4.54', 'id': 72057594086260759, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,277 DEBUG notif_callback : end
+2018-04-20 00:53:46,277 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,278 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,278 DEBUG addValueId : ValueID : 72057594086260775
+2018-04-20 00:53:46,278 DEBUG addValueId : GetCommandClassId : 134, GetType : 7
+2018-04-20 00:53:46,278 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': '5.21', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,279 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,279 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': '5.21', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,279 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'String', 'readOnly': True, 'units': '', 'label': 'Application Version', 'index': 2, 'nodeId': 2, 'value': '5.21', 'id': 72057594086260775, 'commandClass': 'COMMAND_CLASS_VERSION', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,280 DEBUG notif_callback : end
+2018-04-20 00:53:46,317 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,317 DEBUG notif_callback : Notification type : 4, nodeId : 2
+2018-04-20 00:53:46,318 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,318 DEBUG zwcallback args=[{'groupIdx': 1, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:46,318 DEBUG Z-Wave Notification Group : {'groupIdx': 1, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:46,319 DEBUG notif_callback : end
+2018-04-20 00:53:46,319 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,319 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,320 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,320 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'Starting', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 1, 'controllerStateDoc': 'The command is starting.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,320 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'Starting', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 1, 'controllerStateDoc': 'The command is starting.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,321 DEBUG notif_callback : end
+2018-04-20 00:53:46,328 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,328 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,329 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,329 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'InProgress', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 6, 'controllerStateDoc': 'The controller is communicating with the other device to carry out the command.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,329 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'InProgress', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 6, 'controllerStateDoc': 'The controller is communicating with the other device to carry out the command.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,330 DEBUG notif_callback : end
+2018-04-20 00:53:46,500 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,500 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,501 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,501 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'Completed', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 7, 'controllerStateDoc': 'The command has completed successfully.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,501 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'Completed', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 7, 'controllerStateDoc': 'The command has completed successfully.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,502 DEBUG notif_callback : end
+2018-04-20 00:53:46,502 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,503 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,503 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,503 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'Starting', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 1, 'controllerStateDoc': 'The command is starting.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,503 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'Starting', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 1, 'controllerStateDoc': 'The command is starting.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,504 DEBUG notif_callback : end
+2018-04-20 00:53:46,516 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,516 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,517 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,517 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'InProgress', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 6, 'controllerStateDoc': 'The controller is communicating with the other device to carry out the command.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,517 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'InProgress', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 6, 'controllerStateDoc': 'The controller is communicating with the other device to carry out the command.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,518 DEBUG notif_callback : end
+2018-04-20 00:53:46,835 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,836 DEBUG notif_callback : Notification type : 28, nodeId : 0
+2018-04-20 00:53:46,837 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,838 DEBUG zwcallback args=[{'controllerErrorInt': 0, 'controllerState': 'Completed', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 7, 'controllerStateDoc': 'The command has completed successfully.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}]
+2018-04-20 00:53:46,839 DEBUG Z-Wave ControllerCommand : {'controllerErrorInt': 0, 'controllerState': 'Completed', 'controllerErrorDoc': 'None.', 'notificationType': 'ControllerCommand', 'controllerStateInt': 7, 'controllerStateDoc': 'The command has completed successfully.', 'homeId': 3538642939, 'controllerError': 'None', 'nodeId': 0}
+2018-04-20 00:53:46,840 DEBUG notif_callback : end
+2018-04-20 00:53:46,878 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,879 DEBUG notif_callback : Notification type : 4, nodeId : 2
+2018-04-20 00:53:46,879 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,880 DEBUG zwcallback args=[{'groupIdx': 2, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:46,880 DEBUG Z-Wave Notification Group : {'groupIdx': 2, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:46,881 DEBUG notif_callback : end
+2018-04-20 00:53:46,918 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,919 DEBUG notif_callback : Notification type : 4, nodeId : 2
+2018-04-20 00:53:46,920 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,920 DEBUG zwcallback args=[{'groupIdx': 3, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:46,921 DEBUG Z-Wave Notification Group : {'groupIdx': 3, 'notificationType': 'Group', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:46,921 DEBUG notif_callback : end
+2018-04-20 00:53:46,966 DEBUG notif_callback : new notification
+2018-04-20 00:53:46,966 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:46,967 DEBUG addValueId : ValueID : 72057594084704260
+2018-04-20 00:53:46,967 DEBUG addValueId : GetCommandClassId : 39, GetType : 4
+2018-04-20 00:53:46,968 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'On and Off Enabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,969 DEBUG notif_callback : call callback context
+2018-04-20 00:53:46,969 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'On and Off Enabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:46,970 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': '', 'label': 'Switch All', 'index': 0, 'nodeId': 2, 'value': 'On and Off Enabled', 'id': 72057594084704260, 'commandClass': 'COMMAND_CLASS_SWITCH_ALL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:46,971 DEBUG notif_callback : end
+2018-04-20 00:53:47,008 DEBUG notif_callback : new notification
+2018-04-20 00:53:47,009 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:47,009 DEBUG addValueId : ValueID : 72057594085949444
+2018-04-20 00:53:47,010 DEBUG addValueId : GetCommandClassId : 115, GetType : 4
+2018-04-20 00:53:47,010 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,011 DEBUG notif_callback : call callback context
+2018-04-20 00:53:47,011 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:47,012 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'List', 'readOnly': False, 'units': 'dB', 'label': 'Powerlevel', 'index': 0, 'nodeId': 2, 'value': 'Normal', 'id': 72057594085949444, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,013 DEBUG notif_callback : end
+2018-04-20 00:53:47,013 DEBUG notif_callback : new notification
+2018-04-20 00:53:47,014 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:47,014 DEBUG addValueId : ValueID : 72057594085949457
+2018-04-20 00:53:47,015 DEBUG addValueId : GetCommandClassId : 115, GetType : 1
+2018-04-20 00:53:47,016 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,016 DEBUG notif_callback : call callback context
+2018-04-20 00:53:47,017 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}]
+2018-04-20 00:53:47,018 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Byte', 'readOnly': False, 'units': 'seconds', 'label': 'Timeout', 'index': 1, 'nodeId': 2, 'value': 0, 'id': 72057594085949457, 'commandClass': 'COMMAND_CLASS_POWERLEVEL', 'instance': 1, 'homeId': 3538642939, 'genre': 'System'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,018 DEBUG notif_callback : end
+2018-04-20 00:53:47,056 DEBUG notif_callback : new notification
+2018-04-20 00:53:47,057 DEBUG notif_callback : Notification type : 2, nodeId : 2
+2018-04-20 00:53:47,057 DEBUG addValueId : ValueID : 72057594076282880
+2018-04-20 00:53:47,058 DEBUG addValueId : GetCommandClassId : 37, GetType : 0
+2018-04-20 00:53:47,059 DEBUG addValueId : Notification : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': True, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,059 DEBUG notif_callback : call callback context
+2018-04-20 00:53:47,060 DEBUG zwcallback args=[{'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': True, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}]
+2018-04-20 00:53:47,060 DEBUG Z-Wave Notification ValueChanged : {'notificationType': 'ValueChanged', 'nodeId': 2, 'valueId': {'type': 'Bool', 'readOnly': False, 'units': '', 'label': 'Switch', 'index': 0, 'nodeId': 2, 'value': True, 'id': 72057594076282880, 'commandClass': 'COMMAND_CLASS_SWITCH_BINARY', 'instance': 1, 'homeId': 3538642939, 'genre': 'User'}, 'homeId': 3538642939}
+2018-04-20 00:53:47,061 DEBUG notif_callback : end
+2018-04-20 00:53:47,062 DEBUG notif_callback : new notification
+2018-04-20 00:53:47,063 DEBUG notif_callback : Notification type : 22, nodeId : 2
+2018-04-20 00:53:47,063 DEBUG notif_callback : call callback context
+2018-04-20 00:53:47,064 DEBUG zwcallback args=[{'notificationType': 'NodeQueriesComplete', 'nodeId': 2, 'homeId': 3538642939}]
+2018-04-20 00:53:47,065 DEBUG Z-Wave Notification NodeQueriesComplete : {'notificationType': 'NodeQueriesComplete', 'nodeId': 2, 'homeId': 3538642939}
+2018-04-20 00:53:47,066 DEBUG Z-Wave Notification Node : home_id: [0xd2eb67fb] id: [2] name: [] model: [Unknown: type=4f50, id=3032]
+2018-04-20 00:53:47,066 DEBUG notif_callback : end
+2018-04-20 00:53:47,067 DEBUG notif_callback : new notification
+2018-04-20 00:53:47,067 DEBUG notif_callback : Notification type : 25, nodeId : 255
+2018-04-20 00:53:47,068 DEBUG notif_callback : call callback context
+2018-04-20 00:53:47,068 DEBUG zwcallback args=[{'notificationType': 'AllNodesQueried', 'nodeId': 255, 'homeId': 3538642939}]
+2018-04-20 00:53:47,069 DEBUG Z-Wave Notification AllNodesQueried : {'notificationType': 'AllNodesQueried', 'nodeId': 255, 'homeId': 3538642939}
+2018-04-20 00:53:47,070 INFO RootTree _louie_network_ready
+2018-04-20 00:53:47,078 INFO RootTree _louie_network_ready
+2018-04-20 00:53:47,079 INFO ControllerTree _louie_network_ready
+2018-04-20 00:53:47,086 INFO ControllerTree _louie_network_ready
+2018-04-20 00:53:47,087 INFO NodesTree _louie_network_ready
+2018-04-20 00:53:47,104 INFO NodesTree _louie_network_ready
+2018-04-20 00:53:47,117 INFO NodeTree _louie_network_ready
+2018-04-20 00:53:47,119 INFO NodeTree _louie_network_ready
+2018-04-20 00:53:47,119 INFO ValuesTree _louie_network_ready
+2018-04-20 00:53:47,120 INFO ValuesTree _louie_network_ready
+2018-04-20 00:53:47,121 INFO GroupsTree _louie_network_ready
+2018-04-20 00:53:47,121 INFO GroupsTree _louie_network_ready
+2018-04-20 00:53:47,122 INFO ZWave network is ready : 2 nodes were found.
+2018-04-20 00:53:47,122 INFO Controller name : ZW090 Z-Stick Gen5 US
+2018-04-20 00:53:47,151 DEBUG notif_callback : end
+2018-04-20 00:54:21,304 INFO handled: 'enter'
+2018-04-20 00:54:21,320 INFO  self.active_box nodes
+2018-04-20 00:54:28,879 INFO handled: 'enter'
+2018-04-20 00:54:28,880 INFO exist in NodesTree
+2018-04-20 00:54:28,881 INFO exist in NodesTree
+2018-04-20 00:54:28,881 INFO cd switches
+2018-04-20 00:54:28,890 INFO  self.active_box switches
+2018-04-20 00:54:30,027 INFO handled: 'enter'
+2018-04-20 00:54:49,473 INFO handled: 'enter'
+2018-04-20 00:54:59,042 INFO handled: 'enter'
+2018-04-20 00:54:59,051 INFO ZWave configuration written to user directory.
+2018-04-20 00:54:59,052 INFO Stop Openzwave network.
+2018-04-20 00:54:59,053 DEBUG Wait for empty send_queue during 0 second(s).
+2018-04-20 00:54:59,062 INFO ZWave configuration written to user directory.
+2018-04-20 00:55:04,080 INFO OpenZWave network is stopped.
+2018-04-20 00:55:04,092 INFO =============== exit ===============
+2018-04-20 01:06:22,345 INFO =============== start ===============
+2018-04-20 01:06:22,347 INFO Add a child
+2018-04-20 01:06:22,347 INFO Add a child
+2018-04-20 01:06:22,349 INFO Add a child
+2018-04-20 01:06:22,351 INFO Add a child
+2018-04-20 01:06:22,352 INFO Add a child
+2018-04-20 01:06:22,354 INFO Add a child
+2018-04-20 01:06:22,357 INFO Add a child
+2018-04-20 01:06:22,360 INFO Add a child
+2018-04-20 01:06:22,361 INFO Add a child
+2018-04-20 01:06:22,363 INFO Add a child
+2018-04-20 01:06:22,363 INFO Add a child
+2018-04-20 01:06:22,364 INFO Add a child
+2018-04-20 01:06:22,364 INFO Add a child
+2018-04-20 01:06:22,364 INFO Add a child
+2018-04-20 01:06:22,365 INFO Add a child
+2018-04-20 01:06:22,385 DEBUG Create network object.
+2018-04-20 01:06:22,387 INFO Start Openzwave network.
+2018-04-20 01:06:31,715 INFO handled: 'enter'
+2018-04-20 01:06:31,716 INFO ZWave configuration written to user directory.
+2018-04-20 01:06:31,717 INFO Stop Openzwave network.
+2018-04-20 01:06:31,717 DEBUG Wait for empty send_queue during 0 second(s).
+2018-04-20 01:06:31,763 INFO ZWave configuration written to user directory.
+2018-04-20 01:06:36,769 INFO OpenZWave network is stopped.
+2018-04-20 01:06:36,781 INFO =============== exit ===============
+2018-04-20 01:06:52,154 INFO =============== start ===============
+2018-04-20 01:06:52,157 INFO Add a child
+2018-04-20 01:06:52,158 INFO Add a child
+2018-04-20 01:06:52,160 INFO Add a child
+2018-04-20 01:06:52,162 INFO Add a child
+2018-04-20 01:06:52,164 INFO Add a child
+2018-04-20 01:06:52,168 INFO Add a child
+2018-04-20 01:06:52,172 INFO Add a child
+2018-04-20 01:06:52,175 INFO Add a child
+2018-04-20 01:06:52,177 INFO Add a child
+2018-04-20 01:06:52,180 INFO Add a child
+2018-04-20 01:06:52,181 INFO Add a child
+2018-04-20 01:06:52,181 INFO Add a child
+2018-04-20 01:06:52,182 INFO Add a child
+2018-04-20 01:06:52,182 INFO Add a child
+2018-04-20 01:06:52,183 INFO Add a child
+2018-04-20 01:06:52,206 DEBUG Create network object.
+2018-04-20 01:06:52,208 INFO Start Openzwave network.
+2018-04-20 01:07:02,213 DEBUG notif_callback : new notification
+2018-04-20 01:07:02,215 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 01:07:02,215 DEBUG notif_callback : call callback context
+2018-04-20 01:07:02,216 DEBUG zwcallback args=[{'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}]
+2018-04-20 01:07:02,218 DEBUG Z-Wave Notification : {'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}
+2018-04-20 01:07:02,219 DEBUG notif_callback : end
+2018-04-20 01:07:03,221 DEBUG notif_callback : new notification
+2018-04-20 01:07:03,222 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 01:07:03,223 DEBUG notif_callback : call callback context
+2018-04-20 01:07:03,224 DEBUG zwcallback args=[{'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}]
+2018-04-20 01:07:03,224 DEBUG Z-Wave Notification : {'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}
+2018-04-20 01:07:03,225 DEBUG notif_callback : end
+2018-04-20 01:07:04,309 DEBUG notif_callback : new notification
+2018-04-20 01:07:04,310 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 01:07:04,310 DEBUG notif_callback : call callback context
+2018-04-20 01:07:04,311 DEBUG zwcallback args=[{'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}]
+2018-04-20 01:07:04,311 DEBUG Z-Wave Notification : {'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}
+2018-04-20 01:07:04,312 DEBUG notif_callback : end
+2018-04-20 01:07:05,428 DEBUG notif_callback : new notification
+2018-04-20 01:07:05,429 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 01:07:05,430 DEBUG notif_callback : call callback context
+2018-04-20 01:07:05,430 DEBUG zwcallback args=[{'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}]
+2018-04-20 01:07:05,431 DEBUG Z-Wave Notification : {'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}
+2018-04-20 01:07:05,431 DEBUG notif_callback : end
+2018-04-20 01:07:06,433 DEBUG notif_callback : new notification
+2018-04-20 01:07:06,435 DEBUG notif_callback : Notification type : 26, nodeId : 255
+2018-04-20 01:07:06,436 DEBUG notif_callback : call callback context
+2018-04-20 01:07:06,436 DEBUG zwcallback args=[{'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}]
+2018-04-20 01:07:06,437 DEBUG Z-Wave Notification : {'nodeId': 255, 'homeId': 0, 'notificationType': 'Notification', 'notificationCode': 1}
+2018-04-20 01:07:06,438 DEBUG notif_callback : end
+2018-04-20 01:08:06,052 INFO unhandled: ('mouse release', 0, 40, 35)
+2018-04-20 01:08:07,656 INFO handled: 'enter'
+2018-04-20 01:08:07,658 INFO ZWave configuration written to user directory.
+2018-04-20 01:08:07,659 INFO Stop Openzwave network.
+2018-04-20 01:08:07,660 DEBUG Wait for empty send_queue during 0 second(s).
+2018-04-20 01:08:07,703 INFO ZWave configuration written to user directory.
+2018-04-20 01:08:12,710 INFO OpenZWave network is stopped.
+2018-04-20 01:08:12,719 INFO =============== exit ===============
