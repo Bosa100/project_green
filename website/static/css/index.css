@@ -1,5 +1,7 @@
+
+
 body{
-	background-color: #00B300;
+	background-color: #1D3B6F;
 	color: #000000;
 	text-align: center;
 }
@@ -22,6 +24,14 @@ img {
 	margin-left: 2%;
 }
 
-a {
-	display: block;
+.startButton{
+	background-color: #00B300;
+	text-decoration:none !important;
+	padding: 7px;
+	color: #660033;
+	border-radius: 10px;
+}
+
+.startButton:hover{
+	background-color: #803F0D;
 }
