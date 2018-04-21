@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    
+<title>DU Greenhouse Measurements Reporter</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+<div class="mainDiv">
+	<h1>DU Greenhouse Measurments Reporter</h1>
+	<img src="/static/images/pictures/green_house.jpg" alt="Picture of Green House">
+	
+	<h4><p>Welcome to the DU Greenhouse Measurements Reporter!</p><h4>
+	<h4><p>From here you will be able to get moisture, temperature/humidity, and light measurment readings through the sensors installed in the greenhouse.</p></h4>
+	<h4><p>Click below to begin.</p><h4>
+	
+	<br/>
+	
+	<a class="startButton" href="{{ url_for('demo') }}"> Explore Greenhouse Conditions </a>
+	<br/><br/></br>
+</div>
+</body>
+</html>

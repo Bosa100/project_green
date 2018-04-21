@@ -45,37 +45,36 @@ def getJson(ip, kind, num):
     '''
 
     # makes call to server and puts response into dictionary
-    '''
     url = "http://" + ip
     res = urllib.request.urlopen(url)
     data_dict = json.loads(res.read().decode('utf-8'))
-    '''
+    
     # current date-time
     date = datetime.datetime.now().strftime("%I:%M:%s%p on %B %d, %Y")
-    test = 5
+    
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
     if kind == 't':
-        #data = data_dict["temperature"][0]
+        data = data_dict["temperature"][0]
         data_f = 9.0/5.0 * data + 32
         sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
-        values = (num, test, test, date)
+        values = (num, data_f, data, date)
     elif kind == 'h':
-        #data = data_dict["humidity"][0]
+        data = data_dict["humidity"][0]
         sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
-        values = (num, test, date)
+        values = (num, data, date)
     elif kind == 'm':
-        #data = data_dict["moisture"][0]
+        data = data_dict["moisture"][0]
         sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
-        values = (num, test, date)
+        values = (num, data, date)
     elif kind == 'n':
-        #data = data_dict["visible_light"][0]
+        data = data_dict["visible_light"][0]
         sql = "INSERT INTO Light (ID, Light, DATE) VALUES (?, ?, ?)"
-        values = (num, test, date)
+        values = (num, data, date)
     else:
-        #data = data_dict["UV_light"][0]
+        data = data_dict["UV_light"][0]
         sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
-        values = (num, test, date)
+        values = (num, data, date)
 
     # connects to database, then returns data in order to display in flask view
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
@@ -85,7 +84,7 @@ def getJson(ip, kind, num):
     c.close()
     db.close()
     
-    return str(test)
+    return str(data)
 
 # intro page
 @app.route('/')
@@ -188,6 +187,64 @@ def make_graph(which, start, end):
 
     return render_template('graph.html', url = url)
 
+@app.route('/make_table/<which>/<start>/<end>')
+def make_table(which, start, end):
+	'''
+	    make_graph route
+		 not rendered as full page, but used with AJAX in order to update page
+		 dynamically
+	'''
+
+	# uses which in order to create custom select sql query, as well as plot labels
+	if which == 't':
+		name = "Temperature Data"
+		ylabel = "Temperature"
+		sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
+	elif which == 'h':
+		name = "Humidity Data"
+		ylabel = "Humidity"
+		sql = "SELECT Humidity FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
+	elif which == 'm':
+		name = "Moisture Data"
+		ylabel = "Moisture"
+		sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end
+	elif which == 'n':
+		name = "Light Intensity Data"
+		ylabel = "Light Intensity"
+		sql = "SELECT Light FROM Light WHERE rowid BETWEEN " + start + " AND " + end
+	else:
+		name = "UV Index"
+		ylabel = "UV Index"
+		sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
+
+	# connects to database and retrieves data (put in rows)
+	db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
+	c = db.cursor()
+	
+	c.execute(sql)
+	rows = c.fetchall()
+
+	c.close()
+	db.close()
+
+	# data is created derictly from rows
+	data = np.array(rows)
+
+	# compact rows together for table
+	for row in data:
+		cell_Text.append(row)
+
+	# creates table
+	table = plt.table(cellText = cell_Text,colLabels = ('Range', 'Measurement'),loc='center')
+
+	plt.axis('off')
+	plt.grid('off')
+	
+	url = "images/tables/table.png"
+	fig.savefig("static/" + url)
+	
+	return render_template('table.html', url = url)
+	
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
