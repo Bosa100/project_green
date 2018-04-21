@@ -112,14 +112,6 @@ def th_sensor(address, num):
 def light(num, address):
     return render_template('light_sensor.html', ip = address, num = num)
 
-def populate_ids(ids, start, end):
-    num = start
-    range_end = end - start + 1
-    for ndx in range(0, range_end):
-        np.append(ids, num)
-        print(num)
-        num += 1
-
 @app.route('/make_graph/<which>/<start>/<end>')
 def make_graph(which, start, end):
     '''
@@ -185,6 +177,63 @@ def make_graph(which, start, end):
     fig.savefig("static/" + url)
     return render_template('graph.html', url = url)
 
+@app.route('/make_table/<which>/<start>/<end>')
+def make_table(which, start, end):
+	'''
+	    make_graph route
+		 not rendered as full page, but used with AJAX in order to update page
+		 dynamically
+	'''
+
+	# uses which in order to create custom select sql query, as well as plot labels
+	if which == 't':
+		name = "Temperature Data"
+		ylabel = "Temperature"
+		sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
+	elif which == 'h':
+		name = "Humidity Data"
+		ylabel = "Humidity"
+		sql = "SELECT Humidity FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
+	elif which == 'm':
+		name = "Moisture Data"
+		ylabel = "Moisture"
+		sql = "SELECT Moisture FROM Moisture WHERE rowid BETWEEN " + start + " AND " + end
+	elif which == 'n':
+		name = "Light Intensity Data"
+		ylabel = "Light Intensity"
+		sql = "SELECT Light FROM Light WHERE rowid BETWEEN " + start + " AND " + end
+	else:
+		name = "UV Index"
+		ylabel = "UV Index"
+		sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
+
+	# connects to database and retrieves data (put in rows)
+	db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
+	c = db.cursor()
+	
+	c.execute(sql)
+	rows = c.fetchall()
+
+	c.close()
+	db.close()
+
+	# data is created derictly from rows
+	data = np.array(rows)
+
+	# compact rows together for table
+	for row in data:
+		cell_Text.append(row)
+
+	# creates table
+	table = plt.table(cellText = cell_Text,colLabels = ('Range', 'Measurement'),loc='center')
+
+	plt.axis('off')
+	plt.grid('off')
+	
+	url = "images/tables/table.png"
+	fig.savefig("static/" + url)
+	
+	return render_template('table.html', url = url)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
