@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    
+<title>Moisture Measurement</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/moisture.css') }}" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+<div class="mainDiv">
+<h1>Moisture Sensor #{{ num }}</h1>
+<table>
+	<tr>
+		<td class="td1">
+			<div class="change-pos"> 
+				<h3>Start Date</h3>
+				<input id="start" type="datetime-local" name="start-v">
+			</div>
+			<div class="change-pos"> 
+				<h3>End Date</h3>
+				<input id="end" type="datetime-local" name="end-v">
+			</div>
+			<div id="data-sect">
+				<br/>
+				<button id="get_data">Get Current Moisture</button>
+				<div id="data"></div>	
+			</div>	
+		</td>
+		<td>
+			<div id="graph"><img width="500" height="500"></div>
+			<button id="generate"> Generate Graph </button>
+		</td>
+	</tr>
+</table>
+</div>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	        $(function() {
+			
+		  var ip = '{{ ip }}';
+		  var num = '{{ num }}';
+		  var url; 
+		
+		function getData() {
+			url = "/getJson/" + ip + "/m/" + num;
+	           	$.ajax({
+			      url: url,
+			      type: "get",
+			      success: function(response) {
+			        $("#data").html(response);
+				getData();
+			      },
+			      error: function(xhr) {
+			        alert(url);
+			      }
+    			});
+		}
+
+	          $('#generate').bind('click', function() {
+		     start = $('#start').val();
+		     end = $('#end').val();
+	             alert(start);
+		     alert(end);
+	             $.ajax({
+			      url: "/make_graph/m/" + start + "/" + end,
+			      type: "get",
+			      success: function(response) {
+			        $("#graph").html(response);
+			      },
+			      error: function(xhr) {
+			        alert("error");
+				getData();
+			      }
+    			});
+	          });
+		
+		  getData();
+		
+			
+        });
+	</script>
+</html>

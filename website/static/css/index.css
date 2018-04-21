@@ -1,0 +1,37 @@
+
+
+body{
+	background-color: #1D3B6F;
+	color: #000000;
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 15px;
+}
+
+.mainDiv{
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	height: 100%;
+}
+
+.putLeft{
+	text-align: left;
+	margin-left: 2%;
+}
+
+.startButton{
+	background-color: #00B300;
+	text-decoration:none !important;
+	padding: 7px;
+	color: #660033;
+	border-radius: 10px;
+}
+
+.startButton:hover{
+	background-color: #803F0D;
+}

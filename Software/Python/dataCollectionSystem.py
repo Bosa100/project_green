@@ -18,6 +18,7 @@ while(True):
                         print(i)
                         print(j)
                         send(j + 1, ips[i][j], type, db, c)
-        time.sleep(180)
+        time.sleep(30)
+
 
 

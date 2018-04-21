@@ -1,0 +1,38 @@
+body {
+	background-color: #1D3B6F;
+	color: #000000;
+	text-align: center;
+	width: 100%;
+}
+
+button {
+	color: white;
+	background: grey;
+	width: 195px;
+	height: 175px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+table{
+	margin: 0 auto;
+}
+
+.mainDiv{
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+a{
+	background-color: #00B300;
+	text-decoration:none !important;
+	color: #660033;
+	padding: 25px;
+	border-radius: 10px;
+}
+
+a:hover{
+background-color: #008000;
+}

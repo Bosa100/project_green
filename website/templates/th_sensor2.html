@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    
+<title>Temperature And Humidity Measurement</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/temp-humi.css') }}" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+<div class="mainDiv">
+<h1>Temperature / Humidity Sensor</h1>
+
+<table>
+	<tr>
+		<td colspan="3">
+			<h2>Temperature Measurment</h2>
+		</td>
+	</tr>
+	<tr>
+		<td class="td1">
+			<div class="change-pos"> 
+				<h3>Starting Scale Value</h3>
+				<input id="t-start" type="text" name="start" value="0">
+			</div>
+			<div class="change-pos"> 
+				<h3>Ending Scale Value</h3>
+				<input id="t-end" type="text" name="end" value="10">
+			</div>
+			<div>
+				</br>
+				<button class="get_data" id="t">Get Current Temperature</button>
+			</div>
+		</td>
+		<td>
+			<div class="graph" id="graph-t"><img width="500" height="500"></div>
+			<button class="generate" id="t"> Generate Graph </button>
+		</td>
+		<td>
+			<div class="graph" id="table-t"><img src="" width="150" height="150" ></div>
+			</br></br></br>
+		</td>
+	</tr>
+	<tr><td colspan="3"><div class="separator"></div></td></tr>
+	<tr>
+		<td colspan="3">
+			<h2>Humidity Measurment</h2>
+		</td>
+	</tr>
+	<tr>
+		<td class="td1">
+			<div> 
+				<h3>Starting Scale Value</h3>
+				<input id="h-start" type="text" name="start">
+			</div>
+			<div> 
+				<h3>Ending Scale Value</h3>
+				<input id="h-end" type="text" name="end">
+			</div>
+			<div>
+				</br>
+				<button class="get_data" id="h">Get Current Humidity</button>
+			</div>
+		</td>
+		<td>
+			<div class="graph" id="graph-h"><img src="" width="500" height="500" ></div>
+			<button class="generate" id="h"> Generate Graph </button>
+		</td>
+		<td>
+			<div class="graph" id="table-h"><img src="" width="150" height="150" ></div>
+		</td>
+	</tr>
+</table>
+</div>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var type;
+			var url;
+			var num;
+			var ip;
+			var start;
+			var end;
+			
+			$('.generate').bind('click', function() {
+				type = this.id;
+				start = $("#" + type + "-start").val();
+				end = $("#" + type + "-end").val();
+				url = "/make_graph/" + type + "/" + start + "/" + end;
+				$.ajax({
+					url: url,
+					type: "get",
+					success: function(response) {
+						$("#graph-" + type).html(response);
+					},
+					error: function(xhr) {
+						alert(url);
+						alert("error");
+					}
+				});
+				
+				//For table
+				url = "/make_table/" + type + "/" + start + "/" + end;
+								$.ajax({
+					url: url,
+					type: "get",
+					success: function(response) {
+						$("#table-" + type).html(response);
+					},
+					error: function(xhr) {
+						alert(url);
+						alert("error");
+					}
+				});
+				
+			});
+			
+			 
+			$('.get_data').bind('click', function() {
+				type = this.id;
+				ip = '{{ ip }}';
+				num = '{{ num }}';
+				url = "/getJson/" + ip + "/" + type + "/" + num;
+				$.ajax({
+					url: url,
+					type: "get",
+					success: function(response) {
+						$("#data-" + type).html(response);
+					},
+					error: function(xhr) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
+</html>
