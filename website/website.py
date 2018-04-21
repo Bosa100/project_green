@@ -45,44 +45,32 @@ def getJson(ip, kind, num):
        u -> uv light
     '''
 
+    got_data = False
     # makes call to server and puts response into dictionary
     url = "http://" + ip
-    res = urllib.request.urlopen(url)
-    data_dict = json.loads(res.read().decode('utf-8'))
+    while got_data == False:
+        res = urllib.request.urlopen(url)
+        data_dict = json.loads(res.read().decode('utf-8'))
+        
+        for key in data_dict:
+            print(key[0])
+            if key[0] != "nan":
+                got_data == True
+            
+    
     # current date-time
     date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
     
     # uses kind arg to retrieve data from dictionary - creates sql insert query string
     # as well as list used to send arguments for query
-    if kind == 't':
-        data = data_dict["temperature"][0]
-        data_f = 9.0/5.0 * data + 32
-        sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
-        values = (num, data, data, date)
-    elif kind == 'h':
-        data = data_dict["humidity"][0]
-        sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
+
+ 
+    if kind == 'th':
+        data = str(data_dict["temperature"][0]) + " " + str(data_dict["humidity"][0])
+    elif kind == 'l':
+        data = str(data_dict["visible_light"][0]) + " " + str(data_dict["UV_light"][0])
     elif kind == 'm':
         data = data_dict["moisture"][0]
-        sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
-        values = (num, data, date)
-    elif kind == 'n':
-        data = data_dict["visible_light"][0]
-        sql = "INSERT INTO Light (ID, Light, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
-    else:
-        data = data_dict["UV_light"][0]
-        sql = "INSERT INTO UV (ID, UVIndex, DATE) VALUES (?, ?, ?)"
-        values = (num, data, date)
-
-    # connects to database, then returns data in order to display in flask view
-    db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
-    c = db.cursor()
-    c.execute(sql, values)
-    db.commit()
-    c.close()
-    db.close()
     
     return str(data)
 
@@ -192,8 +180,6 @@ def make_graph(which, start, end):
     ax.grid()
 
     ax.plot_date(mat_dates, data)
-
-
 
     url = "images/graphs/dates.png"
     fig.savefig("static/" + url)

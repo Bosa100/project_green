@@ -98,23 +98,28 @@
 				
 			});
 			
-			 
-			$('.get_data').bind('click', function() {
-				type = this.id;
+			function getData() {
 				ip = '{{ ip }}';
 				num = '{{ num }}';
-				url = "/getJson/" + ip + "/" + type + "/" + num;
+				url = "/getJson/" + ip + "/th/" + num;
 				$.ajax({
 					url: url,
 					type: "get",
 					success: function(response) {
-						$("#data-" + type).html(response);
+						var data = response.split(" ");
+						$("#data-t").html(data[0]);
+						$("#data-h").html(data[1]);
+						getData();	
 					},
 					error: function(xhr) {
 						alert("error");
+						getData();
 					}
 				});
-			});
+			} 
+
+			getData();
+
 		});
 	</script>
 </html>

@@ -31,6 +31,7 @@
 			<div>
 				</br>
 				<button class="get_data" id="n">Get Current Light Intensity</button>
+				<div class="data" id="data-n"></div>
 			</div>
 		</td>
 		<td>
@@ -57,6 +58,7 @@
 			<div>
 				</br>
 				<button class="get_data" id="u">Get Current UV Light</button>
+				<div class="data" id="data-u"></div>
 			</div>
 		</td>
 		<td>
@@ -82,9 +84,7 @@
 				start = $("#" + type + "-start").val();
 				end = $("#" + type + "-end").val();
 				url = "/make_graph/" + type + "/" + start + "/" + end;
-				alert("hi");
-				alert(end);
-				
+
 				$.ajax({
 					url: url,
 					type: "get",
@@ -98,23 +98,28 @@
 				
 			});
 			
-			 
-			$('.get_data').bind('click', function() {
-				type = this.id;
-				ip = '{{ ip }}';
-				num = '{{ num }}';
-				url = "/getJson/" + ip + "/" + type + "/" + num;
+
+			function getData() {
+				var ip = '{{ ip }}';
+				var num = '{{ num }}';
+				var url = "/getJson/" + ip + "/l/" + num;
 				$.ajax({
 					url: url,
 					type: "get",
 					success: function(response) {
-						$("#data-" + type).html(response);
+						var data = response.split(" ");
+						$("#data-n").html(data[0]);
+						$("#data-u").html(data[1]);
+						getData();
 					},
 					error: function(xhr) {
 						alert("error");
+						getData();
 					}
 				});
-			});
+			}
+
+			getData();
 		});
 	</script>
 </html>
