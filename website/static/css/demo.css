@@ -1,5 +1,5 @@
 body {
-	background: #00B300;
+	background-color: #1D3B6F;
 	color: #000000;
 	text-align: center;
 	width: 100%;
@@ -23,4 +23,16 @@ table{
 	background-color: #FFFFFF;
 	border-radius: 5px;
 	margin-right: 20px;
+}
+
+a{
+	background-color: #00B300;
+	text-decoration:none !important;
+	color: #660033;
+	padding: 25px;
+	border-radius: 10px;
+}
+
+a:hover{
+background-color: #008000;
 }
