@@ -6,16 +6,33 @@ import datetime
 # 10.0.192.229 missing th
 
 ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227"]]
+Settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
+MIN_MOIST = Settings["min_moist"]
+MIN_TEMP = Settings["min_temp"]
+MIN_HUMI = Settings["min_humi"]
+MIN_LIGHT = Settings["min_light"]
+MIN_UV = Settings["min_UV"]
+MAX_TEMP = Settings["max_temp"]
+MAX_HUMI = Settings["max_humi"]
+MAX_LIGHT = Settings["max_light"]
+MAX_UV = Settings["max_UV"]
+interval_alarm = Settings["alarm_system"] * 60
+interval_data = Settings["data_collection"] * 60
 
 def get(ip, kind):
     url = "http://" + ip
     got_data = False
+    count = 0;
     while (got_data == False):
         try:
             res = urlopen(url)
             got_data = True
         except URLError as e:
             got_data = False
+            count += 1
+            if (count == 10):
+                return -1
+
             
     data_dict = json.loads(res.read().decode('utf-8'))
 

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 import os
+import signal
 import json
 import urllib.request
 import sqlite3
@@ -9,6 +10,8 @@ import matplotlib.dates as dts
 import numpy as np
 import pymysql
 import datetime
+import sys
+from subprocess import check_output
 
 app = Flask(__name__)
 
@@ -32,7 +35,7 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 @app.route('/getJson/<ip>/<kind>/<num>')
-def getJson(ip, kind, num):
+def getData(ip, kind, num):
     '''
     getJson route
 
@@ -87,12 +90,35 @@ def index():
 def demo(date):
     return render_template('demo_start.html', date = date)
 
+def get_pid(name):
+    return int(check_output(["pgrep","-f",name]))
+
+@app.route('/modify_settings/<new_json>')
+def modify(new_json):
+    print(new_json)
+    new_settings = json.loads(new_json)
+    print(new_settings)
+    with open("/home/pi/project_green/Software/Python/Settings.json", "w") as jsonFile:
+        json.dump(new_settings, jsonFile)
+        pid_data = get_pid("execDataCollect")
+        pid_alarm = get_pid("execAlarmSystem")
+        
+        os.kill(pid_data, signal.SIGKILL)
+        os.kill(pid_alarm, signal.SIGKILL)
+        
+        os.system("/home/pi/project_green/Software/Python/execAlarmSystem.py")
+        #os.system("/home/pi/project_green/Software/Python/execDataCollectionSystem.py")
+        
+        return "0"
+
 @app.route('/configure')
 def config():
-    return render_template('config_page.html')
+    settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
+    str_settings = json.dumps(settings)
+    return render_template('config_page.html', settings = str_settings)
 
 '''
-    moisture sensor page
+   moisture sensor page
     recieves id and ip address as parameters, which are sent to html template
 '''
 @app.route('/demo/moisture/<num>/<address>/<date>')

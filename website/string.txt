@@ -1,0 +1,1 @@
+{"min_moist": 50, "min_UV": 0.1, "alarm_system": 30, "max_humi": 90, "min_temp": 40, "min_light": 100, "data_collection": 15, "min_humi": 20, "max_UV": 7, "max_light": 300, "max_temp": 95}

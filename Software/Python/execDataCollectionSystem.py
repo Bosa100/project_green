@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import sys
+sys.path.insert(0, "/home/pi/project_green/Software/Python")
 from getJson import *
 import sqlite3
 import time

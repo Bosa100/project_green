@@ -14,9 +14,11 @@ def getData():
         elif i == 2:
             type = "l"
         for j in range(len(ips[i])):
-            levels[i][j] = get(ips[i][j], type)
             print(ips[i][j])
-            checkLevel(levels[i][j], type, j)
+            result = get(ips[i][j], type)
+            if (result != -1):
+                levels[i][j] = result
+                checkLevel(levels[i][j], type, j)
 
 def checkLevel(data, which, j):
     if which == 'm':
@@ -110,11 +112,11 @@ if __name__ == '__main__':
     warnings = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]]
     levels = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]]
     
-    '''
+    
     while(True):
         getData()
         createMessage()
         time.sleep(interval_alarm)
-    '''
-    warnings = [[-1, -1, 0, -1, -1],[[0,-1],[-1,-1]],[[-1,-1],[-1,-1],[0,0],[-1,-1]]]
-    createMessage()
+   
+    #warnings = [[-1, -1, 0, -1, -1],[[0,-1],[-1,-1]],[[-1,-1],[-1,-1],[0,0],[-1,-1]]]
+    #createMessage()

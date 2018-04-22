@@ -10,7 +10,75 @@
 </head>
 <body>
 <div class="mainDiv">
-	
+	<div id="settings">
+		<div id="min_levels">
+			<h2>Minimum Levels</h2>
+			<label>Minimum Moisture: </label><input type="text" id="min_m">
+			<label>Minimum Temperature: </label><input type="text" id="min_t">
+			<label>Minimum Humidity: </label><input type="text" id="min_h">
+			<label>Minimum Light Intensty: </label><input type="text" id="min_l">
+			<label>Minimum UV Index: </label><input type="text" id="min_u">
+		</div>
+		<div id="max_levels">
+			<h2>Maximum Levels</h2>
+			<label>Maximum Temperature: </label><input type="text" id="max_t">
+			<label>Maximum Humidity: </label><input type="text" id="max_h">
+			<label>Maximum Light Intensity: </label><input type="text" id="max_l">
+			<label>Maximum UV Index: </label><input type="text" id="max_u">
+		</div>
+		<div id="time_intervals">
+			<label>Data Collection Time Interval (Minutes): </label><input type="text" id="intvl_d">
+			<label>Alarm System Time Interval (Minutes): </label><input type="text" id="intvl_a">
+		</div>
+	<button id="send_json"> Change Settings </button>
+	</div>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">	
+	$(function() {
+		
+		var minM, minT, minH, minL, minU, maxT, maxH, maxL, maxU, intervalC, intervalA;
+		$('#send_json').bind('click', sendJson);
+		
+		function sendJson() {
+			minM = $('#min_m').val();
+			minT = $('#min_t').val();
+			minH = $('#min_h').val();
+			minL = $('#min_l').val();
+			minU = $('#min_u').val();
+			maxT = $('#max_t').val();
+			maxH = $('#max_h').val();
+			maxL = $('#max_l').val();
+			maxU = $('#max_u').val();
+			intervalC = $('#intvl_d').val();
+			intervalA = $('#intvl_a').val();
+			jsonString = '{' 
+				+ '"data_collection":' + intervalC 
+				+ ',"alarm_system":' + intervalA 
+				+ ',"min_moist":' + minM 
+				+ ',"min_temp" :' + minT 
+				+ ',"min_humi" :' + minH 
+				+ ',"min_light" :' + minL 
+				+ ',"min_UV" :' + minU 
+				+ ',"max_temp" :' + maxT 
+				+ ',"max_humi" :' + maxH
+				+ ',"max_light" :' + maxL
+				+ ',"max_UV" :' + maxU
+				+ '}'
+			alert(jsonString)
+
+			$.ajax({
+				url: "/modify_settings/" + jsonString,
+				type: "get",
+				success: function(response) {
+					
+				},
+				error: function(xhr) {
+					
+				}
+			});
+		} 	
+	});
+</script>
 </html>
