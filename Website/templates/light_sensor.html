@@ -79,6 +79,7 @@
 			var today = '{{ date }}';
 			var start;
 			var end;
+			var count = 0;
 
 			$('.generate').bind('click', function(){
 				var id = this.id;
@@ -112,11 +113,17 @@
 						var data = response.split(" ");
 						$("#data-n").html(data[0]);
 						$("#data-u").html(data[1]);
+						count = 0;
 						getData();
 					},
 					error: function(xhr) {
-						alert("Error. Trying again.");
-						getData();
+						count++;
+						if (count <= 5)	{
+							alert("Error fetching data from server. Trying again.");
+							getData();
+						} else {
+							alert("
+						}
 					}
 				});
 			}
