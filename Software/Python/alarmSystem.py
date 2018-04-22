@@ -14,13 +14,14 @@ def getData():
         elif i == 2:
             type = "l"
         for j in range(len(ips[i])):
-            levels[i][j] = get(ips[i][j], type)
-            print(ips[i][j])
-            checkLevel(levels[i][j], type, j)
+            result = get(ips[i][j], type)
+            if (result != -1):
+                levels[i][j] = result
+                checkLevel(levels[i][j], type, j)
 
 def checkLevel(data, which, j):
     if which == 'm':
-        if data < MIN_MOIST:
+        if data > MIN_MOIST:
             warnings[0][j] = -1
     elif which == 'th':
         for i in range(len(data)):
@@ -63,20 +64,22 @@ def createMessage():
                     level = "low"
                     num = j + 1
                     val = levels[i][j]
-                    message += "%s level dangerously %s at sensor #%d ( %d ).\n" % (kind, level, num, val)
+                    message += "%s level dangerously %s at sensor #%d ( %.2f ).\n" % (kind, level, num, float(val))
             else:
                 for k in range(len(warnings[i][j])):
                     state = warnings[i][j][k]
                     if state != 0:
+                        
                         if state == -1:
                             level = "low"
                         elif state == -2:
                             level = "high"
+                            
                         if i == 1:
                             num = 6 + j
                             if k == 0:
                                 kind = "Temperature"
-                                val = levels[i][j][k]
+                                val = levels[i][j][k][1]
                             elif k == 1:
                                 kind = "Humidity"
                                 val = levels[i][j][k]
@@ -87,13 +90,14 @@ def createMessage():
                             elif k == 1:
                                 kind = "UV light"
                             val = levels[i][j][k]
-                        message += "%s level dangerously %s at sensor #%d ( %d ).\n" % (kind, level, num, val)
+                        message += "%s level dangerously %s at sensor #%d ( %.2f ).\n" % (kind, level, num, float(val))
     if message:
-        print(message)
-        # sendAlerts(header + message)
+        print(header + message)
+        sendAlerts(header + message)
+    else:
+        print("No message created")
 
 def sendAlerts(text):
-    print("sending")
     mail = smtplib.SMTP('smtp.gmail.com', 587)
     mail.ehlo()
     mail.starttls()
@@ -107,14 +111,25 @@ def sendAlerts(text):
     message = client.api.account.messages.create(to="+16307475480",from_="+17738325163",body=text)
 
 if __name__ == '__main__':
-    warnings = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]]
-    levels = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]]
+    warnings = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
+    levels = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
     
     '''
     while(True):
         getData()
         createMessage()
         time.sleep(interval_alarm)
-    '''
-    warnings = [[-1, -1, 0, -1, -1],[[0,-1],[-1,-1]],[[-1,-1],[-1,-1],[0,0],[-1,-1]]]
+   '''
+    print("Demo")
+    print("------------------------")
+    getData()
+    print("---Calling getData()")
+    print("\nIp's Array")
+    print(ips)
+    print("\nLevels Array")
+    print(levels)
+    print("\nWarnings Array")
+    print(warnings)
+    print("\nCreating Alert Message")
+    print("------------------------")
     createMessage()

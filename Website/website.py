@@ -55,7 +55,6 @@ def getData(ip, kind, num):
         res = urllib.request.urlopen(url)
         data_dict = json.loads(res.read().decode('utf-8'))
         for key in data_dict:
-            print(data_dict[key] != "nan")
             if data_dict[key] != "nan":
                 got_data = True
             
@@ -95,9 +94,7 @@ def get_pid(name):
 
 @app.route('/modify_settings/<new_json>')
 def modify(new_json):
-    print(new_json)
     new_settings = json.loads(new_json)
-    print(new_settings)
     with open("/home/pi/project_green/Software/Python/Settings.json", "w") as jsonFile:
         json.dump(new_settings, jsonFile)
         pid_data = get_pid("execDataCollect")
@@ -106,7 +103,7 @@ def modify(new_json):
         os.kill(pid_data, signal.SIGKILL)
         os.kill(pid_alarm, signal.SIGKILL)
         
-        os.system("/home/pi/project_green/Software/Python/execAlarmSystem.py")
+        #os.system("/home/pi/project_green/Software/Python/execAlarmSystem.py")
         #os.system("/home/pi/project_green/Software/Python/execDataCollectionSystem.py")
         
         return "0"
@@ -148,7 +145,6 @@ def make_graph(which, num, start, end):
          not rendered as full page, but used with AJAX in order to update page
          dynamically
     '''
-    print(which)
     start = start.replace('T', ' ')
     end = end.replace('T', ' ')
     start = datetime.datetime.strptime(start, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")

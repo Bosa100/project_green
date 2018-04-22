@@ -5,20 +5,6 @@ import datetime
 # missing one temperature and one sunlight
 # 10.0.192.229 missing th
 
-ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227"]]
-Settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
-MIN_MOIST = Settings["min_moist"]
-MIN_TEMP = Settings["min_temp"]
-MIN_HUMI = Settings["min_humi"]
-MIN_LIGHT = Settings["min_light"]
-MIN_UV = Settings["min_UV"]
-MAX_TEMP = Settings["max_temp"]
-MAX_HUMI = Settings["max_humi"]
-MAX_LIGHT = Settings["max_light"]
-MAX_UV = Settings["max_UV"]
-interval_alarm = Settings["alarm_system"] * 60
-interval_data = Settings["data_collection"] * 60
-
 def get(ip, kind):
     url = "http://" + ip
     got_data = False
@@ -75,3 +61,17 @@ def send(num, ip, kind, db, c):
         values = (num, data[1], date)
         c.execute(sql, values)
         db.commit()
+
+ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227", "10.0.192.230"]]
+Settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
+MIN_MOIST = float(Settings["min_moist"])
+MIN_TEMP = float(Settings["min_temp"])
+MIN_HUMI = float(Settings["min_humi"])
+MIN_LIGHT = float(Settings["min_light"])
+MIN_UV = float(Settings["min_UV"])
+MAX_TEMP = float(Settings["max_temp"])
+MAX_HUMI = float(Settings["max_humi"])
+MAX_LIGHT = float(Settings["max_light"])
+MAX_UV = float(Settings["max_UV"])
+interval_alarm = float(Settings["alarm_system"] * 60)
+interval_data = float(Settings["data_collection"] * 60)
