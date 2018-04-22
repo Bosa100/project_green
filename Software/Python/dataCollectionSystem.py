@@ -9,16 +9,17 @@ while(True):
         for i in range(len(ips)):
                 if i == 0:
                         type = 'm'
+                        id = 1
                 elif i == 1:
                         type = 'th'
+                        id = 6
                 elif i == 2:
                         type = 'l'
+                        id = 8
                 for j in range(len(ips[i])):
-                        print(ips[i][j])
-                        print(i)
-                        print(j)
-                        send(j + 1, ips[i][j], type, db, c)
-        time.sleep(30)
+                        
+                        send(id + j, ips[i][j], type, db, c)
+        time.sleep(15)
 
 
 

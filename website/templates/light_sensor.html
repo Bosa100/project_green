@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="mainDiv">
-<h1>Light Sensor</h1>
+<h1>Sensors #{{ num }} - Light Intensity</h1>
 
 <table>
 	<tr>
@@ -21,16 +21,16 @@
 	<tr>
 		<td class="td1">
 			<div class="change-pos"> 
-				<h3>Starting Scale Value</h3>
-				<input id="n-start" type="text" name="start" value="0">
+				<h3>Start Date</h3>
+				<input id="n-start" type="datetime-local" name="start-vn" class="start-date">
 			</div>
 			<div class="change-pos"> 
-				<h3>Ending Scale Value</h3>
-				<input id="n-end" type="text" name="end" value="10">
+				<h3>End Date</h3>
+				<input id="n-end" type="datetime-local" name="start-vn" class="end-date">
 			</div>
 			<div>
 				</br>
-				<button class="get_data" id="n">Get Current Light Intensity</button>
+				<h3>Current Light Intensity Level</h3>
 				<div class="data" id="data-n"></div>
 			</div>
 		</td>
@@ -42,22 +42,22 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<h2>UV Measurment</h2>
+			<h2>UV Measurement</h2>
 		</td>
 	</tr>
 	<tr>
 		<td class="td1">
 			<div> 
 				<h3>Start Date</h3>
-				<input id="u-start" type="date" name="start" value="">
+				<input id="u-start" type="datetime-local" name="start-vu" class="start-date">
 			</div>
 			<div> 
 				<h3>End Date</h3>
-				<input id="u-end" type="date" name="end" value="">
+				<input id="u-end" type="datetime-local" name="end-vu" class="end-date">
 			</div>
 			<div>
 				</br>
-				<button class="get_data" id="u">Get Current UV Light</button>
+				<h3>Current UV Index Level</h3>
 				<div class="data" id="data-u"></div>
 			</div>
 		</td>
@@ -74,16 +74,22 @@
 		$(function() {
 			var type;
 			var url;
-			var num;
-			var ip;
+			var num = '{{ num }}';
+			var ip = '{{ ip }}';
+			var today = '{{ date }}';
 			var start;
 			var end;
-			
-			$('.generate').bind('click', function() {
-				type = this.id;
+
+			$('.generate').bind('click', function(){
+				var id = this.id;
+				getGraph(id);
+			});
+
+			function getGraph(type) {
 				start = $("#" + type + "-start").val();
 				end = $("#" + type + "-end").val();
-				url = "/make_graph/" + type + "/" + start + "/" + end;
+				alert(num);
+				url = "/make_graph/" + type + "/" + num + "/" + start + "/" + end;
 
 				$.ajax({
 					url: url,
@@ -95,13 +101,9 @@
 						alert("error");
 					}
 				});
-				
-			});
+			}
 			
-
 			function getData() {
-				var ip = '{{ ip }}';
-				var num = '{{ num }}';
 				var url = "/getJson/" + ip + "/l/" + num;
 				$.ajax({
 					url: url,
@@ -118,8 +120,13 @@
 					}
 				});
 			}
-
+			
 			getData();
+
+			$('.start-date').val(today + "00:00");
+			$('.end-date').val(today + "23:59");
+			getGraph("u");
+			getGraph("n");
 		});
 	</script>
 </html>

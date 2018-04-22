@@ -38,14 +38,33 @@
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript">
-	        $(function() {
-		
+	          $(function() {
+			
 		  var ip = '{{ ip }}';
 		  var num = '{{ num }}';
 		  var url; 
+		
+		function getData() {
+			url = "/getJson/" + ip + "/m/" + num;
+			alert();
+	           	$.ajax({
+			      url: url,
+			      type: "get",
+			      success: function(response) {
+			        $("#data").html(response);
+				getData();
+			      },
+			      error: function(xhr) {
+			        alert(url);
+			      }
+    			});
+		}
+
 	          $('#generate').bind('click', function() {
 		     start = $('#start').val();
 		     end = $('#end').val();
+	             alert(start);
+		     alert(end);
 	             $.ajax({
 			      url: "/make_graph/m/" + start + "/" + end,
 			      type: "get",
@@ -58,19 +77,8 @@
     			});
 	          });
 		
-		    $('#get_data').bind('click', function() {
-		     url = "/getJson/" + ip + "/m/" + num;
-	             $.ajax({
-			      url: url,
-			      type: "get",
-			      success: function(response) {
-			        $("#data").html(response);
-			      },
-			      error: function(xhr) {
-			        alert(url);
-			      }
-    			});
-	          });
+		  getData();
+		
 			
         });
 	</script>

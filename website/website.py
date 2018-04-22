@@ -51,11 +51,10 @@ def getJson(ip, kind, num):
     while got_data == False:
         res = urllib.request.urlopen(url)
         data_dict = json.loads(res.read().decode('utf-8'))
-        
         for key in data_dict:
-            print(key[0])
-            if key[0] != "nan":
-                got_data == True
+            print(data_dict[key] != "nan")
+            if data_dict[key] != "nan":
+                got_data = True
             
     # current date-time
     date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
@@ -65,23 +64,28 @@ def getJson(ip, kind, num):
 
 
     if kind == 'th':
-        data = str(data_dict["temperature"][0]) + " " + str(data_dict["humidity"][0])
+        temp_C = data_dict["temperature"][0]
+        temp_F = 9.0/5.0 * temp_C + 32 
+        data = str(temp_C) + " " + str(temp_F) + " " + str(data_dict["humidity"][0])
     elif kind == 'l':
         data = str(data_dict["visible_light"][0]) + " " + str(data_dict["UV_light"][0])
     elif kind == 'm':
         data = data_dict["moisture"][0]
+    else:
+        data = ""
 
     return str(data)
 
 # intro page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    today = datetime.datetime.now().strftime("%Y-%m-%dT")
+    return render_template('index.html', today = today)
 
 # demo start page
-@app.route('/demo')
-def demo():
-    return render_template('demo_start.html')
+@app.route('/demo/<date>')
+def demo(date):
+    return render_template('demo_start.html', date = date)
 
 @app.route('/configure')
 def config():
@@ -91,62 +95,60 @@ def config():
     moisture sensor page
     recieves id and ip address as parameters, which are sent to html template
 '''
-@app.route('/demo/moisture/<num>/<address>')
-def moisture(num, address):
-    return render_template('moisture.html', ip = address, num = num)
+@app.route('/demo/moisture/<num>/<address>/<date>')
+def moisture(num, address, date):
+    return render_template('moisture.html', ip = address, num = num, date = date)
 
 '''
     temp/humi page
     recieves id and ip address as parameters, which are sent to html template
 ''' 
-@app.route('/demo/temp-humi/<address>/<num>')
-def th_sensor(address, num):
-    return render_template('th_sensor.html', ip = address, num = num)
+@app.route('/demo/temp-humi/<address>/<num>/<date>')
+def th_sensor(address, num, date):
+    return render_template('th_sensor.html', ip = address, num = num, date = date)
 
 '''
     light page
     recieves id and ip address as parameters, which are sent to html template
 ''' 
-@app.route('/demo/light/<address>/<num>')
-def light(num, address):
-    return render_template('light_sensor.html', ip = address, num = num)
+@app.route('/demo/light/<address>/<num>/<date>')
+def light(num, address, date):
+    return render_template('light_sensor.html', ip = address, num = num, date = date)
 
-@app.route('/make_graph/<which>/<start>/<end>')
-def make_graph(which, start, end):
+@app.route('/make_graph/<which>/<num>/<start>/<end>')
+def make_graph(which, num, start, end):
     '''
        make_graph route
          not rendered as full page, but used with AJAX in order to update page
          dynamically
     '''
+    print(which)
     start = start.replace('T', ' ')
     end = end.replace('T', ' ')
-
     start = datetime.datetime.strptime(start, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
     end = datetime.datetime.strptime(end, "%Y-%m-%d %H:%M").strftime("%m-%d-%y %H:%M:%S")
-    
     # uses which in order to create custom select sql query, as well as plot labels
     if which == 't':
         name = "Temperature Data"
         ylabel = "Temperature"
-        sql = "SELECT Celsius, Date FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT Celsius, Date FROM Temperature WHERE Date BETWEEN '" + start + "' AND '" + end + "' AND ID = " +  num
     elif which == 'h':
         name = "Humidity Data"
         ylabel = "Humidity"
-        sql = "SELECT Humidity, Date FROM Humidity WHERE rowid BETWEEN " + start + " AND " + end 
+        sql = "SELECT Humidity, Date FROM Humidity WHERE Date BETWEEN '" + start + "' AND '" + end + "' AND ID = " + num 
     elif which == 'm':
         name = "Moisture Data"
         ylabel = "Moisture"
-        sql = "SELECT Moisture, Date FROM Moisture WHERE Date BETWEEN '" + start + "' AND '" + end + "'"
+        sql = "SELECT Moisture, Date FROM Moisture WHERE Date BETWEEN '" + start + "' AND '" + end + "' AND ID = " +  num 
     elif which == 'n':
         name = "Light Intensity Data"
         ylabel = "Light Intensity"
-        sql = "SELECT Light, Date FROM Light WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT Light, Date FROM Light WHERE Date BETWEEN '" + start + "' AND '" + end + "' AND ID = " +  num 
     else:
         name = "UV Index"
         ylabel = "UV Index"
-        sql = "SELECT UVIndex, Date FROM UV WHERE rowid BETWEEN " + start + " AND " + end
+        sql = "SELECT UVIndex, Date FROM UV WHERE Date BETWEEN '" + start + "' AND '" + end + "' AND ID = " +  num 
 
-    print(sql)
     db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
     c = db.cursor()
         
@@ -157,13 +159,9 @@ def make_graph(which, start, end):
     db.close()
 
     data,str_dates = zip(*rows)
-    print(rows)
     dates = [datetime.datetime.strptime(date, "%m-%d-%y %H:%M:%S") for date in str_dates]
 
     mat_dates = dts.date2num(dates)
-
-    for date in dates:
-        print(date)
 
     fig, ax = plt.subplots()
 
@@ -192,7 +190,7 @@ def make_table(which, start, end):
 	if which == 't':
 		name = "Temperature Data"
 		ylabel = "Temperature"
-		sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end
+		sql = "SELECT Celsius FROM Temperature WHERE rowid BETWEEN " + start + " AND " + end 
 	elif which == 'h':
 		name = "Humidity Data"
 		ylabel = "Humidity"

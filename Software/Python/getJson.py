@@ -3,10 +3,9 @@ from urllib.request import urlopen
 from urllib.error import URLError
 import datetime
 # missing one temperature and one sunlight
-# 10.0.192.226 missing light
 # 10.0.192.229 missing th
 
-ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.230", "10.0.192.227"]]
+ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227"]]
 
 def get(ip, kind):
     url = "http://" + ip
@@ -22,7 +21,9 @@ def get(ip, kind):
 
     #gets data
     if kind == 'th':
-        data = [data_dict["temperature"][0], data_dict["humidity"][0]]        
+        temp_C = data_dict["temperature"][0]
+        temp_F = 9.0/5.0 * temp_C + 32
+        data = [[temp_C, temp_F], data_dict["humidity"][0]]        
     elif kind == 'm':
         data = data_dict["moisture"][0]
     elif kind == 'l':
@@ -39,9 +40,9 @@ def send(num, ip, kind, db, c):
         c.execute(sql, values)
         db.commit()
     elif kind == 'th':
-        data_f = 9.0/5.0 * data[0] + 32
+
         sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
-        values = (num, data[0], data_f, date)
+        values = (num, data[0][1], data[0][0], date)
         c.execute(sql, values)
         db.commit()
         sql = "INSERT INTO Humidity (ID, Humidity, DATE) VALUES (?, ?, ?)"

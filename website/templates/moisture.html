@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="mainDiv">
-<h1>Moisture Sensor #{{ num }}</h1>
+<h1>Sensor #{{ num }} - Moisture</h1>
 <table>
 	<tr>
 		<td class="td1">
@@ -24,7 +24,7 @@
 			</div>
 			<div id="data-sect">
 				<br/>
-				<button id="get_data">Get Current Moisture</button>
+				<h3>Current Moisture Level</h3>
 				<div id="data"></div>	
 			</div>	
 		</td>
@@ -43,6 +43,7 @@
 		  var ip = '{{ ip }}';
 		  var num = '{{ num }}';
 		  var url; 
+		var today = '{{ date }}';
 		
 		function getData() {
 			url = "/getJson/" + ip + "/m/" + num;
@@ -55,29 +56,32 @@
 			      },
 			      error: function(xhr) {
 			        alert(url);
+				getData();
 			      }
     			});
 		}
-
-	          $('#generate').bind('click', function() {
-		     start = $('#start').val();
+		
+		function getGraph() {
+			start = $('#start').val();
 		     end = $('#end').val();
-	             alert(start);
-		     alert(end);
 	             $.ajax({
-			      url: "/make_graph/m/" + start + "/" + end,
+			      url: "/make_graph/m/" + num + "/" + start + "/" + end,
 			      type: "get",
 			      success: function(response) {
 			        $("#graph").html(response);
 			      },
 			      error: function(xhr) {
 			        alert("error");
-				getData();
 			      }
     			});
-	          });
+		}
+	          
+		$('#generate').bind('click', getGraph);
 		
-		  getData();
+		$('#start').val(today + "00:00");
+		$('#end').val(today + "23:59");
+		getData();
+		getGraph();
 		
 			
         });
