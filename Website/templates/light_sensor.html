@@ -79,7 +79,6 @@
 			var today = '{{ date }}';
 			var start;
 			var end;
-			var count = 0;
 
 			$('.generate').bind('click', function(){
 				var id = this.id;
@@ -99,13 +98,14 @@
 						$("#graph-" + type).html(response);
 					},
 					error: function(xhr) {
-						alert("Error! Could not create graph");
+						alert("Error! Could not create graph. Might not be any data in specified date range.");
 					}
 				});
 			}
 			
 			function getData() {
 				var url = "/getJson/" + ip + "/l/" + num;
+				var count = 0;
 				$.ajax({
 					url: url,
 					type: "get",
@@ -122,7 +122,7 @@
 							alert("Error fetching data from server. Trying again.");
 							getData();
 						} else {
-							alert("
+							alert("Error with server. Ending real time data fetching.");
 						}
 					}
 				});

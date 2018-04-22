@@ -43,20 +43,27 @@
 		  var ip = '{{ ip }}';
 		  var num = '{{ num }}';
 		  var url; 
-		var today = '{{ date }}';
+		  var today = '{{ date }}';
 		
 		function getData() {
+			var count = 0;
 			url = "/getJson/" + ip + "/m/" + num;
 	           	$.ajax({
 			      url: url,
 			      type: "get",
 			      success: function(response) {
 			        $("#data").html(response);
+				count = 0;
 				getData();
 			      },
 			      error: function(xhr) {
-			        alert(url);
-				getData();
+			        count++;
+				if (count <= 5)	{
+					alert("Error fetching data from server. Trying again.");
+					getData();
+				} else {
+					alert("Error with server. Ending real time data fetching.");
+				}
 			      }
     			});
 		}
@@ -71,7 +78,7 @@
 			        $("#graph").html(response);
 			      },
 			      error: function(xhr) {
-			        alert("error");
+			        alert("Error! Could not create graph. Might not be any data in specified date range.");
 			      }
     			});
 		}
