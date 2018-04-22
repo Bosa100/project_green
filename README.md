@@ -34,13 +34,13 @@ Guide](https://medium.com/oracledevs/monitoring-sensor-data-in-jet-mobile-app-ov
 * Libraries used for all sensors
   * [ArduinoJson](https://github.com/bblanchon/ArduinoJson/releases)
   * [ESP8266WiFi.h](https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFi.h) 
-  * [DHT11 Connection Guide](http://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/)
-    * [DHT.h Library](https://github.com/esp8266/Basic/blob/master/libraries/DHT_sensor_library/DHT.h)
-    * [Adafruit Sensor Library](https://github.com/adafruit/Adafruit_Sensor)
-  * [YL69 Connection Guide](https://www.youtube.com/watch?v=9TD6mOyowcg)
-  * [SI1145 Connection Guide](http://www.techparva.com/index.php/2017/08/31/bh1750-light-sensor-nodemcu-micropython/)
-    * [Adafruit SI1145 Library](https://github.com/adafruit/Adafruit_SI1145_Library)
-    * [Wire.h](https://github.com/esp8266/Arduino/blob/master/libraries/Wire/Wire.h)
+* [DHT11 Connection Guide](http://www.instructables.com/id/Interface-DHT11-Humidity-Sensor-Using-NodeMCU/)
+  * [DHT.h Library](https://github.com/esp8266/Basic/blob/master/libraries/DHT_sensor_library/DHT.h)
+  * [Adafruit Sensor Library](https://github.com/adafruit/Adafruit_Sensor)
+* [YL69 Connection Guide](https://www.youtube.com/watch?v=9TD6mOyowcg)
+* [SI1145 Connection Guide](http://www.techparva.com/index.php/2017/08/31/bh1750-light-sensor-nodemcu-micropython/)
+  * [Adafruit SI1145 Library](https://github.com/adafruit/Adafruit_SI1145_Library)
+  * [Wire.h](https://github.com/esp8266/Arduino/blob/master/libraries/Wire/Wire.h)
 * Arduino IDE
   * [Arduino](https://www.arduino.cc/en/Main/Software)
 ## Website Software
