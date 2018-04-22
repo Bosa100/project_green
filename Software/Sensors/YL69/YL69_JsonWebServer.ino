@@ -3,25 +3,24 @@
 // Created by Benoit Blanchon.
 // Heavily inspired by "Web Server" from David A. Mellis and Tom Igoe
 
-
+// Library imports
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
-#include <Wire.h>
-#include <Adafruit_SI1145.h>
 
-Adafruit_SI1145 uv = Adafruit_SI1145();
-
- //needed to avoid link error on ram check
+// needed to avoid link error on ram check
 extern "C" 
 {
 #include "user_interface.h"
 }
 
+// Initialize variables
 WiFiServer server(80);
 WiFiClient client;
 const char* ssid = "Restricted Wireless";
 const char* password = "B=SP7e&aNK";
-  
+double analogValue, chartValue;
+
+// Method that checks for request from client
 bool readRequest(WiFiClient& client) {
   bool currentLineIsBlank = true;
   while (client.connected()) {
@@ -39,21 +38,15 @@ bool readRequest(WiFiClient& client) {
   return false;
 }
 
-uint16_t visible_light;
-uint16_t uv_light;
-float uv_index;
-
+// Prepares response / Uses the data read from sensors and formulates JsonObject to be written
 JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
   JsonObject& root = jsonBuffer.createObject();
-  JsonArray& visibleValues = root.createNestedArray("visible_light");
-    visibleValues.add(visible_light);
-  JsonArray& irValues = root.createNestedArray("IR_light");
-    irValues.add(uv_light);
-  JsonArray& uvValues = root.createNestedArray("UV_light");
-    uvValues.add(uv_index);
+  JsonArray& moistureValues = root.createNestedArray("moisture");
+    moistureValues.add(chartValue);
   return root;
 }
 
+// Uses Json object passed to write response to client
 void writeResponse(WiFiClient& client, JsonObject& json) {
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: application/json");
@@ -63,31 +56,16 @@ void writeResponse(WiFiClient& client, JsonObject& json) {
   json.prettyPrintTo(client);
 }
 
-void readLight(){
-  float uv_index_original = uv.readUV();
-  uv_index = uv_index_original / 100.0;
-  visible_light = uv.readVisible();
-  uv_light = uv.readIR();
-
-  Serial.print("Visible Light: "); Serial.println(visible_light);
-  Serial.print("IR Light: "); Serial.println(uv_light);
-  Serial.print("UV Index: ");  Serial.println(uv_index);
-  
- delay(5000);
+// Method to update sensor data
+void readMoisture(){
+  analogValue = analogRead(0);
+  chartValue = (analogValue * 100) / 1024;
 }
 
+// Initial setup of board
 void setup() {
   Serial.begin(115200);
   delay(2000);
-
-  
-  if (!uv.begin()) {
-    Serial.println("Didn't find Si1145");
-    while (1);
-  }
-  else {
-    Serial.println("Si1145 ready.");
-  }
   
   // inital connect
   WiFi.mode(WIFI_STA);
@@ -96,8 +74,11 @@ void setup() {
   // Connect to WiFi network
   Serial.print("Connecting to ");
   Serial.println(ssid);
-  
+
+  //Begin connection to wifi
   WiFi.begin(ssid,password);  
+
+  // While board not connected to wifi: delay until successful connection
   while (WiFi.status() != WL_CONNECTED) 
   {
     delay(500);
@@ -111,28 +92,41 @@ void setup() {
   
   // Print the IP address
   Serial.println(WiFi.localIP());
+  //Serial.println(WiFi.macAddress());    // Used for testing
 }
 
+// To loop while board is connected:
 void loop() {
+  // Set client whenver server connection is available
   WiFiClient client = server.available();
+
+  //If successful connection to client:
   if (client) {
+    //Read request from client
     bool success = readRequest(client);
-    
+
+    //If successful request:
     if (success) {
       delay(1000);
-      readLight();
+
+      // Call method to read data from sensor
+      readMoisture();
+
+      // Give the sensor time to read data
       delay(500);
 
+      // Initialize Json buffer
       StaticJsonBuffer<500> jsonBuffer;
+
+      // Prepare response generated
       JsonObject& json = prepareResponse(jsonBuffer);
+
+      // Write response to client
       writeResponse(client, json);
     }
+
+    // Give the program time to write response and disconnect from client
     delay(1);
     client.stop();
   }
-delay(5000);
 }
-
-
-
-
