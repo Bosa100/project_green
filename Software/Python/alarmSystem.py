@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import sys
+sys.path.insert(0, '/home/pi/project_green/Software/Python/')
 import time
 from getJson import *
 import json
@@ -93,7 +95,7 @@ def createMessage():
                         message += "%s level dangerously %s at sensor #%d ( %.2f ).\n" % (kind, level, num, float(val))
     if message:
         print(header + message)
-        sendAlerts(header + message)
+        #sendAlerts(header + message)
     else:
         print("No message created")
 
@@ -114,12 +116,13 @@ if __name__ == '__main__':
     warnings = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
     levels = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
     
-    '''
+    print(interval_alarm)
     while(True):
         getData()
         createMessage()
         time.sleep(interval_alarm)
-   '''
+   
+    '''
     print("Demo")
     print("------------------------")
     getData()
@@ -133,3 +136,4 @@ if __name__ == '__main__':
     print("\nCreating Alert Message")
     print("------------------------")
     createMessage()
+    '''

@@ -1,11 +1,14 @@
 
 
 body{
-	background-color: #1D3B6F;
-	color: #000000;
+        background: url(http://www.greenhouseproductions.com/wp-content/uploads/2016/01/Greenhouse-Background-16x9.jpg);
+	color: black;
 	text-align: center;
 }
 
+.green {
+    color: green;
+}
 img {
 	display: block;
 	margin: 0 auto;

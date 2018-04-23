@@ -9,7 +9,7 @@ import time
 if __name__ == '__main__':
         db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
         c = db.cursor()
-
+        print(interval_data)
         while(True):
                 for i in range(len(ips)):
                         if i == 0:
@@ -25,6 +25,8 @@ if __name__ == '__main__':
                                 send(id + j, ips[i][j], type, db, c)
                                 print(ips[i][j])
                 time.sleep(interval_data)
+
+        
 
 
 

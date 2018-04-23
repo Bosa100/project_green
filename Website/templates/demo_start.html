@@ -10,30 +10,30 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}" type="text/css" media="screen" charset="utf-8" />
 </head>
 <body>
-<div class="row-fluid">
-  <h1>Select A Sensor</h1>
-  <div class="row-fluid">
-    <div class="col-lg-12"><h2>Moisture Sensors</h2></div>
-    <div class="span2 offset1"><a href="{{ url_for('moisture', num=1, address='10.0.192.222', date=date) }}"><button>Sensor 1</button></a></div>
-    <div class="span2"><a href="{{ url_for('moisture', num=2, address='10.0.192.221', date=date) }}"><button>Sensor 2</button></a></div>
-    <div class="span2"><a href="{{ url_for('moisture', num=3, address='10.0.192.218', date=date) }}"><button>Sensor 3</button></a></div>
-    <div class="span2"><a href="{{ url_for('moisture', num=4, address='10.0.192.224', date=date) }}"><button>Sensor 4</button></a></div>
-    <div class="span2"><a href="{{ url_for('moisture', num=5, address='10.0.192.223', date=date) }}"><button>Sensor 5</button></a></div>
+ <div class="container">
+  <div class="row"><div class="col-md-12"><h1>Select a Sensor</h1></div></div>
+    <div class="row"><div class="col-md-12"><h2>Moisture</h2></div></div>
+    <div class="row">
+      <div class="col-md-6"><a href="{{ url_for('moisture', num=1, address='10.0.192.222', date=date) }}"><button type="button" class="btn">Sensor 1</button></a></div>
+      <div class="col-md-6"><a href="{{ url_for('moisture', num=2, address='10.0.192.221', date=date) }}"><button type="button" class="btn">Sensor 2</button></a></div>
+      <div class="col-md-6"><a href="{{ url_for('moisture', num=3, address='10.0.192.218', date=date) }}"><button type="button" class="btn">Sensor 3</button></a></div>
+      <div class="col-md-6"><a href="{{ url_for('moisture', num=4, address='10.0.192.224', date=date) }}"><button type="button" class="btn">Sensor 4</button></a></div>
+      <div class="col-md-6"><a href="{{ url_for('moisture', num=5, address='10.0.192.223', date=date) }}"><button type="button" class="btn">Sensor 5</button></a></div>
+    </div>
+  <div class="row"><div class="col-md-12"><h2>Temperature and Humidity</h2></div></div>
+  <div class="row">
+  <div class="col-md-6"><a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.225', first='t', second='h', date=date) }}"><button type="button" class="btn">Sensor 6</button></a></div>
+  <div class="col-md-6"><a href="{{ url_for('th_sensor', num=7, which='Temperature and Humidity', address='10.0.192.220', first='t', second='h', date=date) }}"><button type="button" class="btn">Sensor 7</button></a></div>
   </div>
-  <div class="row-fluid">
-  <div class="col-md-12"><h2>Temperature and Humidity Sensor</h2></div>
-  <div class="col-md-6"><a href="{{ url_for('th_sensor', num=6, which='Temperature and Humidity', address='10.0.192.225', first='t', second='h', date=date) }}"><button>Sensor 6</button></a></div>
-  <div class="col-md-6"><a href="{{ url_for('th_sensor', num=7, which='Temperature and Humidity', address='10.0.192.220', first='t', second='h', date=date) }}"><button>Sensor 7</button></a></div>
-  </div>
-  <div class="row-fluid">
-    <div class="col-md-12"><h2>Light Sensor</h2></div>
-    <div class="span2 offset1"><a href="{{ url_for('light', num=8, address='10.0.192.226', date=date) }}"><button>Sensor 8</button></a></div>
-    <div class="span2"><a href="{{ url_for('light', num=9, address='10.0.192.228', date=date) }}"><button>Sensor 9</button></a></div>
-    <div class="span2"><a href="{{ url_for('light', num=10, address='10.0.192.219', date=date) }}"><button>Sensor 10</button></a></div>
-    <div class="span2"><a href="{{ url_for('light', num=11, address='10.0.192.227', date=date) }}"><button>Sensor 11</button></a></div>
-    <div class="span2"><a href="{{ url_for('light', num=12, address='10.0.192.230', date=date) }}"><button>Sensor 12</button></a></div>
-   </div>
-</div>
+    <div class="row"><div class="col-md-12"><h2>Light and UV</h2></div></div>
+    <div class="row">
+    <div class="col-md-6"><a href="{{ url_for('light', num=8, address='10.0.192.226', date=date) }}"><button type="button" class="btn">Sensor 8</button></a></div>
+    <div class="col-md-6"><a href="{{ url_for('light', num=9, address='10.0.192.228', date=date) }}"><button type="button" class="btn">Sensor 9</button></a></div>
+    <div class="col-md-6"><a href="{{ url_for('light', num=10, address='10.0.192.219', date=date) }}"><button type="button" class="btn">Sensor 10</button></a></div>
+    <div class="col-md-6"><a href="{{ url_for('light', num=11, address='10.0.192.227', date=date) }}"><button type="button" class="btn">Sensor 11</button></a></div>
+    <div class="col-md-6"><a href="{{ url_for('light', num=12, address='10.0.192.230', date=date) }}"><button type="button" class="btn">Sensor 12</button></a></div>
+    </div>
+    </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>

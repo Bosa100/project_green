@@ -83,18 +83,25 @@
 			
 			function getData() {
 				var url = "/getJson/" + ip + "/th/" + num;
+				var count = 0;
 				$.ajax({
 					url: url,
 					type: "get",
 					success: function(response) {
 						var data = response.split(" ");
 						$("#data-t").html(data[0] + " &#8451; / " + data[1] + " &#8457");
-						$("#data-h").html(data[2]);
-						getData();	
+						$("#data-h").html(parseFloat(data[2]).toFixed(2) + " %");
+						getData();
+						count++;	
 					},
 					error: function(xhr) {
-						alert("error");
-						getData();
+						count++;
+						if (count <= 5)	{
+							alert("Error fetching data from server. Trying again.");
+							getData();
+						} else {
+							alert("Error with server. Ending real time data fetching.");
+						}
 					}
 				});
 			} 
@@ -115,8 +122,7 @@
 						}
 					},
 					error: function(xhr) {
-						alert(url);
-						alert("error");
+						alert("Error with server. Ending real time data fetching.");
 					}
 				});
 			}

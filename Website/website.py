@@ -11,7 +11,7 @@ import numpy as np
 import pymysql
 import datetime
 import sys
-from subprocess import check_output
+from subprocess import check_output, Popen
 
 app = Flask(__name__)
 
@@ -90,23 +90,30 @@ def demo(date):
     return render_template('demo_start.html', date = date)
 
 def get_pid(name):
-    return int(check_output(["pgrep","-f",name]))
+    return str(check_output(["pgrep","-f",name]))
 
 @app.route('/modify_settings/<new_json>')
 def modify(new_json):
     new_settings = json.loads(new_json)
     with open("/home/pi/project_green/Software/Python/Settings.json", "w") as jsonFile:
         json.dump(new_settings, jsonFile)
-        pid_data = get_pid("execDataCollect")
-        pid_alarm = get_pid("execAlarmSystem")
+        pid_data = get_pid("dataCollectionS")
+        pid_data = pid_data.replace("b'", '')
+        pid_data = pid_data.split("\\n")
+        pid_alarm = get_pid("alarmSystem.py")
+        pid_alarm = pid_alarm.replace("b'", '')
+        pid_alarm = pid_alarm.split("\\n")
+        pids = [pid_data, pid_alarm]
+        for i in range(len(pids)):
+            for j in range(len(pids[i])):
+                if(j < len(pids[i]) - 1):
+                    pid = int(pids[i][j])
+                    os.kill(pid, signal.SIGKILL)
         
-        os.kill(pid_data, signal.SIGKILL)
-        os.kill(pid_alarm, signal.SIGKILL)
+    Popen("/home/pi/project_green/Software/Python/alarmSystem.py", shell=True)
+    Popen("/home/pi/project_green/Software/Python/dataCollectionSystem.py", shell=True)
         
-        #os.system("/home/pi/project_green/Software/Python/execAlarmSystem.py")
-        #os.system("/home/pi/project_green/Software/Python/execDataCollectionSystem.py")
-        
-        return "0"
+    return "0"
 
 @app.route('/configure')
 def config():

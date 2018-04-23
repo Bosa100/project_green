@@ -111,8 +111,8 @@
 					type: "get",
 					success: function(response) {
 						var data = response.split(" ");
-						$("#data-n").html(data[0]);
-						$("#data-u").html(data[1]);
+						$("#data-n").html(data[0] + "lm");
+						$("#data-u").html(parseFloat(data[1]).toFixed(2) + " UVI");
 						count = 0;
 						getData();
 					},
