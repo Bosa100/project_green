@@ -11,28 +11,21 @@
 </head>
 <body>
 <div class="container">
-<h1>Sensor #{{ num }} - Moisture</h1>
-<td class="td1">
-			<div class="change-pos"> 
-				<h3>Start Date</h3>
-				<input id="start" type="datetime-local" name="start-v">
-			</div>
-			<div class="change-pos"> 
-				<h3>End Date</h3>
-				<input id="end" type="datetime-local" name="end-v">
-			</div>
-			<div id="data-sect">
-				<br/>
-				<h3>Current Moisture Level</h3>
-				<div id="data"></div>	
-			</div>	
-		</td>
-		<td>
-			<div id="graph"><img width="500" height="500"></div>
-			<button id="generate"> Generate Graph </button>
-		</td>
-	</tr>
-</table>
+<div class="col-md-12"><h1>Sensor #{{ num }} - Moisture</h1><div>
+<div class="row">
+  <div class="col-md-6 change-pos"><h3>Start Date</h3>
+    <input id="start" type="datetime-local" name="start-v">
+  </div>
+  <div class=" col-md-6 change-pos">
+    <h3>End Date</h3>
+    <input id="end" type="datetime-local" name="end-v">
+  </div>
+  <div id="data-sect">
+    <br/>
+    <h3>Current Moisture Level</h3>
+    <div id="data"></div>	
+  </div>	
+  <div id="graph"><img width="500" height="500"></div><button id="generate"> Generate Graph </button></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
