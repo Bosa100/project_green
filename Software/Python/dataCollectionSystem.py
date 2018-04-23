@@ -7,10 +7,14 @@ import sqlite3
 import time
 
 if __name__ == '__main__':
+        # connects to database
         db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
         c = db.cursor()
-        print(interval_data)
+
+        # infinite loop that gets called every X minutes (interval_data - from getJson.py
         while(True):
+                # loops through ips array and calls send function (getJson.py) to
+                # send data into database
                 for i in range(len(ips)):
                         if i == 0:
                                 type = 'm'

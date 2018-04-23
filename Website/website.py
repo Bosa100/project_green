@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from flask import Flask, render_template, url_for
 import os
 import signal
@@ -89,32 +90,51 @@ def index():
 def demo(date):
     return render_template('demo_start.html', date = date)
 
+'''
+    borrowed code from https://stackoverflow.com/questions/49098469/how-to-get-process-id-with-name-in-python
+    allows you to retrieve process id by process name
+       -slightly modified (returns response as str)
+'''
 def get_pid(name):
     return str(check_output(["pgrep","-f",name]))
 
+# call to modify settings (called in config page)
 @app.route('/modify_settings/<new_json>')
 def modify(new_json):
+    # gets json data through ajax call in config.html - it is parsed as string
     new_settings = json.loads(new_json)
+    # opens Settings.json with write permissions
     with open("/home/pi/project_green/Software/Python/Settings.json", "w") as jsonFile:
+        # replacees Settings.json contents with new json
         json.dump(new_settings, jsonFile)
+        # gets pid for dataCollectionS - modifies string so that it can be split into array (sometimes returns two process ids instead of one,
+        # even though only one isntance of python script in system)
         pid_data = get_pid("dataCollectionS")
         pid_data = pid_data.replace("b'", '')
         pid_data = pid_data.split("\\n")
         pid_alarm = get_pid("alarmSystem.py")
         pid_alarm = pid_alarm.replace("b'", '')
         pid_alarm = pid_alarm.split("\\n")
+        # creates list with both process ids list
         pids = [pid_data, pid_alarm]
+        # iterates through whole list and kills processes
         for i in range(len(pids)):
             for j in range(len(pids[i])):
                 if(j < len(pids[i]) - 1):
                     pid = int(pids[i][j])
                     os.kill(pid, signal.SIGKILL)
-        
+
+    # restarts processes, now with new settings
     Popen("/home/pi/project_green/Software/Python/alarmSystem.py", shell=True)
     Popen("/home/pi/project_green/Software/Python/dataCollectionSystem.py", shell=True)
-        
+
+    # required to return
     return "0"
 
+'''
+    renders configure page
+    opens settings
+'''
 @app.route('/configure')
 def config():
     settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))

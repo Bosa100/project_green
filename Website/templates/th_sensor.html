@@ -9,65 +9,46 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/temp-humi.css') }}" type="text/css" media="screen" charset="utf-8" />
 </head>
 <body>
-<div class="mainDiv">
-<h1>Sensor #{{ num }} - Temperature / Humidity </h1>
-
-<table>
-	<tr>
-		<td colspan="2">
-			<h2>Temperature Measurement</h2>
-		</td>
-	</tr>
-	<tr>
-		<td class="td1">
-			<div class="change-pos"> 
-				<h3>Start Date</h3>
-				<input id="t-start" type="datetime-local" name="start" class="start-date">
-			</div>
-			<div class="change-pos"> 
-				<h3>End Date</h3>
-				<input id="t-end" type="datetime-local" name="end" class="end-date">
-			</div>
-			<div>
-				</br>
-				<h3>Get Current Temperature Level</h3>
-				<div class="data" id="data-t"></div>
-			</div>
-		</td>
-		<td>
-			<div class="graph" id="graph-t"><img width="500" height="500"></div>
-			<button class="generate" id="t"> Generate Graph </button>
-			</br></br></br>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<h2>Humidity Measurement</h2>
-		</td>
-	</tr>
-	<tr>
-		<td class="td1">
-			<div> 
-				<h3>Start Date</h3>
-				<input id="h-start" type="datetime-local" name="start" class="start-date">
-			</div>
-			<div> 
-				<h3>End Date</h3>
-				<input id="h-end" type="datetime-local" name="end" class="end-date">
-			</div>
-			<div>
-				</br>
-				<h3>Current Humidity Level</h3>
-				<div class="data" id="data-h"></div>
-			</div>
-		</td>
-		<td>
-			<div class="graph" id="graph-h"><img src="" width="500" height="500" ></div>
-			<button class="generate" id="h"> Generate Graph </button>
-		</td>
-	</tr>
-</table>
-</div>
+<div class="container-fluid">
+  <table class="table">
+    <tbody>
+      <tr>
+	<td colspan="2"><h1>Sensor #{{ num }} - Temperature / Humidity </h1></td>
+      <tr>
+	<td><h2>Temperature Measurement</h2></div>
+	<td><h2>Humidity Measurement</h2></div>
+      </tr>
+      <tr>
+	<td> <h3>Start Date</h3>
+	  <input id="t-start" type="datetime-local" name="start" class="start-date"></div></td>
+        <td><h3>Start Date</h3>
+          <input id="h-start" type="datetime-local" name="start" class="start-date"></td>
+      </tr>
+      <tr>
+	<td><h3>End Date</h3>
+	  <input id="t-end" type="datetime-local" name="end" class="end-date"></td>
+	<td><h3>End Date</h3><input id="h-end" type="datetime-local" name="end" class="end-date"></td>
+      </tr>
+<tr>
+  <td><h3>Get Current Temperature Level</h3></div>
+<div class="data" id="data-t"></div></td>
+<td><h3>Current Humidity Level</h3></div>
+<div class="data" id="data-h"></div></td>
+</tr>
+<tr>
+  <td><div class="graph" id="graph-t">
+      <img width="500" height="500">
+    </div>
+  </td>
+  <td><div class="graph" id="graph-h">
+    <img src="" width="500" height="500" ></div></td>
+</tr>
+<tr>
+  <td><button class="generate" id="t">Generate Graph</button></td>
+  <td><button class="generate" id="h"> Generate Graph </button></td>
+</tr>
+   </tbody>
+</table> 
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript">

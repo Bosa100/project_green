@@ -1,6 +1,6 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-/home/pi/project_green/Website/website.py
-/home/pi/project_green/Software/alarmSystem.py
-/home/pi/project_green/Software/dataCollectionSystem.py
-
+cd /home/pi/project_green/Software/Python
+./alarmSystem.py
+./dataCollectionSystem.py
+ 

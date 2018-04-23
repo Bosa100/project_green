@@ -5,10 +5,14 @@ import datetime
 # missing one temperature and one sunlight
 # 10.0.192.229 missing th
 
+# requests data from sensor servers and retrieves data
 def get(ip, kind):
     url = "http://" + ip
     got_data = False
     count = 0;
+    # sometimes server take a couple of tries to work, will loop until
+    # data is retrieved, or until it has made 10 calls to server, at which
+    # point it will return -1
     while (got_data == False):
         try:
             res = urlopen(url)
@@ -19,10 +23,16 @@ def get(ip, kind):
             if (count == 10):
                 return -1
 
-            
+    # if data waws able to be retrieved, it creates dictionary out of
+    # response
     data_dict = json.loads(res.read().decode('utf-8'))
 
-    #gets data
+    '''
+    retrieves specific data from data_dict
+       - th (returns list with tempC and tempF and humidity data in second index
+       - m (returns single moisture value)
+       - l (returns list with visible light in first index and UV_light in second index)
+    '''
     if kind == 'th':
         temp_C = data_dict["temperature"][0]
         temp_F = 9.0/5.0 * temp_C + 32
@@ -32,18 +42,25 @@ def get(ip, kind):
     elif kind == 'l':
         data = [data_dict["visible_light"][0], data_dict["UV_light"][0]]
     return data    
-
+'''
+sends data to database
+    num - sensor id
+    db - database connection
+    c - cursor
+'''
 def send(num, ip, kind, db, c):
+    # gets current data from server
     data = get(ip, kind)
+    # gets todays date and time as string
     date = datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S")
 
+    # inserts into database based on type of data
     if kind == 'm':
         sql = "INSERT INTO Moisture (ID, Moisture, Date) VALUES (?, ?, ?)"
         values = (num, data, date)
         c.execute(sql, values)
         db.commit()
     elif kind == 'th':
-
         sql = "INSERT INTO Temperature (ID, Fahrenheit, Celsius, DATE) VALUES (?, ?, ?, ?)"
         values = (num, data[0][1], data[0][0], date)
         c.execute(sql, values)
@@ -62,6 +79,8 @@ def send(num, ip, kind, db, c):
         c.execute(sql, values)
         db.commit()
 
+# creates ids array (used in alarm system and data collection system) and
+# retrieves settings from Settings.json (what allows the settings to be changed)
 ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227", "10.0.192.230"]]
 Settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
 MIN_MOIST = float(Settings["min_moist"])

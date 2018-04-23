@@ -12,7 +12,7 @@
 <div class="mainDiv">
 <h1>Sensors #{{ num }} - Light Intensity</h1>
 
-<table>
+<table class="table">
 	<tr>
 		<td colspan="2">
 			<h2>Light Intensity Measurment</h2>
@@ -88,7 +88,6 @@
 			function getGraph(type) {
 				start = $("#" + type + "-start").val();
 				end = $("#" + type + "-end").val();
-				alert(num);
 				url = "/make_graph/" + type + "/" + num + "/" + start + "/" + end;
 
 				$.ajax({
@@ -111,15 +110,14 @@
 					type: "get",
 					success: function(response) {
 						var data = response.split(" ");
-						$("#data-n").html(data[0] + "lm");
+						$("#data-n").html(data[0] + " lm");
 						$("#data-u").html(parseFloat(data[1]).toFixed(2) + " UVI");
 						count = 0;
 						getData();
 					},
 					error: function(xhr) {
 						count++;
-						if (count <= 5)	{
-							alert("Error fetching data from server. Trying again.");
+						if (count <= 7)	{
 							getData();
 						} else {
 							alert("Error with server. Ending real time data fetching.");

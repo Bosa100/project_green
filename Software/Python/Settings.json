@@ -1,1 +1,1 @@
-{"min_temp": 50, "max_temp": 50, "min_light": 50, "min_UV": 50, "max_humi": 50, "max_light": 50, "data_collection": 5, "min_humi": 50, "min_moist": 50, "max_UV": 50, "alarm_system": 5}
+{"max_light": 5, "max_humi": 5, "max_UV": 5, "min_moist": 5, "max_temp": 5, "data_collection": 1, "alarm_system": 1, "min_temp": 10, "min_light": 13, "min_humi": 13, "min_UV": 5}

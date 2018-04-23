@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+
+'''
+This program is a simple alarm system. It imports the ips array from getJson and uses
+that to check the levels at each sensor. It iterates through ips, fills levels with
+the sensor server responses, and then checks each level and populates warnings based on what was found.
+
+warning codes:
+     0 : safe level
+    -1 : dangerously low
+    -2 : dangerously high
+by: Braulio Salcedo
+'''
+
 import sys
 sys.path.insert(0, '/home/pi/project_green/Software/Python/')
 import time
@@ -8,6 +21,10 @@ import smtplib
 from twilio.rest import Client
 
 
+'''
+retrieves data from sensors
+    loops through ips array - get() is imported from getJson
+'''
 def getData():
     type = 'm'
     for i in range(len(ips)):
@@ -17,16 +34,29 @@ def getData():
             type = "l"
         for j in range(len(ips[i])):
             result = get(ips[i][j], type)
+            # get returns -1 if data was "nan" - if -1 skips
+            # ip to avoid problems
             if (result != -1):
+                # data retrieved succesfuly, results gets sent to
+                # check level
                 levels[i][j] = result
                 checkLevel(levels[i][j], type, j)
 
+'''
+checks data passed and sets warnings array at proper index
+    MIN/MAX values imported from getJson()
+'''
 def checkLevel(data, which, j):
+    # checks type of data (might send single or double data depending on sensor)
     if which == 'm':
+        # no max for moisture
         if data > MIN_MOIST:
             warnings[0][j] = -1
     elif which == 'th':
+        # loops through data (th returns an array with both t and h values)
         for i in range(len(data)):
+            # 0 is temp data - sends both F and C
+            # 1 is humididty data
             if i == 0:
                 curr = data[i][1]
                 if curr < MIN_TEMP:
@@ -53,7 +83,10 @@ def checkLevel(data, which, j):
                     warnings[2][j][i] = -1
                 elif curr > MAX_UV:
                     warnings[2][j][i] = -2
-
+'''
+iterates through warnings array and creates message based on warning codes
+    appends to message variable then sends at the end
+'''
 def createMessage():
     header = "ALERT! Dangerous conditions in Green House\n==========================================\n"
     message = ""
@@ -93,6 +126,7 @@ def createMessage():
                                 kind = "UV light"
                             val = levels[i][j][k]
                         message += "%s level dangerously %s at sensor #%d ( %.2f ).\n" % (kind, level, num, float(val))
+    # true if message is not "", which would mean no sensors were at danger zone
     if message:
         print(header + message)
         #sendAlerts(header + message)
@@ -100,6 +134,7 @@ def createMessage():
         print("No message created")
 
 def sendAlerts(text):
+    # sends email
     mail = smtplib.SMTP('smtp.gmail.com', 587)
     mail.ehlo()
     mail.starttls()
@@ -107,16 +142,21 @@ def sendAlerts(text):
     mail.sendmail('DUGreenhouseAlerts@gmail.com', 'salcbrau@my.dom.edu', text)
     mail.close()
 
-    account_sid="ACc3ef768bb932aa094df21c031c070e84" #you get this from your twilio account
-    auth_tokken="9bbc933b853e34e50250fdbc1e60db07"#you also get this
+    # sends text message
+    account_sid="ACc3ef768bb932aa094df21c031c070e84" 
+    auth_tokken="9bbc933b853e34e50250fdbc1e60db07" 
     client = Client(account_sid, auth_tokken)
     message = client.api.account.messages.create(to="+16307475480",from_="+17738325163",body=text)
 
+# main method
+# initializes warnings/levels array
 if __name__ == '__main__':
     warnings = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
     levels = [[0, 0, 0, 0, 0],[[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0],[0,0]]]
     
     print(interval_alarm)
+    # implements system - time.sleep() stops program for set amount of time
+    # interval_alarm imported from getJson.py
     while(True):
         getData()
         createMessage()
