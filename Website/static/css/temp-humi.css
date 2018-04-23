@@ -1,6 +1,6 @@
 body {
-	background-color: #1D3B6F;
-	color: #000000;
+        background: url(http://www.greenhouseproductions.com/wp-content/uploads/2016/01/Greenhouse-Background-16x9.jpg);
+	color: green;
 	text-align: center;
 	width: 100%;
 }
@@ -25,22 +25,6 @@ img {
 	font-size: 25px;
 }
 
-table{
-	margin: 0 auto;
-}
-
-.mainDiv{
-	text-align: center;
-	background-color: #FFFFFF;
-	border-radius: 5px;
-	margin-right: 20px;
-	padding-bottom: 20px;
-}
-
-.td1{
-	padding-right: 100px;
-}
-
 button {
 	background: DarkGrey;
 	color: white;
@@ -59,4 +43,10 @@ h1 {
 	padding: 8px;
 	border-radius: 10px;
 	padding-left: 1000px;
+}
+
+.table {
+    margin: 0 auto;
+    float: none;
+    padding: 5%;
 }
