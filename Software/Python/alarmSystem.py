@@ -13,7 +13,7 @@ by: Braulio Salcedo
 '''
 
 import sys
-sys.path.insert(0, '/home/pi/project_green/Software/Python/')
+sys.path.insert(0, '/home/salcbrau/project_green/Software/Python/')
 import time
 from getJson import *
 import json
@@ -36,6 +36,7 @@ def getData():
             result = get(ips[i][j], type)
             # get returns -1 if data was "nan" - if -1 skips
             # ip to avoid problems
+            print(ips[i][j])
             if (result != -1):
                 # data retrieved succesfuly, results gets sent to
                 # check level
@@ -129,7 +130,7 @@ def createMessage():
     # true if message is not "", which would mean no sensors were at danger zone
     if message:
         print(header + message)
-        #sendAlerts(header + message)
+        sendAlerts(header + message)
     else:
         print("No message created")
 
@@ -157,23 +158,8 @@ if __name__ == '__main__':
     print(interval_alarm)
     # implements system - time.sleep() stops program for set amount of time
     # interval_alarm imported from getJson.py
+    
     while(True):
         getData()
         createMessage()
         time.sleep(interval_alarm)
-   
-    '''
-    print("Demo")
-    print("------------------------")
-    getData()
-    print("---Calling getData()")
-    print("\nIp's Array")
-    print(ips)
-    print("\nLevels Array")
-    print(levels)
-    print("\nWarnings Array")
-    print(warnings)
-    print("\nCreating Alert Message")
-    print("------------------------")
-    createMessage()
-    '''

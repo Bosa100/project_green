@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-sys.path.insert(0, "/home/pi/project_green/Software/Python")
+sys.path.insert(0, "/home/salcbrau/project_green/Software/Python")
 
 from getJson import *
 import sqlite3
@@ -8,9 +8,10 @@ import time
 
 if __name__ == '__main__':
         # connects to database
-        db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
+        db = sqlite3.connect("/home/salcbrau/project_green/Database/GreenhouseSensors")
         c = db.cursor()
-
+        
+        print(interval_data)
         # infinite loop that gets called every X minutes (interval_data - from getJson.py
         while(True):
                 # loops through ips array and calls send function (getJson.py) to

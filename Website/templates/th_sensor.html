@@ -41,7 +41,7 @@
     </div>
   </td>
   <td><div class="graph" id="graph-h">
-    <img src="" width="500" height="500" ></div></td>
+    <img class="img-fluid" src="" width="500" height="500" ></div></td>
 </tr>
 <tr>
   <td><button class="generate" id="t">Generate Graph</button></td>
@@ -78,7 +78,6 @@
 					error: function(xhr) {
 						count++;
 						if (count <= 5)	{
-							alert("Error fetching data from server. Trying again.");
 							getData();
 						} else {
 							alert("Error with server. Ending real time data fetching.");

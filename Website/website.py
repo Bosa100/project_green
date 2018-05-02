@@ -3,18 +3,18 @@ from flask import Flask, render_template, url_for
 import os
 import signal
 import json
-import urllib.request
 import sqlite3
 import matplotlib
+from urllib.request import urlopen
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as dts
 import numpy as np
-import pymysql
 import datetime
 import sys
 from subprocess import check_output, Popen
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 '''
 borrowed code - deals with browser cache issue (does not update css file)
@@ -22,7 +22,7 @@ source = http://flask.pocoo.org/snippets/40/
 works by overriding Flask's url_for function, if used on static source it
 generates url with time-stamp appended to it (guarantees CSS update)
 '''
-@app.context_processor
+@application.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
 
@@ -30,12 +30,12 @@ def dated_url_for(endpoint, **values):
     if endpoint == 'static':
         filename = values.get('filename', None)
         if filename:
-            file_path = os.path.join(app.root_path,
+            file_path = os.path.join(application.root_path,
                                      endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
-@app.route('/getJson/<ip>/<kind>/<num>')
+@application.route('/getJson/<ip>/<kind>/<num>')
 def getData(ip, kind, num):
     '''
     getJson route
@@ -53,7 +53,7 @@ def getData(ip, kind, num):
     # makes call to server and puts response into dictionary
     url = "http://" + ip
     while got_data == False:
-        res = urllib.request.urlopen(url)
+        res = urlopen(url)
         data_dict = json.loads(res.read().decode('utf-8'))
         for key in data_dict:
             if data_dict[key] != "nan":
@@ -80,13 +80,13 @@ def getData(ip, kind, num):
     return str(data)
 
 # intro page
-@app.route('/')
+@application.route('/')
 def index():
     today = datetime.datetime.now().strftime("%Y-%m-%dT")
     return render_template('index.html', today = today)
 
 # demo start page
-@app.route('/demo/<date>')
+@application.route('/demo/<date>')
 def demo(date):
     return render_template('demo_start.html', date = date)
 
@@ -99,7 +99,7 @@ def get_pid(name):
     return str(check_output(["pgrep","-f",name]))
 
 # call to modify settings (called in config page)
-@app.route('/modify_settings/<new_json>')
+@application.route('/modify_settings/<new_json>')
 def modify(new_json):
     # gets json data through ajax call in config.html - it is parsed as string
     new_settings = json.loads(new_json)
@@ -122,6 +122,7 @@ def modify(new_json):
             for j in range(len(pids[i])):
                 if(j < len(pids[i]) - 1):
                     pid = int(pids[i][j])
+                    print(pid)
                     os.kill(pid, signal.SIGKILL)
 
     # restarts processes, now with new settings
@@ -135,7 +136,7 @@ def modify(new_json):
     renders configure page
     opens settings
 '''
-@app.route('/configure')
+@application.route('/configure')
 def config():
     settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
     str_settings = json.dumps(settings)
@@ -145,7 +146,7 @@ def config():
    moisture sensor page
     recieves id and ip address as parameters, which are sent to html template
 '''
-@app.route('/demo/moisture/<num>/<address>/<date>')
+@application.route('/demo/moisture/<num>/<address>/<date>')
 def moisture(num, address, date):
     return render_template('moisture.html', ip = address, num = num, date = date)
 
@@ -153,7 +154,7 @@ def moisture(num, address, date):
     temp/humi page
     recieves id and ip address as parameters, which are sent to html template
 ''' 
-@app.route('/demo/temp-humi/<address>/<num>/<date>')
+@application.route('/demo/temp-humi/<address>/<num>/<date>')
 def th_sensor(address, num, date):
     return render_template('th_sensor.html', ip = address, num = num, date = date)
 
@@ -161,11 +162,11 @@ def th_sensor(address, num, date):
     light page
     recieves id and ip address as parameters, which are sent to html template
 ''' 
-@app.route('/demo/light/<address>/<num>/<date>')
+@application.route('/demo/light/<address>/<num>/<date>')
 def light(num, address, date):
     return render_template('light_sensor.html', ip = address, num = num, date = date)
 
-@app.route('/make_graph/<which>/<num>/<start>/<end>')
+@application.route('/make_graph/<which>/<num>/<start>/<end>')
 def make_graph(which, num, start, end):
     '''
        make_graph route
@@ -227,7 +228,7 @@ def make_graph(which, num, start, end):
     return render_template('graph.html', url = url)
 
 
-@app.route('/make_table/<which>/<start>/<end>')
+@application.route('/make_table/<which>/<start>/<end>')
 def make_table(which, start, end):
 	'''
 	    make_graph route
@@ -286,4 +287,4 @@ def make_table(which, start, end):
 	return render_template('table.html', url = url)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    application.run(debug=True, host='0.0.0.0', port=3000)
