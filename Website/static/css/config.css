@@ -4,12 +4,26 @@ body {
     color: green;
     text-align: center;
     width: 100%;
+    font-family: Calibri;
 }
+
 input {
 	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 #settings {
 	display: block;
 	margin: 0 auto;
+}
+
+label {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 40px;
 }

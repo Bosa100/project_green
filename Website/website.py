@@ -104,7 +104,7 @@ def modify(new_json):
     # gets json data through ajax call in config.html - it is parsed as string
     new_settings = json.loads(new_json)
     # opens Settings.json with write permissions
-    with open("/home/pi/project_green/Software/Python/Settings.json", "w") as jsonFile:
+    with open("/home/salcbrau/project_green/Software/Python/Settings.json", "w") as jsonFile:
         # replacees Settings.json contents with new json
         json.dump(new_settings, jsonFile)
         # gets pid for dataCollectionS - modifies string so that it can be split into array (sometimes returns two process ids instead of one,
@@ -126,8 +126,8 @@ def modify(new_json):
                     os.kill(pid, signal.SIGKILL)
 
     # restarts processes, now with new settings
-    Popen("/home/pi/project_green/Software/Python/alarmSystem.py", shell=True)
-    Popen("/home/pi/project_green/Software/Python/dataCollectionSystem.py", shell=True)
+    Popen("/home/salcbrau/project_green/Software/Python/alarmSystem.py", shell=True)
+    Popen("/home/salcbrau/project_green/Software/Python/dataCollectionSystem.py", shell=True)
 
     # required to return
     return "0"
@@ -138,7 +138,7 @@ def modify(new_json):
 '''
 @application.route('/configure')
 def config():
-    settings = json.load(open("/home/pi/project_green/Software/Python/Settings.json"))
+    settings = json.load(open("/home/salcbrau/project_green/Software/Python/Settings.json"))
     str_settings = json.dumps(settings)
     return render_template('config_page.html', settings = str_settings)
 
@@ -259,7 +259,7 @@ def make_table(which, start, end):
 		sql = "SELECT UVIndex FROM UV WHERE rowid BETWEEN " + start + " AND " + end
 
 	# connects to database and retrieves data (put in rows)
-	db = sqlite3.connect("/home/pi/project_green/Database/GreenhouseSensors")
+	db = sqlite3.connect("/home/salcbrau/project_green/Database/GreenhouseSensors")
 	c = db.cursor()
 	
 	c.execute(sql)

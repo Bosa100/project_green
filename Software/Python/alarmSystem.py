@@ -161,5 +161,5 @@ if __name__ == '__main__':
     
     while(True):
         getData()
-        createMessage()
+        #createMessage()
         time.sleep(interval_alarm)
