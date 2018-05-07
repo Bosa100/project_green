@@ -41,27 +41,21 @@
 		
 		var minM, minT, minH, minL, minU, maxT, maxH, maxL, maxU, intervalC, intervalA;
 		$('#send_json').bind('click', sendJson);
+		alert("running");	
+			
+		 $.ajax({
+                                url: "/getJson",
+                                type: "get",
+                                success: function(response) {
+					alert("success");
+					alert(JSON.stringify(response));
+                                },
+                                error: function(xhr, error, errorThrown) {
+					alert(errorThrown);
+                                }
+                        });
+
 	
-		
-		/*
-		Code to get Json from website.py - gets as string, but is unable to parse into json object	
-			var jsonString = "'" + '{{ settings }}' + "'";
-			alert(jsonString);
-		
-			jsonSettings = JSON.parse(jsonString);
-		
-			$('#min_m').val(jsonSettings.min_moist);
-			$('#min_t').val(jsonSettings.min_temp);
-			$('#min_h').val(jsonSettings.min_humi);
-			$('#min_l').val(jsonSettings.min_light);
-			$('#min_u').val(jsonSettings.min_UV);
-			$('#max_t').val(jsonSettings.max_temp);
-			$('#max_h').val(jsonSettings.max_humi);
-			$('#max_l').val(jsonSettings.max_light);
-			$('#max_u').val(jsonSettings.max_UV);
-			$('#intvl_d').val(jsonSettings.data_collection);
-			$('#intvl_a').val(jsonSettings.alarm_system);
-		*/
 		function sendJson() {
 
 			minM = $('#min_m').val();
@@ -93,7 +87,7 @@
 				url: "/modify_settings/" + jsonString,
 				type: "get",
 				success: function(response) {
-					
+						
 				},
 				error: function(xhr) {
 			

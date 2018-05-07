@@ -1,18 +1,23 @@
-
-
-body{
+body { 
         background: url(http://www.greenhouseproductions.com/wp-content/uploads/2016/01/Greenhouse-Background-16x9.jpg);
 	color: black;
 	text-align: center;
 }
 
+a {
+	color: white;
+}
+
 .green {
     color: green;
 }
+
 img {
 	display: block;
 	margin: 0 auto;
 	padding-bottom: 15px;
+	margin-bottom: 25px;
+	margin-top: 25px;
 }
 
 .mainDiv{
@@ -25,16 +30,7 @@ img {
 .putLeft{
 	text-align: left;
 	margin-left: 2%;
-}
 
-.startButton{
-	background-color: #00B300;
-	text-decoration:none !important;
-	padding: 7px;
-	color: #660033;
-	border-radius: 10px;
-}
-
-.startButton:hover{
-	background-color: #803F0D;
+h1 {
+	margin-top: 25px;
 }

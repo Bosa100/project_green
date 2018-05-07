@@ -82,7 +82,7 @@ def send(num, ip, kind, db, c):
 # creates ids array (used in alarm system and data collection system) and
 # retrieves settings from Settings.json (what allows the settings to be changed)
 ips = [["10.0.192.222", "10.0.192.221", "10.0.192.218", "10.0.192.224", "10.0.192.223"],["10.0.192.225", "10.0.192.220"],["10.0.192.226", "10.0.192.228", "10.0.192.219", "10.0.192.227", "10.0.192.230"]]
-Settings = json.load(open("/home/salcbrau/project_green/Software/Python/Settings.json"))
+Settings = json.load(open("/home/salcbrau/project_green/Data/settings.json"))
 MIN_MOIST = float(Settings["min_moist"])
 MIN_TEMP = float(Settings["min_temp"])
 MIN_HUMI = float(Settings["min_humi"])

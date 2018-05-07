@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify
 import os
 import signal
 import json
@@ -104,7 +104,7 @@ def modify(new_json):
     # gets json data through ajax call in config.html - it is parsed as string
     new_settings = json.loads(new_json)
     # opens Settings.json with write permissions
-    with open("/home/salcbrau/project_green/Software/Python/Settings.json", "w") as jsonFile:
+    with open("/home/salcbrau/project_green/Data/settings.json", "w") as jsonFile:
         # replacees Settings.json contents with new json
         json.dump(new_settings, jsonFile)
         # gets pid for dataCollectionS - modifies string so that it can be split into array (sometimes returns two process ids instead of one,
@@ -138,9 +138,12 @@ def modify(new_json):
 '''
 @application.route('/configure')
 def config():
-    settings = json.load(open("/home/salcbrau/project_green/Software/Python/Settings.json"))
-    str_settings = json.dumps(settings)
-    return render_template('config_page.html', settings = str_settings)
+    return render_template('config_page.html')
+
+@application.route('/getJson')
+def getJson():
+    settings = json.load(open("/home/salcbrau/project_green/Data/settings.json"))
+    return jsonify(settings)
 
 '''
    moisture sensor page
